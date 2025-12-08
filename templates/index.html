@@ -39,42 +39,53 @@
       </div>
     </div>
   </header>
-<!-- 🔥 Bannière Promo : Tous les tracks pour 79€ TTC -->
-<section 
-  style="
-    margin: 20px auto;
-    max-width: 900px;
-    padding: 18px 22px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #2a0010, #6b0030 60%, #ff0033);
-    color: #fff;
-    text-align: center;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.55);
-    border: 1px solid rgba(255,255,255,0.15);
-  "
->
-  <a href="https://buy.stripe.com/8x2aEP9gm5ongD12iO3ks04"
-     style="
-        text-decoration: none;
-        color: #fff;
-        display: block;
-        font-size: 1.4rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-     ">
-      🎧 Offre spéciale : <span style="color:#ffccdd;">tous les tracks pour seulement 79€ TTC</span>
-      <div style="font-size: 0.9rem; margin-top: 4px; opacity: 0.85;">
-         Accès instantané – quantité limitée
-      </div>
-  </a>
-</section>
-<div class="demo-note">
-  ⚠️ <strong>À noter :</strong> les extraits audio disponibles sur cette page sont des
-  <strong>démos MP3 128 kbps</strong> d’environ <strong>15 secondes</strong>, destinées à la pré-écoute.
-  <br>
-  Les versions complètes des boucles — d’une durée comprise entre <strong>30 secondes et 1 minute</strong> —
-  sont livrées en <strong>WAV haute qualité</strong> après paiement.
-</div>
+
+  <!-- 🔥 Bannière Promo : Tous les tracks pour 79€ TTC -->
+  <section 
+    style="
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 18px 22px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2a0010, #6b0030 60%, #ff0033);
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.15);
+    "
+  >
+    <a href="https://buy.stripe.com/8x2aEP9gm5ongD12iO3ks04"
+       style="
+          text-decoration: none;
+          color: #fff;
+          display: block;
+          font-size: 1.4rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+       ">
+        🎧 Offre spéciale : <span style="color:#ffccdd;">tous les tracks pour seulement 79€ TTC</span>
+        <div style="font-size: 0.9rem; margin-top: 4px; opacity: 0.85;">
+           Accès instantané – quantité limitée
+        </div>
+    </a>
+  </section>
+
+  <!-- Note sur les démos MP3 vs WAV livrées -->
+  <div class="demo-note">
+    ⚠️ <strong>À noter :</strong> les extraits audio disponibles sur cette page sont des
+    <strong>démos MP3 128 kbps</strong> d’environ <strong>15 secondes</strong>, destinées à la pré-écoute.
+    <br>
+    Les versions complètes des boucles — d’une durée comprise entre <strong>30 secondes et 1 minute</strong> —
+    sont livrées en <strong>WAV haute qualité</strong> après paiement.
+  </div>
+
+  <!-- Badges Pro (WAV, Cinéma, Royalty-Free, Instant) -->
+  <div class="pro-badges">
+    <div class="badge">🎧 WAV Haute Qualité</div>
+    <div class="badge">🎬 Conçu pour Cinéma & Danse</div>
+    <div class="badge">✔️ Royalty-Free</div>
+    <div class="badge">⚡ Téléchargement Instantané</div>
+  </div>
 
   <main class="main-container">
     {% if status == "success" %}
@@ -108,7 +119,7 @@
                       value="{{ audio.id }}"
                       id="chk_{{ audio.id }}"
                     >
-                    {# Nom fidèle au fichier = audio.file #}
+                    <!-- Nom fidèle au fichier = audio.file -->
                     <label class="loop-name" for="chk_{{ audio.id }}">
                       {{ audio.file }}
                     </label>
@@ -145,13 +156,12 @@
     </div>
   </main>
 
- <footer>
-  <a href="{{ url_for('about_page', lang=lang) }}" class="footer-link">
-    About / Licence
-  </a>
-  • Spectra Media – Film & Horror Audio Loops
-</footer>
-
+  <footer>
+    <a href="{{ url_for('about_page', lang=lang) }}" class="footer-link">
+      About / Licence
+    </a>
+    • Spectra Media – Film & Horror Audio Loops
+  </footer>
 
   <script>
     // --- Gestion de la langue (FR/EN) ---
