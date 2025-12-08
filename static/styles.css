@@ -129,6 +129,47 @@ h2 {
   color: #9b95c9;
 }
 
+/* ========== NOTE DEMO MP3 / WAV ========== */
+
+.demo-note {
+  margin: 1.5rem auto 0.8rem;
+  max-width: 1100px;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 0, 40, 0.12);
+  border-left: 4px solid #ff003c;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #ffced6;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* ========== BADGES PRO ========== */
+
+.pro-badges {
+  max-width: 1100px;
+  margin: 1.2rem auto 1.5rem;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.pro-badges .badge {
+  padding: 0.55rem 0.9rem;
+  background: linear-gradient(135deg, #2a0a0e, #190007);
+  border: 1px solid rgba(255, 60, 60, 0.45);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #ffc9d0;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 4px rgba(255, 40, 40, 0.4);
+  box-shadow: 0 0 12px rgba(255, 40, 40, 0.2);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
 /* ========== LISTE DES LOOPS ========== */
 
 .loop-list {
@@ -355,15 +396,9 @@ footer {
   .loop-list {
     grid-template-columns: 1fr;
   }
-}
-.demo-note {
-  margin: 1.5rem 0;
-  padding: 1rem 1.2rem;
-  background: rgba(255, 0, 40, 0.12);
-  border-left: 4px solid #ff003c;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  color: #ffced6;
-  line-height: 1.5;
-  font-weight: 400;
+
+  .demo-note,
+  .pro-badges {
+    padding-inline: 1.1rem;
+  }
 }
