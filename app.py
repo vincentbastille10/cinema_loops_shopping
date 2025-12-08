@@ -181,6 +181,90 @@ def stripe_webhook():
 
     return "", 200
 
+# ---------------------------------------------------------
+# PANIER - API JSON pour localStorage
+# ---------------------------------------------------------
+
+from flask import send_from_directory
+
+@app.route("/cart")
+def cart_page():
+    lang = request.args.get("lang", "fr")
+    return render_template("cart.html", lang=lang, stripe_public_key=STRIPE_PUBLIC_KEY)
+
+
+@app.route("/get-cart", methods=["POST"])
+def get_cart():
+    """
+    Le front envoie une liste d'IDs en localStorage
+    On renvoie les infos complètes des loops
+    """
+    data = request.get_json() or {}
+    ids = data.get("ids", [])
+
+    items = []
+    total = 0
+
+    for loop_id in ids:
+        if loop_id in ALL_LOOPS_BY_ID:
+            loop = ALL_LOOPS_BY_ID[loop_id]
+            items.append(loop)
+            total += loop["price_eur"]
+
+    return jsonify({
+        "items": items,
+        "total": total
+    })
+
+
+@app.route("/create-checkout-session-cart", methods=["POST"])
+def create_checkout_session_cart():
+    """
+    Checkout basé sur le contenu du panier
+    """
+    data = request.get_json() or {}
+    ids = data.get("ids", [])
+
+    items = []
+    total = 0
+
+    for loop_id in ids:
+        if loop_id in ALL_LOOPS_BY_ID:
+            loop = ALL_LOOPS_BY_ID[loop_id]
+            items.append(loop)
+            total += loop["price_eur"]
+
+    if not items:
+        return jsonify({"error": "Panier vide."}), 400
+
+    amount_cents = int(total * 100)
+    loops_str = ",".join([item["id"] for item in items])
+
+    try:
+        session = stripe.checkout.Session.create(
+            mode="payment",
+            success_url=url_for("index", status="success", _external=True),
+            cancel_url=url_for("index", status="cancel", _external=True),
+            line_items=[
+                {
+                    "quantity": 1,
+                    "price_data": {
+                        "currency": "eur",
+                        "unit_amount": amount_cents,
+                        "product_data": {
+                            "name": "Spectra Film Loops (Panier)",
+                            "description": f"{len(items)} boucles achetées",
+                        },
+                    },
+                }
+            ],
+            metadata={"loops": loops_str},
+        )
+
+        return jsonify({"url": session.url})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)
