@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Spectra Film Loops – Horror & Cinema</title>
+  <meta name="description"
+        content="Boucles WAV sombres et cinématiques pour musiques de films d'horreur et de cinéma. 1€ la loop, pré-écoute instantanée, paiement Stripe, liens de téléchargement envoyés par email." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #181827 0, #050509 55%);
+      color: #f5f5f5;
+    }
+    header {
+      padding: 2.5rem 1.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      margin-top: 0.75rem;
+      max-width: 640px;
+      margin-inline: auto;
+      color: #b1b1c9;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    main {
+      max-width: 980px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem 2rem;
+    }
+    .status {
+      margin-bottom: 1.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .status-success {
+      background: #0e3b1f;
+      color: #c8f7d4;
+      border: 1px solid #1f7a45;
+    }
+    .status-cancel {
+      background: #3b1010;
+      color: #f8c8c8;
+      border: 1px solid #7a1f1f;
+    }
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .section-subtitle {
+      margin: 0 0 1rem;
+      color: #9ea0c0;
+      font-size: 0.9rem;
+    }
+    .loop-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .loop-card {
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      background: rgba(8, 8, 20, 0.9);
+      border: 1px solid rgba(120, 120, 200, 0.4);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+    .loop-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+    .loop-name {
+      font-size: 0.95rem;
+    }
+    .loop-left {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .loop-price {
+      font-size: 0.9rem;
+      color: #9ff3ff;
+      white-space: nowrap;
+    }
+    audio { width: 100%; }
+    #checkout-button {
+      margin-top: 2rem;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff0040, #ff6b3d);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+    }
+    #checkout-button:hover { transform: translateY(-1px); }
+    #checkout-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+    }
+    .disclaimer {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #a0a0b8;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      color: #777899;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <header>
+    <h1>Spectra Film Loops</h1>
+    <p class="subtitle">
+      Boucles WAV pour musiques de films d'horreur et de cinéma.
+      <strong>1€ par loop</strong> – pré-écoute instantanée, paiement sécurisé Stripe,
+      liens de téléchargement envoyés directement dans votre boîte mail.
+    </p>
+  </header>
+
+  <main>
+    {% if status == "success" %}
+      <div class="status status-success">
+        ✅ Paiement réussi – vos liens de téléchargement ont été envoyés à votre adresse email.
+      </div>
+    {% elif status == "cancel" %}
+      <div class="status status-cancel">
+        ❌ Paiement annulé – aucune boucle n'a été débitée.
+      </div>
+    {% endif %}
+
+    <form id="loops-form">
+      {% for cat in categories %}
+        <section>
+          <h2>{{ cat.title }}</h2>
+          {% if cat.description %}
+            <p class="section-subtitle">{{ cat.description }}</p>
+          {% endif %}
+          <div class="loop-list">
+            {% for loop in cat.loops %}
+              <div class="loop-card">
+                <div class="loop-header">
+                  <div class="loop-left">
+                    <input type="checkbox" name="loop" value="{{ loop.id }}" id="chk_{{ loop.id }}">
+                    <label class="loop-name" for="chk_{{ loop.id }}">{{ loop.name }}</label>
+                  </div>
+                  <span class="loop-price">{{ loop.price_eur|round(2) }}€</span>
+                </div>
+                <audio class="loop-player" controls preload="none">
+                  <source src="{{ loop.preview }}" type="audio/mpeg">
+                  Votre navigateur ne supporte pas l'audio HTML5.
+                </audio>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+
+      <button type="button" id="checkout-button">
+        Payer les loops sélectionnées
+      </button>
+
+      <p class="disclaimer">
+        Le paiement est traité par Stripe. Après validation, un email récapitulatif contenant
+        les liens de téléchargement WAV de chaque boucle sélectionnée vous est envoyé automatiquement.
+      </p>
+    </form>
+  </main>
+
+  <footer>
+    Spectra Media – Film & AI Audio • Boucles créées par Vincent Bastille
+  </footer>
+
+  <script>
+    const stripe = Stripe("{{ stripe_public_key }}");
+
+    document.getElementById("checkout-button").addEventListener("click", async () => {
+      const checked = Array.from(
+        document.querySelectorAll('input[name="loop"]:checked')
+      ).map(input => input.value);
+
+      if (checked.length === 0) {
+        alert("Sélectionne au moins une boucle.");
+        return;
+      }
+
+      const res = await fetch("/create-checkout-session", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ loops: checked })
+      });
+
+      const data = await res.json();
+      if (data.url) {
+        window.location = data.url;
+      } else {
+        alert("Erreur lors de la création de la session Stripe.");
+      }
+    });
+
+    // Une seule loop en lecture à la fois
+    const players = Array.from(document.querySelectorAll("audio.loop-player"));
+    players.forEach(player => {
+      player.addEventListener("play", () => {
+        players.forEach(other => {
+          if (other !== player) {
+            other.pause();
+            other.currentTime = 0;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
