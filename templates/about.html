@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="{{ 'fr' if lang == 'fr' else 'en' }}">
+<head>
+  <meta charset="utf-8" />
+
+  <title>About / Licence – Spectra Film Loops</title>
+
+  <meta name="description"
+        content="Licence professionnelle claire et simple pour l’utilisation des loops Spectra Film Loops. Autorisation pour films, danse, théâtre, installations et projets commerciaux." />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='lang.js') }}"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>About / Licence</h1>
+
+      <div class="header-right">
+        <div class="lang-switch">
+          <button type="button" class="lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <a href="{{ url_for('index', lang=lang) }}" class="btn btn-cart">
+          ← Back / Retour
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="about-container">
+    <section>
+      <h2>About Spectra Film Loops</h2>
+      <p>
+        Spectra Film Loops est une librairie audio créée par Vincent Bastille,
+        compositeur, danseur et concepteur sonore spécialisé dans les atmosphères cinématographiques,
+        les films d’horreur, la danse contemporaine et les installations expérimentales.
+      </p>
+
+      <p>
+        Chaque loop est conçue pour offrir une matière sonore immédiatement exploitable :
+        textures profondes, nappes organiques, pulsations sombres, rythmiques minimalistes,
+        drones cinématographiques.
+      </p>
+    </section>
+
+    <section>
+      <h2>Licence d’utilisation</h2>
+      <p>
+        L’achat d’une loop vous donne une <strong>licence perpétuelle simple et professionnelle</strong>.
+        Elle est valable dans le monde entier, pour tous vos projets présents et futurs.
+      </p>
+
+      <h3>✔ Droits accordés</h3>
+      <ul>
+        <li>Utilisation dans un film, court-métrage, série, documentaire</li>
+        <li>Utilisation dans la danse (spectacles, compagnies, vidéos)</li>
+        <li>Utilisation dans le théâtre, installations, performances</li>
+        <li>Utilisation dans un jeu vidéo ou application</li>
+        <li>Monétisation sur YouTube, Vimeo, Twitch, TikTok, Instagram...</li>
+        <li>Diffusion TV, cinéma, festivals</li>
+        <li>Modifications autorisées (montage, pitch, effets, layering…)</li>
+        <li>Utilisation commerciale illimitée</li>
+      </ul>
+
+      <h3>✘ Restrictions</h3>
+      <ul>
+        <li>Vous ne pouvez pas revendre les loops telles quelles.</li>
+        <li>Vous ne pouvez pas créer une librairie sonore concurrente avec ces loops.</li>
+        <li>Vous ne pouvez pas redistribuer publiquement les fichiers WAV originaux.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Crédit (facultatif)</h2>
+      <p>
+        Vous pouvez ajouter la mention :
+      </p>
+
+      <blockquote class="about-quote">
+        "Sound design & loops : Vincent Bastille – Spectra Media"
+      </blockquote>
+
+      <p>
+        Ce crédit est apprécié mais pas obligatoire.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact professionnel</h2>
+      <p>
+        Pour toute demande de licence spécifique, projet collaboratif ou besoin d’un compositing sur mesure :
+      </p>
+
+      <p class="about-contact">
+        <strong>Email :</strong> vincentbastille100@gmail.com
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Spectra Media – Film & Horror Audio Loops
+  </footer>
+
+  <script>
+    const S_LANG = window.SPECTRA_LANG;
+    const DEFAULT_LANG = "{{ lang }}";
+    function applyLanguage(lang) {
+      // Textes simples non traduits — page volontairement stable
+      try { localStorage.setItem("spectra_lang", lang); } catch(e){}
+    }
+    function initLanguage() {
+      let saved=null;
+      try{ saved=localStorage.getItem("spectra_lang"); }catch(e){}
+      const lang=saved||DEFAULT_LANG;
+      document.querySelectorAll(".lang-btn").forEach(btn=>{
+        btn.classList.toggle("active", btn.getAttribute("data-lang")==lang);
+        btn.addEventListener("click", ()=>{
+          const newLang=btn.getAttribute("data-lang");
+          applyLanguage(newLang);
+          location.href="?lang="+newLang;
+        });
+      });
+    }
+    document.addEventListener("DOMContentLoaded", initLanguage);
+  </script>
+
+</body>
+</html>
