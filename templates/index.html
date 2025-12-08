@@ -1,213 +1,112 @@
 <!doctype html>
-<html lang="fr">
+<html lang="{{ 'fr' if lang == 'fr' else 'en' }}">
 <head>
   <meta charset="utf-8" />
 
-  <!-- ==== SEO PRINCIPAL ==== -->
-  <title>Spectra Film Loops – Boucles WAV Cinéma & Horreur • 1€ par loop</title>
+  <title>Spectra Film Loops – Horror & Cinema Audio Loops</title>
 
   <meta name="description"
-        content="Boucles audio professionnelles pour musique de film : horror loops, cinematic loops, long textures et ambiances sombres. WAV haute qualité • Preview MP3 instantanée • Paiement Stripe • 1€ par loop." />
-
-  <meta name="keywords"
-        content="horror loops, cinematic loops, film music loops, ambient textures, dark pads, cinema audio samples, WAV loops, 1€ loop, soundtrack loops, musique de film, bande son, sound design, audio pack" />
-
+        content="Boucles audio cinématiques pour films, horreur, danse et installations. WAV haute qualité, pré-écoute MP3, paiement Stripe, 1€ par loop." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Canonical URL -->
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://cinema-loops-shopping.onrender.com/" />
 
-  <!-- ==== OPEN GRAPH ==== -->
-  <meta property="og:title" content="Spectra Film Loops – Horror & Cinema WAV Loops (1€)" />
-  <meta property="og:description"
-        content="Boucles WAV sombres et cinématiques pour musiques de films : horror, drama, textures longues. 1€ par loop. Pré-écoute MP3 + paiement Stripe." />
-  <meta property="og:url" content="https://cinema-loops-shopping.onrender.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://cinema-loops-shopping.onrender.com/static/cover.jpg" />
-
-  <!-- ==== TWITTER CARDS ==== -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Spectra Film Loops – Boucles de cinéma & horreur (1€)">
-  <meta name="twitter:description"
-        content="Boucles WAV de haute qualité pour film, horreur et danse contemporaine. Achat simple, téléchargement immédiat.">
-  <meta name="twitter:image" content="https://cinema-loops-shopping.onrender.com/static/cover.jpg">
-
-  <!-- ==== JSON-LD - Boutique de Loops (Google Shopping compatible) ==== -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "MusicStore",
-    "name": "Spectra Film Loops",
-    "url": "https://cinema-loops-shopping.onrender.com/",
-    "image": "https://cinema-loops-shopping.onrender.com/static/cover.jpg",
-    "description": "Boutique de loops audio pour musique de film, horreur et cinéma. 1€ par loop.",
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "EUR",
-      "lowPrice": "1",
-      "highPrice": "2"
-    },
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "price": "1",
-        "priceCurrency": "EUR",
-        "itemOffered": {
-          "@type": "MusicRecording",
-          "name": "Horror Loops – Short",
-          "genre": "Horror / Film"
-        }
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #181827 0, #050509 55%);
-      color: #f5f5f5;
-    }
-    header {
-      padding: 2.5rem 1.5rem 1.5rem;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .subtitle {
-      margin-top: 0.75rem;
-      max-width: 640px;
-      margin-inline: auto;
-      color: #b1b1c9;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    main {
-      max-width: 980px;
-      margin: 1.5rem auto 3rem;
-      padding: 0 1.5rem 2rem;
-    }
-    section {
-      scroll-margin-top: 80px;
-    }
-    /* ... ton CSS reste inchangé ... */
-  </style>
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="{{ url_for('static', filename='lang.js') }}"></script>
 </head>
-
 <body>
   <header>
-    <h1>Spectra Film Loops</h1>
-    <p class="subtitle">
-      Boutique professionnelle de <strong>boucles audio cinématiques</strong> :
-      horror loops, drama loops, ambiances longues et textures évolutives.<br>
-      <strong>1€ la loop</strong> – WAV 48kHz, preview MP3 instantané, livraison par email automatique.
-    </p>
+    <div class="header-inner">
+      <div>
+        <h1>Spectra Film Loops</h1>
+        <p class="subtitle" data-i18n="header_sub">
+          Boucles audio professionnelles pour films, danse, horreur et installations. WAV haute qualité.
+        </p>
+      </div>
+
+      <div class="header-right">
+        <!-- Sélecteur de langue -->
+        <div class="lang-switch">
+          <button type="button" class="lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- Bouton voir panier -->
+        <a href="{{ url_for('cart_page') }}" class="btn btn-cart" data-i18n="go_to_cart">
+          Voir le panier
+        </a>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main class="main-container">
     {% if status == "success" %}
-      <div class="status status-success">
-        ✅ Paiement confirmé – vos liens de téléchargement WAV viennent de vous être envoyés.
+      <div class="status status-success" data-i18n="success_msg">
+        Paiement réussi – vos liens de téléchargement vous ont été envoyés.
       </div>
     {% elif status == "cancel" %}
-      <div class="status status-cancel">
-        ❌ Paiement annulé – aucune loop n'a été débitée.
+      <div class="status status-cancel" data-i18n="cancel_msg">
+        Paiement annulé – aucune boucle n'a été débitée.
       </div>
     {% endif %}
 
-    <form id="loops-form">
+    <form id="loops-form" onsubmit="return false;">
+      {% for cat in categories %}
+        {# id avec tirets pour les ancres SEO #}
+        <section id="{{ cat.id.replace('_', '-') }}">
+          <h2>{{ cat.title }}</h2>
+          {% if cat.description %}
+            <p class="section-subtitle">{{ cat.description }}</p>
+          {% endif %}
 
-      <!-- === SECTION HORROR SHORT === -->
-      <section id="horror-short">
-        <h2>Horror Loops (Short)</h2>
-        <p class="section-subtitle">
-          Boucles sombres et tendues pour films d’horreur, trailers psychologiques et sound design.
-        </p>
-
-        <div class="loop-list">
-          {% for audio in categories[0].loops %}
-            <div class="loop-card">
-              <div class="loop-header">
-                <div class="loop-left">
-                  <input type="checkbox" name="loop" value="{{ audio.id }}" id="chk_{{ audio.id }}">
-                  <label for="chk_{{ audio.id }}" class="loop-name">{{ audio.name }}</label>
+          <div class="loop-list">
+            {% for audio in cat.loops %}
+              <div class="loop-card">
+                <div class="loop-header">
+                  <div class="loop-left">
+                    <input
+                      type="checkbox"
+                      class="loop-checkbox"
+                      name="loop"
+                      value="{{ audio.id }}"
+                      id="chk_{{ audio.id }}"
+                    >
+                    {# Nom fidèle au fichier = audio.file #}
+                    <label class="loop-name" for="chk_{{ audio.id }}">
+                      {{ audio.file }}
+                    </label>
+                  </div>
+                  <span class="loop-price">{{ audio.price_eur|round(2) }}€</span>
                 </div>
-                <span class="loop-price">{{ audio.price_eur|round(2) }}€</span>
-              </div>
-              <audio class="loop-player" controls preload="none">
-                <source src="{{ audio.preview }}" type="audio/mpeg">
-              </audio>
-            </div>
-          {% endfor %}
-        </div>
-      </section>
 
-      <!-- === SECTION CINEMA SHORT === -->
-      <section id="cinema-short">
-        <h2>Cinema Loops (Short)</h2>
-        <p class="section-subtitle">
-          Boucles émotionnelles et cinématiques pour danse, court-métrage et documentaire.
-        </p>
+                <audio class="loop-player" controls preload="none">
+                  <source src="{{ audio.preview }}" type="audio/mpeg">
+                  Votre navigateur ne supporte pas l'audio HTML5.
+                </audio>
 
-        <div class="loop-list">
-          {% for audio in categories[1].loops %}
-            <div class="loop-card">
-              <div class="loop-header">
-                <div class="loop-left">
-                  <input type="checkbox" name="loop" value="{{ audio.id }}" id="chk_{{ audio.id }}">
-                  <label for="chk_{{ audio.id }}" class="loop-name">{{ audio.name }}</label>
+                <div class="loop-actions">
+                  <button
+                    type="button"
+                    class="btn btn-small btn-add"
+                    data-loop-id="{{ audio.id }}"
+                    data-i18n="add_to_cart"
+                  >
+                    Ajouter au panier
+                  </button>
                 </div>
-                <span class="loop-price">{{ audio.price_eur|round(2) }}€</span>
               </div>
-              <audio class="loop-player" controls preload="none">
-                <source src="{{ audio.preview }}" type="audio/mpeg">
-              </audio>
-            </div>
-          {% endfor %}
-        </div>
-      </section>
-
-      <!-- === SECTION LONG LOOPS === -->
-      <section id="horror-long">
-        <h2>Long Horror Loops</h2>
-        <p class="section-subtitle">
-          Nappes évolutives, tension lente, soundscapes pour installations ou film expérimental.
-        </p>
-        <div class="loop-list">
-          {% for audio in categories[2].loops %}
-            <div class="loop-card">
-              <div class="loop-header">
-                <div class="loop-left">
-                  <input type="checkbox" name="loop" value="{{ audio.id }}" id="chk_{{ audio.id }}">
-                  <label for="chk_{{ audio.id }}" class="loop-name">{{ audio.name }}</label>
-                </div>
-                <span class="loop-price">{{ audio.price_eur|round(2) }}€</span>
-              </div>
-              <audio class="loop-player" controls preload="none">
-                <source src="{{ audio.preview }}" type="audio/mpeg">
-              </audio>
-            </div>
-          {% endfor %}
-        </div>
-      </section>
-
-      <button type="button" id="checkout-button">Payer les loops sélectionnées</button>
-
-      <p class="disclaimer">
-        Vos fichiers WAV haute qualité sont envoyés automatiquement à l'adresse email utilisée lors du paiement.
-      </p>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
     </form>
+
+    <div class="go-cart-bottom">
+      <a href="{{ url_for('cart_page') }}" class="btn btn-cart" data-i18n="go_to_cart">
+        Voir le panier
+      </a>
+    </div>
   </main>
 
   <footer>
@@ -215,33 +114,120 @@
   </footer>
 
   <script>
-    const stripe = Stripe("{{ stripe_public_key }}");
+    // --- Gestion de la langue (FR/EN) ---
+    const S_LANG = window.SPECTRA_LANG || {};
+    const DEFAULT_LANG = "{{ 'fr' if lang == 'fr' else 'en' }}";
 
-    document.getElementById("checkout-button").addEventListener("click", async () => {
-      const checked = Array.from(
-        document.querySelectorAll('input[name="loop"]:checked')
-      ).map(i => i.value);
+    function applyLanguage(lang) {
+      const dict = S_LANG[lang] || S_LANG["fr"];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+      // stocker la langue
+      try {
+        localStorage.setItem("spectra_lang", lang);
+      } catch (e) {}
+    }
 
-      if (checked.length === 0) return alert("Sélectionne au moins une boucle.");
+    function initLanguage() {
+      let saved = null;
+      try {
+        saved = localStorage.getItem("spectra_lang");
+      } catch (e) {}
+      const lang = saved || DEFAULT_LANG;
 
-      const res = await fetch("/create-checkout-session", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ loops: checked })
+      applyLanguage(lang);
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+        btn.addEventListener("click", () => {
+          const newLang = btn.getAttribute("data-lang");
+          applyLanguage(newLang);
+          document.querySelectorAll(".lang-btn").forEach(b =>
+            b.classList.toggle("active", b.getAttribute("data-lang") === newLang)
+          );
+        });
+      });
+    }
+
+    // --- Gestion audio : une seule loop en lecture à la fois ---
+    function initAudioPlayers() {
+      const players = Array.from(document.querySelectorAll("audio.loop-player"));
+      players.forEach(player => {
+        player.addEventListener("play", () => {
+          players.forEach(other => {
+            if (other !== player) {
+              other.pause();
+              other.currentTime = 0;
+            }
+          });
+        });
+      });
+    }
+
+    // --- Panier : stocké dans localStorage ---
+    function getCartIds() {
+      try {
+        const raw = localStorage.getItem("spectra_cart");
+        if (!raw) return [];
+        return JSON.parse(raw);
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveCartIds(ids) {
+      try {
+        localStorage.setItem("spectra_cart", JSON.stringify(ids));
+      } catch (e) {}
+    }
+
+    function addToCart(id) {
+      const ids = getCartIds();
+      if (!ids.includes(id)) {
+        ids.push(id);
+        saveCartIds(ids);
+      }
+    }
+
+    function initAddToCartButtons() {
+      document.querySelectorAll(".btn-add").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-loop-id");
+          addToCart(id);
+          btn.classList.add("btn-added");
+          setTimeout(() => btn.classList.remove("btn-added"), 600);
+        });
       });
 
-      const data = await res.json();
-      if (data.url) window.location = data.url;
+      // Si l'utilisateur coche/décoche, on synchronise aussi
+      document.querySelectorAll(".loop-checkbox").forEach(chk => {
+        chk.addEventListener("change", () => {
+          const id = chk.value;
+          if (chk.checked) {
+            addToCart(id);
+          } else {
+            const ids = getCartIds().filter(x => x !== id);
+            saveCartIds(ids);
+          }
+        });
+      });
+
+      // Initialiser les checkbox en fonction du localStorage
+      const current = getCartIds();
+      document.querySelectorAll(".loop-checkbox").forEach(chk => {
+        chk.checked = current.includes(chk.value);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initLanguage();
+      initAudioPlayers();
+      initAddToCartButtons();
     });
-
-    // Play unique
-    const players = [...document.querySelectorAll(".loop-player")];
-    players.forEach(p =>
-      p.addEventListener("play", () =>
-        players.forEach(o => o !== p && (o.pause(), o.currentTime = 0))
-      )
-    );
   </script>
-
 </body>
 </html>
