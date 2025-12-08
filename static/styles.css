@@ -78,3 +78,52 @@ audio::-webkit-media-controls-panel {
 audio::-webkit-media-controls-play-button {
   filter: drop-shadow(0 0 5px #9f6cff);
 }
+.about-container {
+  max-width: 820px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 4rem;
+  color: #eaeaff;
+  line-height: 1.65;
+}
+
+.about-container h2 {
+  margin-top: 2rem;
+  color: #d3b7ff;
+  text-shadow: 0 0 12px rgba(160, 60, 255, 0.4);
+}
+
+.about-container h3 {
+  margin-top: 1.2rem;
+  color: #a47cff;
+}
+
+.about-container ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.about-quote {
+  padding: 1rem;
+  background: rgba(80, 20, 160, 0.25);
+  border-left: 4px solid #b37dff;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.about-contact {
+  background: rgba(255,255,255,0.05);
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.footer-link {
+  color: #c9a4ff;
+  margin-right: 0.4rem;
+  text-decoration: none;
+}
+.footer-link:hover {
+  text-shadow: 0 0 8px rgba(180, 90, 255, 0.7);
+}
