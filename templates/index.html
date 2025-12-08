@@ -2,14 +2,59 @@
 <html lang="{{ 'fr' if lang == 'fr' else 'en' }}">
 <head>
   <meta charset="utf-8" />
+
+  <!-- Google Search Console -->
   <meta name="google-site-verification" content="2VoCddHV1wAmKbGLHfbcdupQnEvjPxUHTNZKfdghHxI" />
-  <title>Spectra Film Loops – Horror & Cinema Audio Loops</title>
+
+  <title>Spectra Film Loops – Horror & Cinematic WAV Loops (Royalty-Free)</title>
 
   <meta name="description"
-        content="Boucles audio cinématiques pour films, horreur, danse et installations. WAV haute qualité, pré-écoute MP3, paiement Stripe, 1€ par loop." />
+        content="Spectra Film Loops : boucles audio cinématiques et sombres pour films d’horreur, cinéma, danse et installations. Pré-écoute MP3 128 kbps (15s), versions complètes en WAV haute qualité, 1€ la loop, paiement sécurisé Stripe, téléchargement instantané." />
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://cinema-loops-shopping.onrender.com/" />
+
+  <!-- Open Graph / Social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Spectra Film Loops – Horror & Cinematic WAV Loops" />
+  <meta property="og:description"
+        content="Dark & cinematic audio loops for horror films, trailers, dance and installations. MP3 previews, full WAV downloads, royalty-free, instant delivery via Stripe." />
+  <meta property="og:url" content="https://cinema-loops-shopping.onrender.com/" />
+  <meta property="og:site_name" content="Spectra Film Loops" />
+  <!-- Si tu ajoutes un visuel dédié, décommente et adapte :
+  <meta property="og:image" content="https://cinema-loops-shopping.onrender.com/static/cover_loops.jpg" />
+  -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Spectra Film Loops – Horror & Cinematic WAV Loops" />
+  <meta name="twitter:description"
+        content="Cinematic horror loops & atmospheres in WAV format. Royalty-free, instant download after Stripe payment." />
+  <!-- <meta name="twitter:image" content="https://cinema-loops-shopping.onrender.com/static/cover_loops.jpg" /> -->
+
+  <!-- JSON-LD : boutique de loops audio -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Spectra Film Loops",
+    "url": "https://cinema-loops-shopping.onrender.com/",
+    "image": "https://cinema-loops-shopping.onrender.com/static/fond.jpeg",
+    "description": "Librairie de boucles audio cinématiques et sombres pour films d’horreur, cinéma, trailers, danse contemporaine et installations. Boucles en WAV haute qualité, royalty-free, paiement Stripe, téléchargement instantané par email.",
+    "makesOffer": {
+      "@type": "Offer",
+      "name": "Horror & Cinematic WAV Loops",
+      "priceCurrency": "EUR",
+      "price": "1.00",
+      "availability": "https://schema.org/InStock"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Spectra Media"
+    }
+  }
+  </script>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <script src="https://js.stripe.com/v3/"></script>
@@ -21,7 +66,7 @@
       <div>
         <h1>Spectra Film Loops</h1>
         <p class="subtitle" data-i18n="header_sub">
-          Boucles audio professionnelles pour films, danse, horreur et installations. WAV haute qualité.
+          Boucles audio professionnelles pour films, danse, horreur et installations. WAV haute qualité, royalty-free.
         </p>
       </div>
 
@@ -76,7 +121,7 @@
     <strong>démos MP3 128 kbps</strong> d’environ <strong>15 secondes</strong>, destinées à la pré-écoute.
     <br>
     Les versions complètes des boucles — d’une durée comprise entre <strong>30 secondes et 1 minute</strong> —
-    sont livrées en <strong>WAV haute qualité</strong> après paiement.
+    sont livrées en <strong>WAV haute qualité</strong> et utilisables en <strong>royalty-free</strong> après paiement.
   </div>
 
   <!-- Badges Pro (WAV, Cinéma, Royalty-Free, Instant) -->
@@ -155,69 +200,74 @@
       </a>
     </div>
   </main>
-<!-- ===============================
-     SECTION SEO – DESCRIPTION PRO
-==================================-->
-<section class="seo-description" style="
-    max-width: 1100px;
-    margin: 3rem auto 2.5rem;
-    padding: 1.8rem 2rem;
-    background: rgba(10, 5, 25, 0.55);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    backdrop-filter: blur(6px);
-    line-height: 1.6;
-    font-size: 0.95rem;
-    color: #e7e2ff;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
-">
-  <h2 style="margin-top:0; font-size:1.4rem; letter-spacing:0.07em; text-transform:uppercase; color:#ffd6e6;">
-    About Spectra Film Loops
-  </h2>
 
-  <p>
-    <strong>Spectra Film Loops</strong> est une librairie professionnelle dédiée aux
-    <strong>boucles audio cinématiques</strong>, textures sonores, drones et ambiances
-    destinées aux <strong>films d’horreur</strong>, courts-métrages, trailers,
-    spectacles vivants, danse contemporaine et installations artistiques.
-  </p>
+  <!-- ===============================
+       SECTION SEO – DESCRIPTION PRO
+  ==================================-->
+  <section class="seo-description" style="
+      max-width: 1100px;
+      margin: 3rem auto 2.5rem;
+      padding: 1.8rem 2rem;
+      background: rgba(10, 5, 25, 0.55);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      line-height: 1.6;
+      font-size: 0.95rem;
+      color: #e7e2ff;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  ">
+    <h2 style="margin-top:0; font-size:1.4rem; letter-spacing:0.07em; text-transform:uppercase; color:#ffd6e6;">
+      About Spectra Film Loops
+    </h2>
 
-  <p>
-    Chaque loop est proposée en <strong>WAV haute qualité</strong> (mix propre, dynamique
-    conservée, aucune compression destructive). Les extraits MP3 disponibles sur la page
-    sont limités à <strong>15 secondes en 128 kbps</strong> pour la pré-écoute.
-    Les versions complètes durent entre <strong>30 secondes et 1 minute</strong>
-    et sont livrées immédiatement après paiement via Stripe.
-  </p>
+    <p>
+      <strong>Spectra Film Loops</strong> est une librairie professionnelle dédiée aux
+      <strong>boucles audio cinématiques</strong>, textures sonores, drones et ambiances
+      destinées aux <strong>films d’horreur</strong>, courts-métrages, trailers,
+      spectacles vivants, danse contemporaine et installations artistiques.
+    </p>
 
-  <p>
-    Toutes les boucles sont <strong>royalty-free</strong> : vous pouvez les utiliser dans vos
-    films, vidéos YouTube, podcasts, performances scéniques, jeux indépendants ou projets
-    professionnels, sans frais supplémentaires. C’est un outil pensé pour les monteurs,
-    compositeurs, chorégraphes, sound designers et créateurs indépendants.
-  </p>
+    <p>
+      Chaque loop est proposée en <strong>WAV haute qualité</strong> (mix propre, dynamique
+      conservée, aucune compression destructive). Les extraits MP3 disponibles sur la page
+      sont limités à <strong>15 secondes en 128 kbps</strong> pour la pré-écoute.
+      Les versions complètes durent entre <strong>30 secondes et 1 minute</strong>
+      et sont livrées immédiatement après paiement via Stripe, avec des droits
+      <strong>royalty-free</strong> pour vos projets audiovisuels.
+    </p>
 
-  <h3 style="margin-top:1.6rem; font-size:1.15rem; color:#ffcce0;">
-    English – Overview
-  </h3>
+    <p>
+      Toutes les boucles peuvent être utilisées dans vos films, vidéos YouTube, podcasts,
+      performances scéniques, jeux indépendants ou projets professionnels, sans frais
+      supplémentaires. La collection est pensée pour les monteurs, compositeurs, chorégraphes,
+      sound designers et créateurs indépendants qui cherchent des <strong>horror loops</strong>,
+      <strong>cinematic long loops</strong>, textures sombres et nappes atmosphériques prêtes à l’emploi.
+    </p>
 
-  <p style="color:#ddd6ff;">
-    <strong>Spectra Film Loops</strong> is a curated library of <strong>cinematic audio loops</strong>,
-    dark atmospheres and horror textures designed for filmmakers, editors, choreographers,
-    video creators, and sound designers.  
-    All loops are delivered in <strong>high-quality WAV</strong> (full dynamics preserved) and are
-    <strong>royalty-free</strong> for commercial use.
-  </p>
+    <h3 style="margin-top:1.6rem; font-size:1.15rem; color:#ffcce0;">
+      English – Overview
+    </h3>
 
-  <p style="color:#ddd6ff;">
-    MP3 previews on this website are limited to <strong>15 seconds / 128 kbps</strong>.
-    Full versions (30–60s) are delivered instantly after checkout via Stripe.
-  </p>
+    <p style="color:#ddd6ff;">
+      <strong>Spectra Film Loops</strong> is a curated library of <strong>cinematic audio loops</strong>,
+      dark atmospheres and horror textures designed for filmmakers, editors, choreographers,
+      video creators, and sound designers.  
+      All loops are delivered in <strong>high-quality WAV</strong> (full dynamics preserved) and are
+      <strong>royalty-free</strong> for commercial use in films, trailers, YouTube videos,
+      indie games and stage performances.
+    </p>
 
-  <p style="margin-top:1rem; opacity:0.9;">
-    Spectra Media © — Film & Horror Audio Production
-  </p>
-</section>
+    <p style="color:#ddd6ff;">
+      MP3 previews on this website are limited to <strong>15 seconds / 128 kbps</strong>.
+      Full versions (30–60s) are delivered instantly after checkout via Stripe,
+      with direct download links sent by email.
+    </p>
+
+    <p style="margin-top:1rem; opacity:0.9;">
+      Spectra Media © — Film & Horror Audio Production
+    </p>
+  </section>
 
   <footer>
     <a href="{{ url_for('about_page', lang=lang) }}" class="footer-link">
