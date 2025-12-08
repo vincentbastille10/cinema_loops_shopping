@@ -84,6 +84,10 @@ def index():
         lang=lang,
     )
 
+@app.route("/about")
+def about_page():
+    lang = request.args.get("lang", "fr")
+    return render_template("about.html", lang=lang)
 
 @app.route("/create-checkout-session", methods=["POST"])
 def create_checkout_session():
