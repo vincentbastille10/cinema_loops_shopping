@@ -11,6 +11,10 @@
   <meta name="description"
         content="Spectra Film Loops : boucles audio cinématiques et sombres pour films d’horreur, cinéma, danse et installations. Pré-écoute MP3 128 kbps (15s), versions complètes en WAV haute qualité, 1€ la loop, paiement sécurisé Stripe, téléchargement instantané." />
 
+  <!-- Mots-clés pour moteurs de recherche -->
+  <meta name="keywords"
+        content="horror loops, cinematic loops, film audio, WAV loops, royalty-free loops, sound design, dark atmospheres, film scoring loops, Spectra Media, Vincent Bastille" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://cinema-loops-shopping.onrender.com/" />
@@ -19,7 +23,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Spectra Film Loops – Horror & Cinematic WAV Loops" />
   <meta property="og:description"
-        content="Dark & cinematic audio loops for horror films, trailers, dance and installations. MP3 previews, full WAV downloads, royalty-free, instant delivery via Stripe." />
+        content="Cinematic horror loops, dark atmospheres and WAV textures for films, trailers, dance and installations. MP3 previews, full WAV downloads, royalty-free, instant delivery via Stripe." />
   <meta property="og:url" content="https://cinema-loops-shopping.onrender.com/" />
   <meta property="og:site_name" content="Spectra Film Loops" />
   <!-- Si tu ajoutes un visuel dédié, décommente et adapte :
@@ -56,6 +60,56 @@
   }
   </script>
 
+  <!-- JSON-LD : FAQ Licence & Utilisation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Puis-je utiliser ces boucles dans un film, une publicité ou un jeu vidéo commercial ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Les boucles Spectra Film Loops sont fournies en licence royalty-free pour vos films, publicités, jeux, spectacles ou contenus professionnels, sans frais supplémentaires par projet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je utiliser ces loops sur YouTube, Twitch ou des plateformes monétisées ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Vous pouvez utiliser les boucles dans vos vidéos YouTube, Twitch ou autres plateformes, y compris sur des chaînes monétisées, tant que vous ne vendez pas les loops seules en tant que pack audio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Dois-je créditer Spectra Media ou Vincent Bastille ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le crédit n’est pas obligatoire mais fortement apprécié. Exemple de crédit : Music loops by Spectra Media / Vincent Bastille."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les versions complètes sont-elles livrées en WAV haute qualité ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Les extraits sur le site sont en MP3 128 kbps (15 secondes) mais les versions complètes sont livrées en WAV haute qualité, prêtes pour le mixage et la diffusion cinéma."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les loops sont-elles exclusives à mon projet ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. Les boucles sont non exclusives : vous achetez une licence d’utilisation royalty-free, mais d’autres créateurs peuvent acheter les mêmes loops pour leurs propres projets."
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <script src="https://js.stripe.com/v3/"></script>
   <script src="{{ url_for('static', filename='lang.js') }}"></script>
@@ -65,6 +119,10 @@
     <div class="header-inner">
       <div>
         <h1>Spectra Film Loops</h1>
+        <!-- H1 SEO caché, très descriptif -->
+        <h1 style="position:absolute; left:-9999px; top:-9999px;">
+          Boucles audio cinématiques et horror WAV royalty-free pour films, danse et installations
+        </h1>
         <p class="subtitle" data-i18n="header_sub">
           Boucles audio professionnelles pour films, danse, horreur et installations. WAV haute qualité, royalty-free.
         </p>
@@ -172,7 +230,7 @@
                   <span class="loop-price">{{ audio.price_eur|round(2) }}€</span>
                 </div>
 
-                <audio class="loop-player" controls preload="none">
+                <audio class="loop-player" controls preload="none" loading="lazy">
                   <source src="{{ audio.preview }}" type="audio/mpeg">
                   Votre navigateur ne supporte pas l'audio HTML5.
                 </audio>
@@ -267,6 +325,83 @@
     <p style="margin-top:1rem; opacity:0.9;">
       Spectra Media © — Film & Horror Audio Production
     </p>
+  </section>
+
+  <!-- ===============================
+       FAQ – Licence & Utilisation
+  ==================================-->
+  <section class="faq-section" style="
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+      padding: 1.8rem 2rem;
+      background: rgba(8, 3, 18, 0.85);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.6);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #eae6ff;
+  ">
+    <h2 style="margin-top:0; font-size:1.3rem; letter-spacing:0.08em; text-transform:uppercase; color:#ffe0ea;">
+      FAQ – Licence & utilisation
+    </h2>
+
+    <details style="margin-top:1rem;">
+      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
+        Puis-je utiliser ces boucles dans un film, une publicité ou un jeu vidéo commercial ?
+      </summary>
+      <p style="margin-top:0.6rem;">
+        Oui. Toutes les boucles Spectra Film Loops sont fournies en licence
+        <strong>royalty-free</strong> pour vos projets professionnels :
+        films, pubs, théâtre, danse contemporaine, jeux vidéo indépendants, installations, etc.
+        Aucun frais supplémentaire n’est demandé par projet.
+      </p>
+    </details>
+
+    <details style="margin-top:1rem;">
+      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
+        Puis-je utiliser ces loops sur YouTube, Twitch ou des plateformes monétisées ?
+      </summary>
+      <p style="margin-top:0.6rem;">
+        Oui, vous pouvez utiliser les boucles dans vos vidéos YouTube, Twitch, Vimeo, réseaux sociaux,
+        y compris sur des chaînes <strong>monétisées</strong>. La seule limite : vous ne pouvez pas
+        revendre les loops isolées en tant que pack audio concurrent.
+      </p>
+    </details>
+
+    <details style="margin-top:1rem;">
+      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
+        Dois-je créditer Spectra Media / Vincent Bastille ?
+      </summary>
+      <p style="margin-top:0.6rem;">
+        Le crédit n’est pas obligatoire, mais vivement recommandé, surtout pour les projets de cinéma
+        et d’auteur. Exemple : <em>Music loops by Spectra Media / Vincent Bastille</em>.
+        Cela aide les autres créateurs à découvrir la librairie.
+      </p>
+    </details>
+
+    <details style="margin-top:1rem;">
+      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
+        Les versions complètes sont-elles livrées en WAV haute qualité ?
+      </summary>
+      <p style="margin-top:0.6rem;">
+        Oui. Les extraits proposés sur cette page sont des <strong>démos MP3 128 kbps</strong> d’environ
+        15 secondes. Après paiement, vous recevez les <strong>versions complètes en WAV</strong> (30 à 60 secondes),
+        prêtes pour le mixage, le sound design et la diffusion cinéma.
+      </p>
+    </details>
+
+    <details style="margin-top:1rem;">
+      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
+        Les loops sont-elles exclusives à mon projet ?
+      </summary>
+      <p style="margin-top:0.6rem;">
+        Non, il ne s’agit pas de licences exclusives. Vous achetez une licence d’utilisation
+        <strong>non exclusive, royalty-free</strong>. D’autres créateurs peuvent utiliser les mêmes
+        boucles dans d’autres contextes. Pour un travail 100% exclusif, vous pouvez
+        contacter directement Spectra Media pour une composition sur mesure.
+      </p>
+    </details>
   </section>
 
   <footer>
