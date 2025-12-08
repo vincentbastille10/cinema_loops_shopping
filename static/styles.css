@@ -13,7 +13,12 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(circle at 10% 0, #2b1c44 0, #05030b 55%, #030008 100%);
+
+  /* FOND IMAGE + VOILE CINÉMA */
+  background:
+    radial-gradient(circle at 10% 0, rgba(43, 28, 68, 0.80) 0, rgba(5, 3, 11, 0.96) 60%, rgba(3, 0, 8, 0.98) 100%),
+    url("/static/fond.jpeg") center / cover fixed no-repeat;
+
   color: #f5f5ff;
 }
 
@@ -22,7 +27,11 @@ body {
 header {
   padding: 1.8rem 1.5rem 1.3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  background: linear-gradient(180deg, rgba(85, 40, 180, 0.65), rgba(5, 4, 18, 0.96));
+  background: linear-gradient(
+    180deg,
+    rgba(85, 40, 180, 0.75),
+    rgba(5, 4, 18, 0.92)
+  );
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
 }
 
@@ -180,7 +189,11 @@ h2 {
 }
 
 .loop-card {
-  background: radial-gradient(circle at 20% 0, rgba(130, 80, 255, 0.15), rgba(10, 5, 30, 0.95));
+  background: radial-gradient(
+    circle at 20% 0,
+    rgba(130, 80, 255, 0.16),
+    rgba(10, 5, 30, 0.94)
+  );
   border-radius: 14px;
   padding: 1rem 1rem 0.9rem;
   border: 1px solid rgba(135, 100, 255, 0.45);
@@ -313,7 +326,11 @@ audio.loop-player {
   gap: 1rem;
   padding: 0.9rem 1rem;
   border-radius: 12px;
-  background: radial-gradient(circle at 20% 0, rgba(130, 80, 255, 0.18), rgba(10, 5, 30, 0.95));
+  background: radial-gradient(
+    circle at 20% 0,
+    rgba(130, 80, 255, 0.18),
+    rgba(10, 5, 30, 0.95)
+  );
   border: 1px solid rgba(135, 100, 255, 0.4);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
 }
@@ -363,7 +380,11 @@ footer {
   text-align: center;
   font-size: 0.8rem;
   color: #8f8bb5;
-  background: radial-gradient(circle at 90% 0, rgba(80, 30, 150, 0.35), rgba(3, 2, 10, 0.98));
+  background: radial-gradient(
+    circle at 90% 0,
+    rgba(80, 30, 150, 0.35),
+    rgba(3, 2, 10, 0.98)
+  );
 }
 
 .footer-link {
