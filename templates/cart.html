@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="{{ 'fr' if lang == 'fr' else 'en' }}">
+<head>
+  <meta charset="utf-8" />
+  <title>Panier – Spectra Film Loops</title>
+  <meta name="description"
+        content="Votre panier de boucles audio Spectra Film Loops. Validez votre paiement Stripe pour recevoir vos liens WAV." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="{{ url_for('static', filename='lang.js') }}"></script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1>Spectra Film Loops</h1>
+        <p class="subtitle">
+          Cart / Panier
+        </p>
+      </div>
+      <div class="header-right">
+        <div class="lang-switch">
+          <button type="button" class="lang-btn" data-lang="fr">FR</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="{{ url_for('index') }}" class="btn btn-cart">
+          ← Back / Retour
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <h2 data-i18n="cart_title">Votre panier Spectra Film Loops</h2>
+
+    <div id="cart-empty" class="cart-empty" data-i18n="empty_cart">
+      Votre panier est vide.
+    </div>
+
+    <div id="cart-list" class="cart-list"></div>
+
+    <div id="cart-summary" class="cart-summary" style="display:none;">
+      <div class="cart-total">
+        <span data-i18n="total">Total</span> :
+        <span id="cart-total-value">0€</span>
+      </div>
+      <button id="btn-checkout" class="btn" data-i18n="checkout">
+        Payer avec Stripe
+      </button>
+    </div>
+  </main>
+
+  <footer>
+    Spectra Media – Boutique audio cinéma & horreur • Loops créées par Vincent Bastille
+  </footer>
+
+  <script>
+    const S_LANG = window.SPECTRA_LANG || {};
+    const DEFAULT_LANG = "{{ 'fr' if lang == 'fr' else 'en' }}";
+    const stripe = Stripe("{{ stripe_public_key }}");
+
+    function applyLanguage(lang) {
+      const dict = S_LANG[lang] || S_LANG["fr"];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+      try {
+        localStorage.setItem("spectra_lang", lang);
+      } catch (e) {}
+    }
+
+    function initLanguage() {
+      let saved = null;
+      try {
+        saved = localStorage.getItem("spectra_lang");
+      } catch (e) {}
+      const lang = saved || DEFAULT_LANG;
+      applyLanguage(lang);
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+        btn.addEventListener("click", () => {
+          const newLang = btn.getAttribute("data-lang");
+          applyLanguage(newLang);
+          document.querySelectorAll(".lang-btn").forEach(b =>
+            b.classList.toggle("active", b.getAttribute("data-lang") === newLang)
+          );
+        });
+      });
+    }
+
+    function getCartIds() {
+      try {
+        const raw = localStorage.getItem("spectra_cart");
+        if (!raw) return [];
+        return JSON.parse(raw);
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function removeFromCart(id) {
+      const ids = getCartIds().filter(x => x !== id);
+      try {
+        localStorage.setItem("spectra_cart", JSON.stringify(ids));
+      } catch (e) {}
+      return ids;
+    }
+
+    async function refreshCart() {
+      const ids = getCartIds();
+      const emptyEl = document.getElementById("cart-empty");
+      const listEl = document.getElementById("cart-list");
+      const summaryEl = document.getElementById("cart-summary");
+      const totalValEl = document.getElementById("cart-total-value");
+
+      if (!ids.length) {
+        emptyEl.style.display = "block";
+        listEl.innerHTML = "";
+        summaryEl.style.display = "none";
+        return;
+      }
+
+      const res = await fetch("/get-cart", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ ids })
+      });
+      const data = await res.json();
+
+      if (!data.items || !data.items.length) {
+        emptyEl.style.display = "block";
+        listEl.innerHTML = "";
+        summaryEl.style.display = "none";
+        return;
+      }
+
+      emptyEl.style.display = "none";
+      summaryEl.style.display = "block";
+
+      listEl.innerHTML = "";
+      data.items.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "cart-row";
+        row.innerHTML = `
+          <div class="cart-row-main">
+            <div class="cart-row-name">${item.file}</div>
+            <div class="cart-row-price">${item.price_eur.toFixed(2)}€</div>
+          </div>
+          <button class="btn btn-small btn-remove" data-id="${item.id}" data-i18n="remove">
+            Retirer
+          </button>
+        `;
+        listEl.appendChild(row);
+      });
+
+      totalValEl.textContent = data.total.toFixed(2) + "€";
+
+      document.querySelectorAll(".btn-remove").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-id");
+          removeFromCart(id);
+          refreshCart();
+        });
+      });
+
+      // Ré-appliquer langue après avoir injecté du HTML
+      let saved = null;
+      try {
+        saved = localStorage.getItem("spectra_lang");
+      } catch (e) {}
+      applyLanguage(saved || DEFAULT_LANG);
+    }
+
+    async function initCheckout() {
+      const btn = document.getElementById("btn-checkout");
+      if (!btn) return;
+
+      btn.addEventListener("click", async () => {
+        const ids = getCartIds();
+        if (!ids.length) return;
+
+        btn.disabled = true;
+
+        const res = await fetch("/create-checkout-session-cart", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({ ids })
+        });
+
+        const data = await res.json();
+        btn.disabled = false;
+
+        if (data.url) {
+          window.location = data.url;
+        } else if (data.error) {
+          alert(data.error);
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initLanguage();
+      refreshCart();
+      initCheckout();
+    });
+  </script>
+</body>
+</html>
