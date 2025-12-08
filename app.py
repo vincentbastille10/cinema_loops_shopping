@@ -75,11 +75,13 @@ CATEGORIES, ALL_LOOPS_BY_ID = load_loops()
 @app.route("/")
 def index():
     status = request.args.get("status")
+    lang = request.args.get("lang", "fr")
     return render_template(
         "index.html",
         categories=CATEGORIES,
         stripe_public_key=STRIPE_PUBLIC_KEY,
         status=status,
+        lang=lang,
     )
 
 
