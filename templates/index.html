@@ -165,17 +165,24 @@
             <p class="section-subtitle">{{ cat.description }}</p>
           {% endif %}
           <div class="loop-list">
-            {% for loop in cat.loops %}
+            {% for audio in cat.loops %}
               <div class="loop-card">
                 <div class="loop-header">
                   <div class="loop-left">
-                    <input type="checkbox" name="loop" value="{{ loop.id }}" id="chk_{{ loop.id }}">
-                    <label class="loop-name" for="chk_{{ loop.id }}">{{ loop.name }}</label>
+                    <input
+                      type="checkbox"
+                      name="loop"
+                      value="{{ audio.id }}"
+                      id="chk_{{ audio.id }}"
+                    >
+                    <label class="loop-name" for="chk_{{ audio.id }}">
+                      {{ audio.name }}
+                    </label>
                   </div>
-                  <span class="loop-price">{{ loop.price_eur|round(2) }}€</span>
+                  <span class="loop-price">{{ audio.price_eur|round(2) }}€</span>
                 </div>
                 <audio class="loop-player" controls preload="none">
-                  <source src="{{ loop.preview }}" type="audio/mpeg">
+                  <source src="{{ audio.preview }}" type="audio/mpeg">
                   Votre navigateur ne supporte pas l'audio HTML5.
                 </audio>
               </div>
