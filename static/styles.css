@@ -356,3 +356,14 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+.demo-note {
+  margin: 1.5rem 0;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 0, 40, 0.12);
+  border-left: 4px solid #ff003c;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #ffced6;
+  line-height: 1.5;
+  font-weight: 400;
+}
