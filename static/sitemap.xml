@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Page principale -->
+  <url>
+    <loc>https://cinema-loops-shopping.onrender.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Section Horror -->
+  <url>
+    <loc>https://cinema-loops-shopping.onrender.com/#horror-short</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section Cinema -->
+  <url>
+    <loc>https://cinema-loops-shopping.onrender.com/#cinema-short</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Long Horror -->
+  <url>
+    <loc>https://cinema-loops-shopping.onrender.com/#horror-long</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Long Cinematic -->
+  <url>
+    <loc>https://cinema-loops-shopping.onrender.com/#cinematic-long</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Drama -->
+  <url>
+    <loc>https://cinema-loops-shopping.onrender.com/#drama-long</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
