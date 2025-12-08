@@ -2,6 +2,7 @@ import os
 import json
 import stripe
 import requests
+from email.message import EmailMessage  # plus vraiment utilisé, mais tu peux le supprimer si tu veux
 from flask import Flask, render_template, request, jsonify, abort, url_for
 
 app = Flask(__name__)
@@ -11,18 +12,17 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 
-# ---------- MAILJET CONFIG ----------
-MAILJET_API_KEY = os.getenv("MJ_API_KEY")
-MAILJET_API_SECRET = os.getenv("MJ_API_SECRET")
-MAILJET_FROM_EMAIL = os.getenv("MJ_FROM_EMAIL")
-MAILJET_FROM_NAME = os.getenv("MJ_FROM_NAME", "Spectra Media")
+# ---------- MAILJET API CONFIG ----------
+MJ_API_KEY = os.getenv("MJ_API_KEY")
+MJ_API_SECRET = os.getenv("MJ_API_SECRET")
+MJ_FROM_EMAIL = os.getenv("MJ_FROM_EMAIL")
+MJ_FROM_NAME = os.getenv("MJ_FROM_NAME", "Spectra Media Sounds")
 
 # ---------- CLOUDFLARE ----------
 CLOUDFLARE_BASE_URL = os.getenv(
     "CLOUDFLARE_BASE_URL",
-    "https://XXXX.r2.dev/spectra-media-loops"
+    "https://XXXX.r2.cloudflarestorage.com"
 )
-
 
 # ---------- LOAD LOOPS FROM JSON CONFIG ----------
 def load_loops():
@@ -44,6 +44,7 @@ def load_loops():
         for filename in cat.get("files", []):
             base = os.path.splitext(filename)[0]
             loop_id = f"{cat_id}__{base}"
+            # Nom lisible: cinema_audio_1 -> cinema audio 1
             pretty_name = base.replace("_", " ").replace("  ", " ")
             url = f"{CLOUDFLARE_BASE_URL}/{folder}/{filename}"
             preview = f"/static/previews/{base}.mp3"
@@ -75,7 +76,9 @@ def load_loops():
 CATEGORIES, ALL_LOOPS_BY_ID = load_loops()
 
 
-# ---------- ROUTES PAGES ----------
+# ---------------------------------------------------------
+# ROUTES PAGES
+# ---------------------------------------------------------
 
 @app.route("/")
 def index():
@@ -96,7 +99,9 @@ def about_page():
     return render_template("about.html", lang=lang)
 
 
-# ---------- CHECKOUT DIRECT (option simple, pas panier) ----------
+# ---------------------------------------------------------
+# CHECKOUT DIRECT (bouton "payer les loops sélectionnées")
+# ---------------------------------------------------------
 
 @app.route("/create-checkout-session", methods=["POST"])
 def create_checkout_session():
@@ -140,62 +145,73 @@ def create_checkout_session():
         return jsonify(error=str(e)), 500
 
 
-# ---------- ENVOI EMAIL AVEC MAILJET ----------
+# ---------------------------------------------------------
+# ENVOI DES EMAILS AVEC MAILJET API
+# ---------------------------------------------------------
 
 def send_loops_email(to_email: str, loop_ids: list):
-    """Envoie les liens WAV via Mailjet."""
+    """
+    Envoie un email via l’API Mailjet avec les liens Cloudflare des loops achetées.
+    """
     selected = [ALL_LOOPS_BY_ID[i] for i in loop_ids if i in ALL_LOOPS_BY_ID]
 
-    # Si pas de loops ou pas de config Mailjet → on sort silencieusement
-    if not selected or not MAILJET_API_KEY or not MAILJET_API_SECRET or not MAILJET_FROM_EMAIL:
+    if not selected:
         return
 
+    if not (MJ_API_KEY and MJ_API_SECRET and MJ_FROM_EMAIL):
+        # Pas de config Mailjet -> on sort silencieusement
+        return
+
+    # Corps du mail (texte)
     lines = [
-        "Merci pour votre achat de boucles Spectra Film Loops 🎬",
+        "Merci pour votre achat de boucles Spectra Media 🎬",
         "",
         "Voici vos liens de téléchargement (WAV haute qualité) :",
         "",
     ]
     for loop in selected:
-        lines.append(f"- {loop['name']} : {loop['url']}")
+        lines.append(f"- {loop['file']} : {loop['url']}")
+    lines.append("")
+    lines.append("Bonne création musicale,")
+    lines.append("Spectra Media")
 
-    lines.extend(
-        [
-            "",
-            "Bonne création musicale,",
-            "Spectra Media",
-        ]
-    )
+    text_body = "\n".join(lines)
 
     payload = {
         "Messages": [
             {
                 "From": {
-                    "Email": MAILJET_FROM_EMAIL,
-                    "Name": MAILJET_FROM_NAME,
+                    "Email": MJ_FROM_EMAIL,
+                    "Name": MJ_FROM_NAME,
                 },
                 "To": [
-                    {"Email": to_email},
+                    {
+                        "Email": to_email,
+                    }
                 ],
                 "Subject": "Vos boucles Spectra Film Loops",
-                "TextPart": "\n".join(lines),
+                "TextPart": text_body,
             }
         ]
     }
 
     try:
-        requests.post(
+        resp = requests.post(
             "https://api.mailjet.com/v3.1/send",
-            auth=(MAILJET_API_KEY, MAILJET_API_SECRET),
+            auth=(MJ_API_KEY, MJ_API_SECRET),
             json=payload,
             timeout=10,
         )
+        # Tu peux logger le résultat si tu veux débug :
+        # print("Mailjet status:", resp.status_code, resp.text)
     except Exception:
-        # On ne fait pas planter le webhook si l'email échoue
+        # On ne plante pas le webhook Stripe si l’email a un souci
         pass
 
 
-# ---------- WEBHOOK STRIPE ----------
+# ---------------------------------------------------------
+# WEBHOOK STRIPE
+# ---------------------------------------------------------
 
 @app.route("/stripe/webhook", methods=["POST"])
 def stripe_webhook():
@@ -213,9 +229,9 @@ def stripe_webhook():
         return abort(400)
 
     if event["type"] == "checkout.session.completed":
-        session_obj = event["data"]["object"]
-        customer_email = session_obj.get("customer_details", {}).get("email")
-        metadata_loops = session_obj.get("metadata", {}).get("loops", "")
+        session = event["data"]["object"]
+        customer_email = session.get("customer_details", {}).get("email")
+        metadata_loops = session.get("metadata", {}).get("loops", "")
 
         if customer_email and metadata_loops:
             loop_ids = [s for s in metadata_loops.split(",") if s]
@@ -225,24 +241,20 @@ def stripe_webhook():
 
 
 # ---------------------------------------------------------
-# PANIER - API JSON pour localStorage
+# PANIER / API JSON (localStorage)
 # ---------------------------------------------------------
 
 @app.route("/cart")
 def cart_page():
     lang = request.args.get("lang", "fr")
-    return render_template(
-        "cart.html",
-        lang=lang,
-        stripe_public_key=STRIPE_PUBLIC_KEY,
-    )
+    return render_template("cart.html", lang=lang, stripe_public_key=STRIPE_PUBLIC_KEY)
 
 
 @app.route("/get-cart", methods=["POST"])
 def get_cart():
     """
-    Le front envoie une liste d'IDs en localStorage
-    On renvoie les infos complètes des loops
+    Le front envoie une liste d'IDs stockés en localStorage.
+    On renvoie les infos complètes des loops + total.
     """
     data = request.get_json() or {}
     ids = data.get("ids", [])
@@ -262,7 +274,7 @@ def get_cart():
 @app.route("/create-checkout-session-cart", methods=["POST"])
 def create_checkout_session_cart():
     """
-    Checkout basé sur le contenu du panier
+    Checkout basé sur le contenu du panier (page /cart).
     """
     data = request.get_json() or {}
     ids = data.get("ids", [])
