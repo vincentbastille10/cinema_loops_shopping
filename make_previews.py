@@ -1,19 +1,24 @@
 from pydub import AudioSegment
-import os
 from pathlib import Path
 
-# adapte ces chemins si besoin
-CINEMA_FOLDER = Path("/Users/vincent/chemin/vers/Cinema loop")
-HORROR_FOLDER = Path("/Users/vincent/chemin/vers/Horor Loop")
+# 🔧 Dossier parent qui contient "Cinema loop", "Horor Loop", "Greys_anatomy", "TikTok Loop"
+BASE_FOLDER = Path("/Users/vincent/chemin/vers/TON_DOSSIER_LOOPS")  # <-- à adapter UNE fois
+
+CINEMA_FOLDER = BASE_FOLDER / "Cinema loop"
+HORROR_FOLDER = BASE_FOLDER / "Horor Loop"
+GREYS_FOLDER = BASE_FOLDER / "Greys_anatomy"
+
 
 PREVIEW_FOLDER = Path("static/previews")
 PREVIEW_FOLDER.mkdir(parents=True, exist_ok=True)
 
-DURATION_MS = 5000      # 5 secondes
-FADE_MS = 300           # fade in/out léger 300 ms
+DURATION_MS = 5000   # 5 secondes
+FADE_MS = 300        # fade in/out léger 300 ms
+
 
 def make_preview(wav_path: Path):
-    base = wav_path.stem              # ex: Horror_loop_1
+    # ex: greys_anatomy_style_emotional_audio_12.wav
+    base = wav_path.stem
     out_mp3 = PREVIEW_FOLDER / f"{base}.mp3"
 
     if out_mp3.exists():
@@ -21,6 +26,7 @@ def make_preview(wav_path: Path):
         return
 
     audio = AudioSegment.from_file(wav_path)
+
     if len(audio) <= DURATION_MS:
         segment = audio
     else:
@@ -32,10 +38,17 @@ def make_preview(wav_path: Path):
     segment.export(out_mp3, format="mp3", bitrate="128k")
     print(f"[OK] {wav_path.name} -> {out_mp3}")
 
+
 def process_folder(folder: Path):
+    if not folder.exists():
+        print(f"[WARN] Dossier introuvable : {folder}")
+        return
     for f in sorted(folder.glob("*.wav")):
         make_preview(f)
 
+
 if __name__ == "__main__":
-    process_folder(CINEMA_FOLDER)
-    process_folder(HORROR_FOLDER)
+    for folder in (CINEMA_FOLDER, HORROR_FOLDER, GREYS_FOLDER, TIKTOK_FOLDER):
+        process_folder(folder)
+
+    print("✅ Terminé : tous les previews MP3 ont été générés.")
