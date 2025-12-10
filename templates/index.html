@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ 'fr' if lang == 'fr' else 'en' }}">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
   <title>Cinema & Horror Loops – Boucles WAV & MP3 pour films, danse, TikTok</title>
@@ -9,35 +9,53 @@
         content="Boucles audio pour cinéma, danse, séries et TikTok. Packs Horror, Drama, Grey's Anatomy style, Stranger Synth – préécoute MP3 et achat des boucles WAV pour 1€." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Styles -->
+  <!-- Styles de base -->
   <style>
     :root {
-      --bg: #050006;
-      --bg-soft: #19000e;
-      --accent: #ff3045;
-      --accent-soft: #ff4a63;
-      --accent-strong: #ff1635;
-      --text: #fff3f7;
-      --muted: #f0b8c8;
-      --card-bg: #22000f;
-      --border-subtle: rgba(255, 255, 255, 0.08);
+      --bg: #050814;
+      --bg-soft: #0c1022;
+      --accent: #1e4fff;
+      --accent-soft: #2838ff;
+      --accent-strong: #0d2db9;
+      --text: #f8f8ff;
+      --muted: #a0a4c0;
+      --card-bg: #111428;
+      --border-subtle: rgba(255, 255, 255, 0.06);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #1a2140 0, #050814 50%, #02030a 100%);
       color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(255, 72, 120, 0.38), transparent 60%),
-        radial-gradient(circle at bottom, rgba(80, 0, 35, 0.9), #050006 75%),
-        url("/static/fond.jpeg") center top / cover fixed no-repeat;
+      min-height: 100vh;
     }
 
-    a { color: inherit; text-decoration: none; }
+    /* Si tu veux ton fond rouge issu de /static, mets le bon fichier ici :
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("/static/bg_red_loops.jpg") center/cover no-repeat;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: -1;
+    }
+    */
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .page {
       max-width: 1100px;
@@ -45,7 +63,9 @@
       padding: 2.5rem 1.5rem 4rem;
     }
 
-    header.page-header { margin-bottom: 2rem; }
+    header.page-header {
+      margin-bottom: 2rem;
+    }
 
     .logo-title {
       display: flex;
@@ -58,18 +78,17 @@
       width: 46px;
       height: 46px;
       border-radius: 999px;
-      background: conic-gradient(from 160deg,
-        #ff4b8b, #ffd54a, #ff824d, #ff3045, #ff4b8b);
+      background: conic-gradient(from 160deg, #ff4b4b, #ffb24a, #ff4b8b, #ff4b4b);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 18px rgba(255, 80, 130, 0.7);
+      box-shadow: 0 0 18px rgba(255, 80, 80, 0.65);
     }
 
     .logo-circle span {
       font-weight: 800;
       font-size: 1rem;
-      color: #2a000c;
+      color: #050814;
     }
 
     .page-title-text h1 {
@@ -85,7 +104,7 @@
       max-width: 650px;
     }
 
-    /* Badges info */
+    /* Badges du haut */
     .badges-row {
       display: flex;
       flex-wrap: wrap;
@@ -98,106 +117,102 @@
       padding: 0.3rem 0.7rem;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      background: rgba(60, 0, 25, 0.85);
+      background: rgba(15, 20, 45, 0.7);
       color: var(--muted);
       font-size: 0.78rem;
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      backdrop-filter: blur(8px);
     }
 
     .badge-pill span.dot {
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: #37ff9f;
-      box-shadow: 0 0 6px rgba(55, 255, 159, 0.9);
+      background: #ff4b4b;
+      box-shadow: 0 0 6px rgba(255, 75, 75, 0.9);
     }
 
-    /* NAV CATEGORIES */
+    /* NAV CATEGORIES (boutons bleus sous les badges) */
+
     .category-nav {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin: 1.5rem 0 1.9rem;
+      margin: 1.5rem 0 2rem;
     }
 
     .category-pill {
       display: inline-block;
-      padding: 0.45rem 0.95rem;
+      padding: 0.45rem 0.9rem;
       border-radius: 999px;
       background: var(--accent);
       color: #fff;
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.4);
-      transition: transform 0.1s ease,
-                  box-shadow 0.1s ease,
-                  background 0.15s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
     }
 
     .category-pill:hover {
       background: var(--accent-soft);
       transform: translateY(-1px);
-      box-shadow: 0 9px 22px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
     }
 
     .category-pill.active {
       background: var(--accent-strong);
-      box-shadow: 0 0 18px rgba(255, 60, 110, 0.9);
+      box-shadow: 0 0 12px rgba(0, 80, 255, 0.8);
     }
 
-    /* Accordéon */
+    /* Accordéon global */
+
     .accordion {
-      border-radius: 24px;
+      border-radius: 18px;
       border: 1px solid var(--border-subtle);
-      background: linear-gradient(145deg,
-        rgba(22, 0, 12, 0.96),
-        rgba(10, 0, 6, 0.98));
+      background: linear-gradient(145deg, rgba(15, 18, 40, 0.96), rgba(10, 12, 30, 0.98));
       box-shadow:
-        0 30px 90px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(255, 255, 255, 0.03);
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
       overflow: hidden;
     }
 
     .accordion-item + .accordion-item {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .accordion-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.4rem;
+      padding: 0.9rem 1.2rem;
       cursor: pointer;
-      background: radial-gradient(circle at top left,
-        rgba(255, 80, 120, 0.22), transparent 55%);
+      background: radial-gradient(circle at top left, rgba(255, 80, 80, 0.14), transparent 55%);
       transition: background 0.2s ease;
     }
 
     .accordion-header-left {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      gap: 0.75rem;
     }
 
     .cat-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 14px;
-      background: rgba(255, 80, 120, 0.16);
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(255, 80, 80, 0.16);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 0.9rem;
     }
 
     .cat-meta {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.15rem;
     }
 
     .cat-title-line {
@@ -207,22 +222,22 @@
     }
 
     .cat-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
     }
 
     .cat-tag {
       font-size: 0.72rem;
-      padding: 0.12rem 0.6rem;
+      padding: 0.1rem 0.5rem;
       border-radius: 99px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--muted);
     }
 
     .cat-desc {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
-      max-width: 440px;
+      max-width: 420px;
     }
 
     .accordion-header-right {
@@ -234,11 +249,11 @@
     }
 
     .price-chip {
-      padding: 0.26rem 0.75rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 999px;
-      background: rgba(40, 180, 90, 0.12);
-      border: 1px solid rgba(90, 255, 150, 0.7);
-      color: #b5ffd4;
+      background: rgba(255, 80, 80, 0.1);
+      border: 1px solid rgba(255, 120, 120, 0.7);
+      color: #ffd4d4;
       font-size: 0.8rem;
       display: flex;
       align-items: center;
@@ -253,7 +268,7 @@
       width: 18px;
       height: 18px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -263,21 +278,18 @@
 
     .accordion-item.open .accordion-chevron {
       transform: rotate(90deg);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.08);
     }
 
     .accordion-item.open .accordion-header {
-      background: radial-gradient(circle at top left,
-        rgba(255, 96, 130, 0.55),
-        rgba(16, 0, 8, 0.98));
+      background: radial-gradient(circle at top left, rgba(255, 80, 80, 0.35), rgba(5, 8, 20, 0.96));
     }
 
     .accordion-panel {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.22s ease-out;
-      background: radial-gradient(circle at bottom right,
-        rgba(80, 0, 30, 0.7), rgba(10, 0, 4, 1));
+      background: radial-gradient(circle at bottom right, rgba(15, 25, 80, 0.5), rgba(5, 8, 20, 1));
     }
 
     .accordion-item.open .accordion-panel {
@@ -285,107 +297,117 @@
     }
 
     .panel-inner {
-      padding: 0 1.4rem 1.1rem;
+      padding: 0 1.2rem 1rem;
     }
 
     .loop-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.7rem;
+      gap: 0.65rem;
       margin-top: 0.5rem;
     }
 
     @media (min-width: 720px) {
-      .loop-list { grid-template-columns: 1fr 1fr; }
+      .loop-list {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .loop-item {
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: linear-gradient(145deg,
-        rgba(38, 0, 18, 0.95),
-        rgba(18, 0, 10, 0.95));
-      padding: 0.7rem 0.7rem 0.8rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(145deg, rgba(10, 12, 28, 0.9), rgba(10, 16, 38, 0.9));
+      padding: 0.6rem 0.65rem 0.7rem;
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0.25rem;
     }
 
     .loop-row-top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 0.6rem;
+      gap: 0.4rem;
     }
 
     .loop-name {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 500;
-      color: #fff5f7;
+      color: #f0f0ff;
       word-break: break-all;
     }
 
     .loop-meta {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--muted);
       text-align: right;
     }
 
     .loop-meta span.price {
-      color: #b8ffd8;
+      color: #ffd4d4;
       font-weight: 600;
     }
 
-    .loop-audio { margin-top: 0.25rem; }
-    .loop-audio audio { width: 100%; }
+    .loop-audio {
+      margin-top: 0.25rem;
+    }
+
+    .loop-audio audio {
+      width: 100%;
+    }
 
     .buy-row {
-      margin-top: 0.3rem;
+      margin-top: 0.2rem;
       display: flex;
       justify-content: flex-end;
     }
 
     .buy-btn {
       font-size: 0.75rem;
-      padding: 0.32rem 0.7rem;
+      padding: 0.3rem 0.65rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(255, 70, 120, 0.75);
-      color: #fffafc;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 80, 80, 0.55);
+      color: #f8f8ff;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      transition: background 0.18s ease, transform 0.1s ease,
-                  box-shadow 0.18s ease;
+      gap: 0.3rem;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
 
     .buy-btn:hover {
-      background: rgba(255, 90, 140, 0.98);
+      background: rgba(255, 110, 110, 0.9);
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
     }
+
+    .buy-btn span.icon {
+      font-size: 0.85rem;
+    }
+
+    /* Footer minimal */
 
     footer {
       margin-top: 3rem;
       font-size: 0.78rem;
       color: var(--muted);
       text-align: center;
-      opacity: 0.85;
+      opacity: 0.75;
     }
 
     footer a {
-      color: #ff92b0;
+      color: var(--accent);
       text-decoration: underline;
       text-decoration-thickness: 1px;
     }
+
   </style>
 </head>
 
 <body>
   <div class="page">
 
-    <!-- HEADER -->
+    <!-- HEADER / HERO -->
     <header class="page-header">
       <div class="logo-title">
         <div class="logo-circle">
@@ -412,28 +434,29 @@
           🧪 Expérimenté en conditions réelles (spectacles & films)
         </div>
         <div class="badge-pill">
-          1€ la boucle – usage flexible
+          💿 1€ la boucle – usage flexible
         </div>
       </div>
     </header>
 
-    <!-- NAV CATEGORIES -->
+    <!-- NAV CATEGORIES (boutons bleus sous les badges) -->
     <nav class="category-nav" id="categoryNav">
-      <a href="#horror_short"   class="category-pill">Horror</a>
-      <a href="#horror_long"    class="category-pill">Horror Long</a>
-      <a href="#cinema_short"   class="category-pill">Cinéma</a>
+      <a href="#horror_short" class="category-pill">Horror</a>
+      <a href="#horror_long" class="category-pill">Horror Long</a>
+      <a href="#cinema_short" class="category-pill">Cinéma</a>
       <a href="#cinematic_long" class="category-pill">Cinematic Long</a>
-      <a href="#drama_long"     class="category-pill">Drama</a>
+      <a href="#drama_long" class="category-pill">Drama</a>
       <a href="#greys_emotional" class="category-pill">Grey's Anatomy</a>
-      <a href="#stranger_synth" class="category-pill">Stranger Synth</a>
+      <a href="#stranger_synth" class="category-pill">Stranger Things</a>
     </nav>
 
-    <!-- ACCORDÉON -->
+    <!-- ACCORDÉON DES CATÉGORIES -->
     <section class="accordion" id="loopsAccordion">
 
       {% for category in categories %}
       <article id="{{ category.id }}" class="accordion-item">
 
+        <!-- HEADER ACCORDÉON -->
         <div class="accordion-header accordion-toggle" data-category-id="{{ category.id }}">
           <div class="accordion-header-left">
             <div class="cat-icon">
@@ -461,39 +484,44 @@
           </div>
           <div class="accordion-header-right">
             <div class="price-chip">
-              <span><strong>{{ category.loops[0].price_eur if category.loops else 1 }}€</strong> / boucle</span>
+              <span>1€</span>
+              <span>/ boucle WAV</span>
             </div>
             <div class="accordion-chevron">&#9654;</div>
           </div>
         </div>
 
+        <!-- PANEL ACCORDÉON -->
         <div class="accordion-panel">
           <div class="panel-inner">
+
             <div class="loop-list">
 
-              {% for loop in category.loops %}
-              <div class="loop-item" data-loop-id="{{ loop.id }}">
+              {% for item in category.loops %}
+              <div class="loop-item">
 
                 <div class="loop-row-top">
                   <div class="loop-name">
-                    {{ loop.name }}
+                    {{ item.name }}
                   </div>
                   <div class="loop-meta">
-                    <span class="price">{{ loop.price_eur }}€</span> / WAV<br />
+                    <span class="price">{{ item.price_eur }}€</span> / WAV<br />
                     <span>Preview MP3 128k</span>
                   </div>
                 </div>
 
                 <div class="loop-audio">
                   <audio controls preload="none">
-                    <source src="{{ loop.preview }}" type="audio/mpeg">
+                    <source src="{{ item.preview }}" type="audio/mpeg">
                     Votre navigateur ne supporte pas l'audio HTML5.
                   </audio>
                 </div>
 
                 <div class="buy-row">
-                  <button class="buy-btn" type="button">
-                    <span>Ajouter au panier – {{ loop.price_eur }}€</span>
+                  <!-- Ici tu pourras brancher Stripe / lien vers page d'achat -->
+                  <button class="buy-btn" type="button" data-loop-id="{{ item.id }}">
+                    <span class="icon">🛒</span>
+                    <span>Acheter cette boucle – {{ item.price_eur }}€</span>
                   </button>
                 </div>
 
@@ -501,6 +529,7 @@
               {% endfor %}
 
             </div>
+
           </div>
         </div>
 
@@ -509,17 +538,18 @@
 
     </section>
 
+    <!-- FOOTER -->
     <footer>
       <p>
         Cinema Loops – Boucles composées et produites par Vincent Bastille.<br />
-        Pour des packs personnalisés ou une musique originale :
+        Pour des packs personnalisés, commandes spécifiques ou musique originale de film :
         <a href="mailto:vincentbastille100@gmail.com">vincentbastille100@gmail.com</a>
       </p>
     </footer>
 
   </div>
 
-  <!-- SCRIPT ACCORDÉON + NAV -->
+  <!-- SCRIPT ACCORDÉON + SURBRILLANCE BOUTONS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const accordionItems = document.querySelectorAll(".accordion-item");
@@ -530,10 +560,14 @@
           const panel = it.querySelector(".accordion-panel");
           if (it === item) {
             it.classList.add("open");
-            if (panel) panel.style.maxHeight = panel.scrollHeight + "px";
+            if (panel) {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
           } else {
             it.classList.remove("open");
-            if (panel) panel.style.maxHeight = 0;
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
           }
         });
       }
@@ -541,21 +575,27 @@
       function activatePillById(catId) {
         navPills.forEach(pill => {
           const href = pill.getAttribute("href") || "";
-          if (href === "#" + catId) pill.classList.add("active");
-          else pill.classList.remove("active");
+          if (href === "#" + catId) {
+            pill.classList.add("active");
+          } else {
+            pill.classList.remove("active");
+          }
         });
       }
 
+      // Header accordéon
       document.querySelectorAll(".accordion-toggle").forEach(toggle => {
-        toggle.addEventListener("click", e => {
+        toggle.addEventListener("click", (e) => {
           const item = e.currentTarget.closest(".accordion-item");
-          const panel = item.querySelector(".accordion-panel");
           const isOpen = item.classList.contains("open");
           const catId = item.getAttribute("id");
 
           if (isOpen) {
             item.classList.remove("open");
-            if (panel) panel.style.maxHeight = 0;
+            const panel = item.querySelector(".accordion-panel");
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
           } else {
             openItem(item);
             activatePillById(catId);
@@ -566,8 +606,9 @@
         });
       });
 
+      // Boutons catégorie
       navPills.forEach(pill => {
-        pill.addEventListener("click", e => {
+        pill.addEventListener("click", (e) => {
           e.preventDefault();
           const href = pill.getAttribute("href");
           if (!href || !href.startsWith("#")) return;
@@ -583,6 +624,7 @@
         });
       });
 
+      // Ouvrir la première catégorie par défaut
       if (accordionItems.length > 0) {
         const first = accordionItems[0];
         openItem(first);
@@ -590,14 +632,18 @@
         activatePillById(firstId);
       }
 
+      // Recalcule la hauteur max si resize
       window.addEventListener("resize", () => {
         const openItemEl = document.querySelector(".accordion-item.open");
         if (openItemEl) {
           const panel = openItemEl.querySelector(".accordion-panel");
-          if (panel) panel.style.maxHeight = panel.scrollHeight + "px";
+          if (panel) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
         }
       });
     });
   </script>
+
 </body>
 </html>
