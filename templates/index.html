@@ -1,532 +1,642 @@
 <!doctype html>
-<html lang="{{ 'fr' if lang == 'fr' else 'en' }}">
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
-  <!-- Google Search Console -->
-  <meta name="google-site-verification" content="2VoCddHV1wAmKbGLHfbcdupQnEvjPxUHTNZKfdghHxI" />
-
-  <title>Spectra Film Loops – Horror & Cinematic WAV Loops (Royalty-Free)</title>
+  <title>Cinema & Horror Loops – Boucles WAV & MP3 pour films, danse, TikTok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="description"
-        content="Spectra Film Loops : boucles audio cinématiques et sombres pour films d’horreur, cinéma, danse et installations. Pré-écoute MP3 128 kbps (15s), versions complètes en WAV haute qualité, 1€ la loop, paiement sécurisé Stripe, téléchargement instantané." />
-
-  <!-- Mots-clés pour moteurs de recherche -->
-  <meta name="keywords"
-        content="horror loops, cinematic loops, film audio, WAV loops, royalty-free loops, sound design, dark atmospheres, film scoring loops, Spectra Media, Vincent Bastille" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+        content="Boucles audio pour cinéma, danse, séries et TikTok. Packs Horror, Drama, Grey's Anatomy style, Stranger Synth – préécoute MP3 et achat des boucles WAV pour 1€." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://cinema-loops-shopping.onrender.com/" />
 
-  <!-- Open Graph / Social preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Spectra Film Loops – Horror & Cinematic WAV Loops" />
-  <meta property="og:description"
-        content="Cinematic horror loops, dark atmospheres and WAV textures for films, trailers, dance and installations. MP3 previews, full WAV downloads, royalty-free, instant delivery via Stripe." />
-  <meta property="og:url" content="https://cinema-loops-shopping.onrender.com/" />
-  <meta property="og:site_name" content="Spectra Film Loops" />
-  <!-- Si tu ajoutes un visuel dédié, décommente et adapte :
-  <meta property="og:image" content="https://cinema-loops-shopping.onrender.com/static/cover_loops.jpg" />
-  -->
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Spectra Film Loops – Horror & Cinematic WAV Loops" />
-  <meta name="twitter:description"
-        content="Cinematic horror loops & atmospheres in WAV format. Royalty-free, instant download after Stripe payment." />
-  <!-- <meta name="twitter:image" content="https://cinema-loops-shopping.onrender.com/static/cover_loops.jpg" /> -->
-
-  <!-- JSON-LD : boutique de loops audio -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "Spectra Film Loops",
-    "url": "https://cinema-loops-shopping.onrender.com/",
-    "image": "https://cinema-loops-shopping.onrender.com/static/fond.jpeg",
-    "description": "Librairie de boucles audio cinématiques et sombres pour films d’horreur, cinéma, trailers, danse contemporaine et installations. Boucles en WAV haute qualité, royalty-free, paiement Stripe, téléchargement instantané par email.",
-    "makesOffer": {
-      "@type": "Offer",
-      "name": "Horror & Cinematic WAV Loops",
-      "priceCurrency": "EUR",
-      "price": "1.00",
-      "availability": "https://schema.org/InStock"
-    },
-    "brand": {
-      "@type": "Brand",
-      "name": "Spectra Media"
+  <!-- Styles de base -->
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-soft: #0c1022;
+      --accent: #1e4fff;
+      --accent-soft: #2838ff;
+      --accent-strong: #0d2db9;
+      --text: #f8f8ff;
+      --muted: #a0a4c0;
+      --card-bg: #111428;
+      --border-subtle: rgba(255, 255, 255, 0.06);
     }
-  }
-  </script>
 
-  <!-- JSON-LD : FAQ Licence & Utilisation -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Puis-je utiliser ces boucles dans un film, une publicité ou un jeu vidéo commercial ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui. Les boucles Spectra Film Loops sont fournies en licence royalty-free pour vos films, publicités, jeux, spectacles ou contenus professionnels, sans frais supplémentaires par projet."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Puis-je utiliser ces loops sur YouTube, Twitch ou des plateformes monétisées ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui. Vous pouvez utiliser les boucles dans vos vidéos YouTube, Twitch ou autres plateformes, y compris sur des chaînes monétisées, tant que vous ne vendez pas les loops seules en tant que pack audio."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Dois-je créditer Spectra Media ou Vincent Bastille ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Le crédit n’est pas obligatoire mais fortement apprécié. Exemple de crédit : Music loops by Spectra Media / Vincent Bastille."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Les versions complètes sont-elles livrées en WAV haute qualité ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui. Les extraits sur le site sont en MP3 128 kbps (15 secondes) mais les versions complètes sont livrées en WAV haute qualité, prêtes pour le mixage et la diffusion cinéma."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Les loops sont-elles exclusives à mon projet ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Non. Les boucles sont non exclusives : vous achetez une licence d’utilisation royalty-free, mais d’autres créateurs peuvent acheter les mêmes loops pour leurs propres projets."
-        }
-      }
-    ]
-  }
-  </script>
+    * {
+      box-sizing: border-box;
+    }
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <script src="https://js.stripe.com/v3/"></script>
-  <script src="{{ url_for('static', filename='lang.js') }}"></script>
-</head>
-<body>
-  <header>
-    <div class="header-inner">
-      <div>
-        <h1>Spectra Film Loops</h1>
-        <!-- H1 SEO caché, très descriptif -->
-        <h1 style="position:absolute; left:-9999px; top:-9999px;">
-          Boucles audio cinématiques et horror WAV royalty-free pour films, danse et installations
-        </h1>
-        <p class="subtitle" data-i18n="header_sub">
-          Boucles audio professionnelles pour films, danse, horreur et installations. WAV haute qualité, royalty-free.
-        </p>
-      </div>
+    html {
+      scroll-behavior: smooth;
+    }
 
-      <div class="header-right">
-        <!-- Sélecteur de langue -->
-        <div class="lang-switch">
-          <button type="button" class="lang-btn" data-lang="fr">FR</button>
-          <button type="button" class="lang-btn" data-lang="en">EN</button>
-        </div>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #1a2140 0, #050814 50%, #02030a 100%);
+      color: var(--text);
+    }
 
-        <!-- Bouton voir panier -->
-        <a href="{{ url_for('cart_page') }}" class="btn btn-cart" data-i18n="go_to_cart">
-          Voir le panier
-        </a>
-      </div>
-    </div>
-  </header>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  <!-- 🔥 Bannière Promo : Tous les tracks pour 79€ TTC -->
-  <section 
-    style="
-      margin: 20px auto;
-      max-width: 900px;
-      padding: 18px 22px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #2a0010, #6b0030 60%, #ff0033);
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    header.page-header {
+      margin-bottom: 2rem;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: conic-gradient(from 160deg, #ff4b8b, #ffd54a, #4dd0ff, #9c6bff, #ff4b8b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px rgba(80, 140, 255, 0.5);
+    }
+
+    .logo-circle span {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #050814;
+    }
+
+    .page-title-text h1 {
+      font-size: 1.9rem;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .page-title-text p {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 650px;
+    }
+
+    /* Badges du haut */
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 20, 45, 0.7);
+      color: var(--muted);
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .badge-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #37ff9f;
+      box-shadow: 0 0 6px rgba(55, 255, 159, 0.9);
+    }
+
+    /* NAV CATEGORIES (boutons bleus) */
+
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .category-pill {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent);
       color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    }
+
+    .category-pill:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .category-pill.active {
+      background: var(--accent-strong);
+      box-shadow: 0 0 12px rgba(0, 80, 255, 0.8);
+    }
+
+    /* Accordeon global */
+
+    .accordion {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(145deg, rgba(15, 18, 40, 0.96), rgba(10, 12, 30, 0.98));
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      overflow: hidden;
+    }
+
+    .accordion-item + .accordion-item {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.2rem;
+      cursor: pointer;
+      background: radial-gradient(circle at top left, rgba(45, 80, 255, 0.18), transparent 55%);
+      transition: background 0.2s ease;
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cat-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(30, 79, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .cat-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .cat-title-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .cat-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .cat-tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+
+    .cat-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    .accordion-header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .price-chip {
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(55, 255, 159, 0.08);
+      border: 1px solid rgba(55, 255, 159, 0.5);
+      color: #9dffcc;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .price-chip strong {
+      font-size: 0.95rem;
+    }
+
+    .accordion-chevron {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .accordion-item.open .accordion-chevron {
+      transform: rotate(90deg);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .accordion-item.open .accordion-header {
+      background: radial-gradient(circle at top left, rgba(45, 111, 255, 0.4), rgba(5, 8, 20, 0.96));
+    }
+
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.22s ease-out;
+      background: radial-gradient(circle at bottom right, rgba(15, 25, 80, 0.5), rgba(5, 8, 20, 1));
+    }
+
+    .accordion-item.open .accordion-panel {
+      padding-bottom: 0.6rem; /* sera ajusté en JS via maxHeight, padding visuel en plus */
+    }
+
+    .panel-inner {
+      padding: 0 1.2rem 1rem;
+    }
+
+    .loop-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width: 720px) {
+      .loop-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .loop-item {
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(145deg, rgba(10, 12, 28, 0.9), rgba(10, 16, 38, 0.9));
+      padding: 0.6rem 0.65rem 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .loop-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .loop-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #f0f0ff;
+      word-break: break-all;
+    }
+
+    .loop-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .loop-meta span.price {
+      color: #9dffcc;
+      font-weight: 600;
+    }
+
+    .loop-audio {
+      margin-top: 0.25rem;
+    }
+
+    .loop-audio audio {
+      width: 100%;
+    }
+
+    .buy-row {
+      margin-top: 0.2rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .buy-btn {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(40, 60, 200, 0.5);
+      color: #f8f8ff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .buy-btn:hover {
+      background: rgba(70, 90, 240, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .buy-btn span.icon {
+      font-size: 0.85rem;
+    }
+
+    /* Footer minimal */
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: var(--muted);
       text-align: center;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.55);
-      border: 1px solid rgba(255,255,255,0.15);
-    "
-  >
-    <a href="https://buy.stripe.com/8x2aEP9gm5ongD12iO3ks04"
-       style="
-          text-decoration: none;
-          color: #fff;
-          display: block;
-          font-size: 1.4rem;
-          font-weight: 700;
-          letter-spacing: 0.5px;
-       ">
-        🎧 Offre spéciale : <span style="color:#ffccdd;">tous les tracks pour seulement 79€ TTC</span>
-        <div style="font-size: 0.9rem; margin-top: 4px; opacity: 0.85;">
-           Accès instantané – quantité limitée
+      opacity: 0.75;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER / HERO -->
+    <header class="page-header">
+      <div class="logo-title">
+        <div class="logo-circle">
+          <span>CL</span>
         </div>
-    </a>
-  </section>
-
-  <!-- Note sur les démos MP3 vs WAV livrées -->
-  <div class="demo-note">
-    ⚠️ <strong>À noter :</strong> les extraits audio disponibles sur cette page sont des
-    <strong>démos MP3 128 kbps</strong> d’environ <strong>15 secondes</strong>, destinées à la pré-écoute.
-    <br>
-    Les versions complètes des boucles — d’une durée comprise entre <strong>30 secondes et 1 minute</strong> —
-    sont livrées en <strong>WAV haute qualité</strong> et utilisables en <strong>royalty-free</strong> après paiement.
-  </div>
-
-  <!-- Badges Pro (WAV, Cinéma, Royalty-Free, Instant) -->
-  <div class="pro-badges">
-    <div class="badge">🎧 WAV Haute Qualité</div>
-    <div class="badge">🎬 Conçu pour Cinéma & Danse</div>
-    <div class="badge">✔️ Royalty-Free</div>
-    <div class="badge">⚡ Téléchargement Instantané</div>
-  </div>
-
-  <main class="main-container">
-    {% if status == "success" %}
-      <div class="status status-success" data-i18n="success_msg">
-        Paiement réussi – vos liens de téléchargement vous ont été envoyés.
+        <div class="page-title-text">
+          <h1>Cinema & Horror Loops – Boutique audio</h1>
+          <p>
+            Une sélection de boucles cinéma, horror, drama, synthwave et Grey's Anatomy style,
+            prêtes à coller dans tes montages, chorégraphies, courts-métrages ou TikTok.
+            Préécoute en MP3, achat de la boucle WAV en un clic (1€).
+          </p>
+        </div>
       </div>
-    {% elif status == "cancel" %}
-      <div class="status status-cancel" data-i18n="cancel_msg">
-        Paiement annulé – aucune boucle n'a été débitée.
+
+      <div class="badges-row">
+        <div class="badge-pill">
+          <span class="dot"></span> WAV 48kHz | MP3 128kbps preview
+        </div>
+        <div class="badge-pill">
+          🎬 Cinéma, danse contemporaine, séries dramatiques
+        </div>
+        <div class="badge-pill">
+          🧪 Expérimenté en conditions réelles (spectacles & films)
+        </div>
+        <div class="badge-pill">
+          💿 1€ la boucle – usage flexible
+        </div>
       </div>
-    {% endif %}
+    </header>
 
-    <form id="loops-form" onsubmit="return false;">
-      {% for cat in categories %}
-        {# id avec tirets pour les ancres SEO #}
-        <section id="{{ cat.id.replace('_', '-') }}">
-          <h2>{{ cat.title }}</h2>
-          {% if cat.description %}
-            <p class="section-subtitle">{{ cat.description }}</p>
-          {% endif %}
+    <!-- NAV CATEGORIES (boutons bleus sous les badges) -->
+    <nav class="category-nav" id="categoryNav">
+      <a href="#horror_short" class="category-pill">Horror</a>
+      <a href="#cinema_short" class="category-pill">Cinéma</a>
+      <a href="#horror_long" class="category-pill">Horror Long</a>
+      <a href="#cinematic_long" class="category-pill">Cinematic Long</a>
+      <a href="#drama_long" class="category-pill">Drama</a>
+      <a href="#greys_emotional" class="category-pill">Grey's Anatomy</a>
+      <a href="#stranger_synth" class="category-pill">Stranger Synth</a>
+    </nav>
 
-          <div class="loop-list">
-            {% for audio in cat.loops %}
-              <div class="loop-card">
-                <div class="loop-header">
-                  <div class="loop-left">
-                    <input
-                      type="checkbox"
-                      class="loop-checkbox"
-                      name="loop"
-                      value="{{ audio.id }}"
-                      id="chk_{{ audio.id }}"
-                    >
-                    <!-- Nom fidèle au fichier = audio.file -->
-                    <label class="loop-name" for="chk_{{ audio.id }}">
-                      {{ audio.file }}
-                    </label>
+    <!-- ACCORDÉON DES CATÉGORIES -->
+    <section class="accordion" id="loopsAccordion">
+
+      {% for category in categories %}
+      <article id="{{ category.id }}" class="accordion-item">
+
+        <!-- HEADER ACCORDÉON -->
+        <div class="accordion-header accordion-toggle" data-category-id="{{ category.id }}">
+          <div class="accordion-header-left">
+            <div class="cat-icon">
+              {% if 'horror' in category.id %}
+                👁️
+              {% elif 'cinema' in category.id %}
+                🎬
+              {% elif 'drama' in category.id %}
+                💔
+              {% elif 'greys' in category.id %}
+                🩺
+              {% elif 'stranger' in category.id %}
+                🕹️
+              {% else %}
+                🎧
+              {% endif %}
+            </div>
+            <div class="cat-meta">
+              <div class="cat-title-line">
+                <div class="cat-title">{{ category.title }}</div>
+                <div class="cat-tag">{{ category.files|length }} boucles</div>
+              </div>
+              <div class="cat-desc">{{ category.description }}</div>
+            </div>
+          </div>
+          <div class="accordion-header-right">
+            <div class="price-chip">
+              <span>💰</span>
+              <span><strong>{{ category.price_eur }}€</strong> / boucle</span>
+            </div>
+            <div class="accordion-chevron">&#9654;</div>
+          </div>
+        </div>
+
+        <!-- PANEL ACCORDÉON -->
+        <div class="accordion-panel">
+          <div class="panel-inner">
+
+            <div class="loop-list">
+
+              {% for file in category.files %}
+              <div class="loop-item">
+
+                <div class="loop-row-top">
+                  <div class="loop-name">
+                    {{ file }}
                   </div>
-                  <span class="loop-price">{{ audio.price_eur|round(2) }}€</span>
+                  <div class="loop-meta">
+                    <span class="price">{{ category.price_eur }}€</span> / WAV<br />
+                    <span>Preview MP3 128k</span>
+                  </div>
                 </div>
 
-                <audio class="loop-player" controls preload="none" loading="lazy">
-                  <source src="{{ audio.preview }}" type="audio/mpeg">
-                  Votre navigateur ne supporte pas l'audio HTML5.
-                </audio>
+                <div class="loop-audio">
+                  <audio controls preload="none">
+                    <source src="/static/previews/{{ file | replace('.wav', '.mp3') }}" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'audio HTML5.
+                  </audio>
+                </div>
 
-                <div class="loop-actions">
-                  <button
-                    type="button"
-                    class="btn btn-small btn-add"
-                    data-loop-id="{{ audio.id }}"
-                    data-i18n="add_to_cart"
-                  >
-                    Ajouter au panier
+                <div class="buy-row">
+                  <!-- Ici tu pourras brancher Stripe / lien vers page d'achat -->
+                  <button class="buy-btn" type="button">
+                    <span class="icon">🛒</span>
+                    <span>Acheter cette boucle – {{ category.price_eur }}€</span>
                   </button>
                 </div>
+
               </div>
-            {% endfor %}
+              {% endfor %}
+
+            </div>
+
           </div>
-        </section>
+        </div>
+
+      </article>
       {% endfor %}
-    </form>
 
-    <div class="go-cart-bottom">
-      <a href="{{ url_for('cart_page') }}" class="btn btn-cart" data-i18n="go_to_cart">
-        Voir le panier
-      </a>
-    </div>
-  </main>
+    </section>
 
-  <!-- ===============================
-       SECTION SEO – DESCRIPTION PRO
-  ==================================-->
-  <section class="seo-description" style="
-      max-width: 1100px;
-      margin: 3rem auto 2.5rem;
-      padding: 1.8rem 2rem;
-      background: rgba(10, 5, 25, 0.55);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      backdrop-filter: blur(6px);
-      line-height: 1.6;
-      font-size: 0.95rem;
-      color: #e7e2ff;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
-  ">
-    <h2 style="margin-top:0; font-size:1.4rem; letter-spacing:0.07em; text-transform:uppercase; color:#ffd6e6;">
-      About Spectra Film Loops
-    </h2>
-
-    <p>
-      <strong>Spectra Film Loops</strong> est une librairie professionnelle dédiée aux
-      <strong>boucles audio cinématiques</strong>, textures sonores, drones et ambiances
-      destinées aux <strong>films d’horreur</strong>, courts-métrages, trailers,
-      spectacles vivants, danse contemporaine et installations artistiques.
-    </p>
-
-    <p>
-      Chaque loop est proposée en <strong>WAV haute qualité</strong> (mix propre, dynamique
-      conservée, aucune compression destructive). Les extraits MP3 disponibles sur la page
-      sont limités à <strong>15 secondes en 128 kbps</strong> pour la pré-écoute.
-      Les versions complètes durent entre <strong>30 secondes et 1 minute</strong>
-      et sont livrées immédiatement après paiement via Stripe, avec des droits
-      <strong>royalty-free</strong> pour vos projets audiovisuels.
-    </p>
-
-    <p>
-      Toutes les boucles peuvent être utilisées dans vos films, vidéos YouTube, podcasts,
-      performances scéniques, jeux indépendants ou projets professionnels, sans frais
-      supplémentaires. La collection est pensée pour les monteurs, compositeurs, chorégraphes,
-      sound designers et créateurs indépendants qui cherchent des <strong>horror loops</strong>,
-      <strong>cinematic long loops</strong>, textures sombres et nappes atmosphériques prêtes à l’emploi.
-    </p>
-
-    <h3 style="margin-top:1.6rem; font-size:1.15rem; color:#ffcce0;">
-      English – Overview
-    </h3>
-
-    <p style="color:#ddd6ff;">
-      <strong>Spectra Film Loops</strong> is a curated library of <strong>cinematic audio loops</strong>,
-      dark atmospheres and horror textures designed for filmmakers, editors, choreographers,
-      video creators, and sound designers.  
-      All loops are delivered in <strong>high-quality WAV</strong> (full dynamics preserved) and are
-      <strong>royalty-free</strong> for commercial use in films, trailers, YouTube videos,
-      indie games and stage performances.
-    </p>
-
-    <p style="color:#ddd6ff;">
-      MP3 previews on this website are limited to <strong>15 seconds / 128 kbps</strong>.
-      Full versions (30–60s) are delivered instantly after checkout via Stripe,
-      with direct download links sent by email.
-    </p>
-
-    <p style="margin-top:1rem; opacity:0.9;">
-      Spectra Media © — Film & Horror Audio Production
-    </p>
-  </section>
-
-  <!-- ===============================
-       FAQ – Licence & Utilisation
-  ==================================-->
-  <section class="faq-section" style="
-      max-width: 1100px;
-      margin: 0 auto 2.5rem;
-      padding: 1.8rem 2rem;
-      background: rgba(8, 3, 18, 0.85);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 14px 36px rgba(0,0,0,0.6);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #eae6ff;
-  ">
-    <h2 style="margin-top:0; font-size:1.3rem; letter-spacing:0.08em; text-transform:uppercase; color:#ffe0ea;">
-      FAQ – Licence & utilisation
-    </h2>
-
-    <details style="margin-top:1rem;">
-      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
-        Puis-je utiliser ces boucles dans un film, une publicité ou un jeu vidéo commercial ?
-      </summary>
-      <p style="margin-top:0.6rem;">
-        Oui. Toutes les boucles Spectra Film Loops sont fournies en licence
-        <strong>royalty-free</strong> pour vos projets professionnels :
-        films, pubs, théâtre, danse contemporaine, jeux vidéo indépendants, installations, etc.
-        Aucun frais supplémentaire n’est demandé par projet.
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        Cinema Loops – Boucles composées et produites par Vincent Bastille.<br />
+        Pour des packs personnalisés, commandes spécifiques ou musique originale de film :
+        <a href="mailto:vincentbastille100@gmail.com">vincentbastille100@gmail.com</a>
       </p>
-    </details>
+    </footer>
 
-    <details style="margin-top:1rem;">
-      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
-        Puis-je utiliser ces loops sur YouTube, Twitch ou des plateformes monétisées ?
-      </summary>
-      <p style="margin-top:0.6rem;">
-        Oui, vous pouvez utiliser les boucles dans vos vidéos YouTube, Twitch, Vimeo, réseaux sociaux,
-        y compris sur des chaînes <strong>monétisées</strong>. La seule limite : vous ne pouvez pas
-        revendre les loops isolées en tant que pack audio concurrent.
-      </p>
-    </details>
+  </div>
 
-    <details style="margin-top:1rem;">
-      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
-        Dois-je créditer Spectra Media / Vincent Bastille ?
-      </summary>
-      <p style="margin-top:0.6rem;">
-        Le crédit n’est pas obligatoire, mais vivement recommandé, surtout pour les projets de cinéma
-        et d’auteur. Exemple : <em>Music loops by Spectra Media / Vincent Bastille</em>.
-        Cela aide les autres créateurs à découvrir la librairie.
-      </p>
-    </details>
-
-    <details style="margin-top:1rem;">
-      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
-        Les versions complètes sont-elles livrées en WAV haute qualité ?
-      </summary>
-      <p style="margin-top:0.6rem;">
-        Oui. Les extraits proposés sur cette page sont des <strong>démos MP3 128 kbps</strong> d’environ
-        15 secondes. Après paiement, vous recevez les <strong>versions complètes en WAV</strong> (30 à 60 secondes),
-        prêtes pour le mixage, le sound design et la diffusion cinéma.
-      </p>
-    </details>
-
-    <details style="margin-top:1rem;">
-      <summary style="cursor:pointer; font-weight:600; color:#ffd1df;">
-        Les loops sont-elles exclusives à mon projet ?
-      </summary>
-      <p style="margin-top:0.6rem;">
-        Non, il ne s’agit pas de licences exclusives. Vous achetez une licence d’utilisation
-        <strong>non exclusive, royalty-free</strong>. D’autres créateurs peuvent utiliser les mêmes
-        boucles dans d’autres contextes. Pour un travail 100% exclusif, vous pouvez
-        contacter directement Spectra Media pour une composition sur mesure.
-      </p>
-    </details>
-  </section>
-
-  <footer>
-    <a href="{{ url_for('about_page', lang=lang) }}" class="footer-link">
-      About / Licence
-    </a>
-    • Spectra Media – Film & Horror Audio Loops
-  </footer>
-
+  <!-- SCRIPT ACCORDÉON + SURBRILLANCE BOUTONS -->
   <script>
-    // --- Gestion de la langue (FR/EN) ---
-    const S_LANG = window.SPECTRA_LANG || {};
-    const DEFAULT_LANG = "{{ 'fr' if lang == 'fr' else 'en' }}";
+    document.addEventListener("DOMContentLoaded", () => {
+      const accordionItems = document.querySelectorAll(".accordion-item");
+      const navPills = document.querySelectorAll(".category-pill");
 
-    function applyLanguage(lang) {
-      const dict = S_LANG[lang] || S_LANG["fr"];
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (dict[key]) {
-          el.textContent = dict[key];
-        }
-      });
-      // stocker la langue
-      try {
-        localStorage.setItem("spectra_lang", lang);
-      } catch (e) {}
-    }
-
-    function initLanguage() {
-      let saved = null;
-      try {
-        saved = localStorage.getItem("spectra_lang");
-      } catch (e) {}
-      const lang = saved || DEFAULT_LANG;
-
-      applyLanguage(lang);
-
-      document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
-        btn.addEventListener("click", () => {
-          const newLang = btn.getAttribute("data-lang");
-          applyLanguage(newLang);
-          document.querySelectorAll(".lang-btn").forEach(b =>
-            b.classList.toggle("active", b.getAttribute("data-lang") === newLang)
-          );
-        });
-      });
-    }
-
-    // --- Gestion audio : une seule loop en lecture à la fois ---
-    function initAudioPlayers() {
-      const players = Array.from(document.querySelectorAll("audio.loop-player"));
-      players.forEach(player => {
-        player.addEventListener("play", () => {
-          players.forEach(other => {
-            if (other !== player) {
-              other.pause();
-              other.currentTime = 0;
+      // Ouvrir / fermer un item
+      function openItem(item) {
+        accordionItems.forEach(it => {
+          const panel = it.querySelector(".accordion-panel");
+          if (it === item) {
+            it.classList.add("open");
+            if (panel) {
+              // auto-height
+              panel.style.maxHeight = panel.scrollHeight + "px";
             }
-          });
-        });
-      });
-    }
-
-    // --- Panier : stocké dans localStorage ---
-    function getCartIds() {
-      try {
-        const raw = localStorage.getItem("spectra_cart");
-        if (!raw) return [];
-        return JSON.parse(raw);
-      } catch (e) {
-        return [];
-      }
-    }
-
-    function saveCartIds(ids) {
-      try {
-        localStorage.setItem("spectra_cart", JSON.stringify(ids));
-      } catch (e) {}
-    }
-
-    function addToCart(id) {
-      const ids = getCartIds();
-      if (!ids.includes(id)) {
-        ids.push(id);
-        saveCartIds(ids);
-      }
-    }
-
-    function initAddToCartButtons() {
-      document.querySelectorAll(".btn-add").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const id = btn.getAttribute("data-loop-id");
-          addToCart(id);
-          btn.classList.add("btn-added");
-          setTimeout(() => btn.classList.remove("btn-added"), 600);
-        });
-      });
-
-      // Si l'utilisateur coche/décoche, on synchronise aussi
-      document.querySelectorAll(".loop-checkbox").forEach(chk => {
-        chk.addEventListener("change", () => {
-          const id = chk.value;
-          if (chk.checked) {
-            addToCart(id);
           } else {
-            const ids = getCartIds().filter(x => x !== id);
-            saveCartIds(ids);
+            it.classList.remove("open");
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
+          }
+        });
+      }
+
+      // Surbrillance des pills
+      function activatePillById(catId) {
+        navPills.forEach(pill => {
+          const href = pill.getAttribute("href") || "";
+          if (href === "#" + catId) {
+            pill.classList.add("active");
+          } else {
+            pill.classList.remove("active");
+          }
+        });
+      }
+
+      // Handler sur header accordéon
+      document.querySelectorAll(".accordion-toggle").forEach(toggle => {
+        toggle.addEventListener("click", (e) => {
+          const item = e.currentTarget.closest(".accordion-item");
+          const isOpen = item.classList.contains("open");
+          const catId = item.getAttribute("id");
+
+          if (isOpen) {
+            // refermer
+            item.classList.remove("open");
+            const panel = item.querySelector(".accordion-panel");
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
+            // on garde la pill active telle quelle (option : désactiver)
+          } else {
+            openItem(item);
+            activatePillById(catId);
+            // scroll léger jusqu'au bloc (optionnel)
+            const rect = item.getBoundingClientRect();
+            const y = rect.top + window.scrollY - 80;
+            window.scrollTo({ top: y, behavior: "smooth" });
           }
         });
       });
 
-      // Initialiser les checkbox en fonction du localStorage
-      const current = getCartIds();
-      document.querySelectorAll(".loop-checkbox").forEach(chk => {
-        chk.checked = current.includes(chk.value);
+      // Handler sur nav pills (boutons bleus)
+      navPills.forEach(pill => {
+        pill.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = pill.getAttribute("href");
+          if (!href || !href.startsWith("#")) return;
+          const targetId = href.substring(1);
+          const targetItem = document.getElementById(targetId);
+          if (targetItem) {
+            openItem(targetItem);
+            activatePillById(targetId);
+            const rect = targetItem.getBoundingClientRect();
+            const y = rect.top + window.scrollY - 80;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        });
       });
-    }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      initLanguage();
-      initAudioPlayers();
-      initAddToCartButtons();
+      // Option : ouvrir la première catégorie par défaut
+      if (accordionItems.length > 0) {
+        const first = accordionItems[0];
+        openItem(first);
+        const firstId = first.getAttribute("id");
+        activatePillById(firstId);
+      }
+
+      // Recalcule la hauteur max quand la fenêtre change (ou si fonts changent)
+      window.addEventListener("resize", () => {
+        const openItemEl = document.querySelector(".accordion-item.open");
+        if (openItemEl) {
+          const panel = openItemEl.querySelector(".accordion-panel");
+          if (panel) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        }
+      });
     });
   </script>
+
 </body>
 </html>
