@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Cinema & Horror Audio Loops Shop – WAV & MP3</title>
+  <title>Cinema & Dance Audio Loops Shop – WAV & MP3</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="description"
-        content="Cinema, horror, drama, synthwave and Grey's Anatomy style audio loops. MP3 previews and HD WAV files sent by email after purchase. Royalty-free audio for films, dance and content creators." />
+        content="Modern, cinematic and horror audio loops for films, dance, trailers and TikTok – including Grey's Anatomy style and Stranger Things style moods. MP3 previews on this page and HD WAV files sent by email after purchase. Royalty-free audio for creators." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Base styles -->
   <style>
     :root {
       --bg: #050409;
@@ -24,13 +23,9 @@
       --glass: rgba(8, 4, 18, 0.80);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -46,7 +41,7 @@
       background-repeat: no-repeat;
     }
 
-    /* Si tu as un vrai fond dans /static, tu peux décommenter ça
+    /* Si tu veux ton vrai fond:
     body::before {
       content: "";
       position: fixed;
@@ -59,10 +54,7 @@
     }
     */
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .page {
       max-width: 1120px;
@@ -70,7 +62,7 @@
       padding: 2.2rem 1.5rem 4rem;
     }
 
-    /* Top bar with logo + cart */
+    /* TOP BAR */
 
     .top-bar {
       display: flex;
@@ -145,21 +137,21 @@
         0 0 18px rgba(255, 23, 68, 0.9);
     }
 
-    .cart-icon {
-      font-size: 1.1rem;
+    .cart-widget.pulse {
+      animation: cartPulse 0.55s ease-out;
     }
 
-    .cart-label {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-      line-height: 1.1;
+    @keyframes cartPulse {
+      0%   { transform: translateY(0) scale(1); }
+      35%  { transform: translateY(-1px) scale(1.04); box-shadow: 0 14px 26px rgba(0,0,0,1), 0 0 24px rgba(255,23,68,1); }
+      100% { transform: translateY(0) scale(1); }
     }
 
-    .cart-label span.main {
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
+    .cart-icon { font-size: 1.1rem; }
+
+    .cart-label { display: flex; flex-direction: column; gap: 0.1rem; line-height: 1.1; }
+
+    .cart-label span.main { font-weight: 600; font-size: 0.85rem; }
 
     .cart-badge {
       position: absolute;
@@ -179,7 +171,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
     }
 
-    /* Hero / band */
+    /* HERO */
 
     .hero-card {
       border-radius: 22px;
@@ -198,9 +190,7 @@
     }
 
     @media (max-width: 760px) {
-      .hero-card {
-        grid-template-columns: 1fr;
-      }
+      .hero-card { grid-template-columns: 1fr; }
     }
 
     .hero-main-title {
@@ -330,9 +320,7 @@
       background: linear-gradient(145deg, #ff4569, #ff8a65);
     }
 
-    .pack-btn span.icon {
-      font-size: 1.1rem;
-    }
+    .pack-btn span.icon { font-size: 1.1rem; }
 
     .hero-footnote {
       font-size: 0.78rem;
@@ -340,7 +328,7 @@
       text-align: right;
     }
 
-    /* Category badges row (small) */
+    /* BADGES */
 
     .badges-row {
       display: flex;
@@ -371,7 +359,7 @@
       box-shadow: 0 0 6px rgba(55, 255, 159, 0.9);
     }
 
-    /* NAV CATEGORIES (blue / red pills) */
+    /* NAV CATEGORIES */
 
     .category-nav {
       display: flex;
@@ -388,7 +376,6 @@
       color: #fff;
       font-size: 0.9rem;
       font-weight: 600;
-      text-decoration: none;
       box-shadow:
         0 8px 16px rgba(0, 0, 0, 0.6),
         0 0 14px rgba(41, 98, 255, 0.8);
@@ -410,7 +397,7 @@
         0 0 26px rgba(255, 23, 68, 1);
     }
 
-    /* Accordion */
+    /* ACCORDION */
 
     .accordion {
       border-radius: 18px;
@@ -453,11 +440,7 @@
       font-size: 0.9rem;
     }
 
-    .cat-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
+    .cat-meta { display: flex; flex-direction: column; gap: 0.15rem; }
 
     .cat-title-line {
       display: flex;
@@ -465,10 +448,7 @@
       gap: 0.6rem;
     }
 
-    .cat-title {
-      font-size: 1rem;
-      font-weight: 600;
-    }
+    .cat-title { font-size: 1rem; font-weight: 600; }
 
     .cat-tag {
       font-size: 0.72rem;
@@ -504,9 +484,7 @@
       gap: 0.3rem;
     }
 
-    .price-chip strong {
-      font-size: 0.95rem;
-    }
+    .price-chip strong { font-size: 0.95rem; }
 
     .accordion-chevron {
       width: 18px;
@@ -536,13 +514,9 @@
       background: radial-gradient(circle at bottom right, rgba(40, 5, 20, 0.7), rgba(4, 2, 10, 1));
     }
 
-    .accordion-item.open .accordion-panel {
-      padding-bottom: 0.6rem;
-    }
+    .accordion-item.open .accordion-panel { padding-bottom: 0.6rem; }
 
-    .panel-inner {
-      padding: 0 1.2rem 1rem;
-    }
+    .panel-inner { padding: 0 1.2rem 1rem; }
 
     .loop-list {
       display: grid;
@@ -552,12 +526,11 @@
     }
 
     @media (min-width: 720px) {
-      .loop-list {
-        grid-template-columns: 1fr 1fr;
-      }
+      .loop-list { grid-template-columns: 1fr 1fr; }
     }
 
     .loop-item {
+      position: relative;
       border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.07);
       background: linear-gradient(145deg, rgba(12, 5, 18, 0.95), rgba(8, 3, 26, 0.95));
@@ -595,13 +568,9 @@
       font-weight: 600;
     }
 
-    .loop-audio {
-      margin-top: 0.25rem;
-    }
+    .loop-audio { margin-top: 0.25rem; }
 
-    .loop-audio audio {
-      width: 100%;
-    }
+    .loop-audio audio { width: 100%; }
 
     .buy-row {
       margin-top: 0.2rem;
@@ -635,11 +604,38 @@
         0 0 18px rgba(61, 128, 255, 1);
     }
 
-    .buy-btn span.icon {
-      font-size: 0.85rem;
+    .buy-btn span.icon { font-size: 0.85rem; }
+
+    /* MINI TOAST */
+
+    .mini-toast {
+      position: absolute;
+      right: 12px;
+      bottom: 10px;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.9);
+      color: #c8e6c9;
+      font-size: 0.72rem;
+      border: 1px solid rgba(200, 230, 201, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      opacity: 0;
+      transform: translateY(6px);
+      pointer-events: none;
+      animation: miniToast 1.9s ease-out forwards;
+      z-index: 5;
     }
 
-    /* Universe block + footer */
+    @keyframes miniToast {
+      0%   { opacity: 0; transform: translateY(6px); }
+      10%  { opacity: 1; transform: translateY(0); }
+      85%  { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-4px); }
+    }
+
+    /* UNIVERSE & FOOTER */
 
     .universe-block {
       margin-top: 2.4rem;
@@ -663,9 +659,7 @@
       max-width: 480px;
     }
 
-    .universe-text strong {
-      font-weight: 650;
-    }
+    .universe-text strong { font-weight: 650; }
 
     .universe-btn {
       display: inline-flex;
@@ -694,9 +688,7 @@
         0 0 24px rgba(61, 128, 255, 1);
     }
 
-    .universe-btn span.icon {
-      font-size: 1rem;
-    }
+    .universe-btn span.icon { font-size: 1rem; }
 
     footer {
       margin-top: 2rem;
@@ -711,7 +703,6 @@
       text-decoration: underline;
       text-decoration-thickness: 1px;
     }
-
   </style>
 </head>
 
@@ -725,10 +716,11 @@
           <span>CL</span>
         </div>
         <div class="page-title-text">
-          <h1>Cinema & Horror Audio Loops Shop</h1>
+          <h1>Cinema & Dance Audio Loops Shop</h1>
           <p>
-            Modern, cinematic loops for films, dance, trailers and TikTok. MP3 previews on this page –
-            HD WAV files are sent to you by email after purchase.
+            Modern, cinematic and horror loops for films, dance, trailers and TikTok –
+            including Grey's Anatomy style and Stranger Things style moods.
+            MP3 previews here, HD WAV files sent by email after purchase.
           </p>
         </div>
       </div>
@@ -750,7 +742,7 @@
           Curated packs for filmmakers, choreographers & content creators.
         </div>
         <div class="hero-subline">
-          Preview everything here in MP3, then get the full-quality WAV files in your inbox.
+          Preview everything in MP3, then get the full-quality WAV files in your inbox.
           All tracks are royalty-free for your projects.
         </div>
 
@@ -760,47 +752,47 @@
             48kHz WAV delivery by email
           </div>
           <div class="hero-pill">
-            🎬 Designed for cinema, series, trailers & dance
+            🎬 Designed for cinema, series, trailers & dance pieces
           </div>
           <div class="hero-pill">
             🎧 MP3 previews – one loop at a time
           </div>
           <div class="hero-pill">
-            💼 Royalty-free usage (see <a href="{{ url_for('about_page') }}">About</a>)
+            ✅ Royalty-free usage (see <a href="{{ url_for('about_page') }}">About</a>)
           </div>
         </div>
 
         <div class="hero-note">
-          Tip: explore by category, then buy single loops or the full pack for a flat price.
+          Explore by category, then buy single loops or grab the full pack.
         </div>
       </div>
 
       <div class="hero-right">
         <div class="pack-banner">
           <div class="pack-banner-title">
-            Get the complete Cinema & Horror collection
+            Get the complete Cinema, Dance & Horror collection
           </div>
           <div class="pack-banner-sub">
-            All Horror, Cinema, Drama, Grey’s Anatomy style and Stranger Synth loops in one bundle.
+            All Horror, Cinema, Drama, Grey’s Anatomy style and Stranger Things style loops in one bundle.
           </div>
           <div class="pack-price-line">
             <div class="pack-price-main">99€</div>
             <div class="pack-price-tag">Full pack</div>
           </div>
-          <!-- Remplace le href par ton vrai lien Stripe Pack si besoin -->
+          <!-- Remplace par ton vrai lien Stripe pour le pack -->
           <a href="https://buy.stripe.com/your_full_pack_link_here"
              class="pack-btn">
             <span class="icon">💾</span>
             <span>Buy the full pack – 99€</span>
           </a>
           <div class="hero-footnote">
-            You receive a download email with all WAV files in HD after payment.
+            You receive a download email with all HD WAV files after payment.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SMALL BADGES ROW -->
+    <!-- BADGES ROW -->
     <div class="badges-row">
       <div class="badge-pill">
         <span class="dot"></span> 48kHz WAV delivery | MP3 128kbps previews
@@ -812,14 +804,14 @@
         🎛️ Carefully mixed & tested in real shows
       </div>
       <div class="badge-pill">
-        💿 1€ per loop – simple, transparent pricing
+        1€ per loop – simple, transparent pricing
       </div>
       <div class="badge-pill">
         ✅ Royalty-free for your projects (see <a href="{{ url_for('about_page') }}">About</a>)
       </div>
     </div>
 
-    <!-- CATEGORY NAV (buttons under badges) -->
+    <!-- CATEGORY NAV -->
     <nav class="category-nav" id="categoryNav">
       <a href="#horror_short" class="category-pill">Horror</a>
       <a href="#horror_long" class="category-pill">Horror – Long</a>
@@ -827,7 +819,7 @@
       <a href="#cinematic_long" class="category-pill">Cinematic Long</a>
       <a href="#drama_long" class="category-pill">Drama</a>
       <a href="#greys_emotional" class="category-pill">Grey's Anatomy Style</a>
-      <a href="#stranger_synth" class="category-pill">Stranger Synth</a>
+      <a href="#stranger_synth" class="category-pill">Stranger Things Synth</a>
     </nav>
 
     <!-- ACCORDION -->
@@ -836,7 +828,6 @@
       {% for category in categories %}
       <article id="{{ category.id }}" class="accordion-item">
 
-        <!-- ACCORDION HEADER -->
         <div class="accordion-header accordion-toggle" data-category-id="{{ category.id }}">
           <div class="accordion-header-left">
             <div class="cat-icon">
@@ -864,20 +855,18 @@
           </div>
           <div class="accordion-header-right">
             <div class="price-chip">
-              <span>💰</span>
               <span><strong>{{ category.loops[0].price_eur if category.loops else 1 }}€</strong> / loop</span>
             </div>
             <div class="accordion-chevron">&#9654;</div>
           </div>
         </div>
 
-        <!-- ACCORDION PANEL -->
         <div class="accordion-panel">
           <div class="panel-inner">
             <div class="loop-list">
 
               {% for item in category.loops %}
-              <div class="loop-item" data-loop-id="{{ item.id }}">
+              <div class="loop-item" data-loop-id="{{ item.id }}" data-loop-name="{{ item.name }}">
                 <div class="loop-row-top">
                   <div class="loop-name">
                     {{ item.name }}
@@ -929,7 +918,7 @@
     <!-- FOOTER -->
     <footer>
       <p>
-        Cinema & Horror Loops – composed and produced by Vincent Bastille.<br />
+        Cinema & Dance Loops – composed and produced by Vincent Bastille.<br />
         All audio is delivered as HD WAV by email after purchase and is royalty-free for your projects
         (see <a href="{{ url_for('about_page') }}">About</a> for details).<br />
         For custom packs or original film music:
@@ -939,7 +928,7 @@
 
   </div>
 
-  <!-- SCRIPTS: accordion, nav highlight, single audio playback, cart badge -->
+  <!-- SCRIPTS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const accordionItems = document.querySelectorAll(".accordion-item");
@@ -947,32 +936,29 @@
       const audioPlayers = document.querySelectorAll(".loop-audio-player");
       const cartCountEl = document.getElementById("cartCount");
       const cartSummaryEl = document.getElementById("cartSummary");
+      const cartWidget = document.getElementById("cartWidget");
 
-      // --- SINGLE AUDIO AT A TIME ---
+      const CART_KEY = "cinema_loops_cart_ids";
+
+      // --- SINGLE AUDIO ---
       audioPlayers.forEach(player => {
         player.addEventListener("play", () => {
           audioPlayers.forEach(other => {
-            if (other !== player) {
-              other.pause();
-            }
+            if (other !== player) other.pause();
           });
         });
       });
 
-      // --- ACCORDION LOGIC ---
+      // --- ACCORDION ---
       function openItem(item) {
         accordionItems.forEach(it => {
           const panel = it.querySelector(".accordion-panel");
           if (it === item) {
             it.classList.add("open");
-            if (panel) {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            }
+            if (panel) panel.style.maxHeight = panel.scrollHeight + "px";
           } else {
             it.classList.remove("open");
-            if (panel) {
-              panel.style.maxHeight = 0;
-            }
+            if (panel) panel.style.maxHeight = 0;
           }
         });
       }
@@ -992,9 +978,8 @@
         toggle.addEventListener("click", (e) => {
           const item = e.currentTarget.closest(".accordion-item");
           const isOpen = item.classList.contains("open");
-          const catId = item.getAttribute("id");
-
           const panel = item.querySelector(".accordion-panel");
+          const catId = item.getAttribute("id");
 
           if (isOpen) {
             item.classList.remove("open");
@@ -1026,7 +1011,6 @@
         });
       });
 
-      // Open first category by default
       if (accordionItems.length > 0) {
         const first = accordionItems[0];
         openItem(first);
@@ -1038,31 +1022,89 @@
         const openItemEl = document.querySelector(".accordion-item.open");
         if (openItemEl) {
           const panel = openItemEl.querySelector(".accordion-panel");
-          if (panel) {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
+          if (panel) panel.style.maxHeight = panel.scrollHeight + "px";
         }
       });
 
-      // --- SIMPLE CART BADGE (from localStorage) ---
-      // On part du principe que tu stockes les IDs de loops dans localStorage
-      // sous la clé "cinema_loops_cart_ids" (liste JSON).
-      function refreshCartBadge() {
+      // --- CART STORAGE / BADGE ---
+
+      function getCartIds() {
         try {
-          const raw = localStorage.getItem("cinema_loops_cart_ids");
+          const raw = localStorage.getItem(CART_KEY);
           const ids = raw ? JSON.parse(raw) : [];
-          const count = Array.isArray(ids) ? ids.length : 0;
-          cartCountEl.textContent = count;
-          cartSummaryEl.textContent =
-            count === 0 ? "0 loops selected" :
-            (count === 1 ? "1 loop selected" : count + " loops selected");
+          return Array.isArray(ids) ? ids : [];
         } catch (e) {
-          cartCountEl.textContent = "0";
-          cartSummaryEl.textContent = "0 loops selected";
+          return [];
+        }
+      }
+
+      function setCartIds(ids) {
+        try {
+          localStorage.setItem(CART_KEY, JSON.stringify(ids));
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      function refreshCartBadge() {
+        const ids = getCartIds();
+        const count = ids.length;
+        cartCountEl.textContent = count;
+        cartSummaryEl.textContent =
+          count === 0 ? "0 loops selected" :
+          (count === 1 ? "1 loop selected" : count + " loops selected");
+      }
+
+      function pulseCart() {
+        if (!cartWidget) return;
+        cartWidget.classList.add("pulse");
+        setTimeout(() => cartWidget.classList.remove("pulse"), 550);
+      }
+
+      function showMiniToast(loopItem, name) {
+        if (!loopItem) return;
+        const oldToast = loopItem.querySelector(".mini-toast");
+        if (oldToast) oldToast.remove();
+
+        const div = document.createElement("div");
+        div.className = "mini-toast";
+        div.innerHTML = `<span>✓</span><span>Added to cart</span>`;
+        loopItem.appendChild(div);
+
+        setTimeout(() => {
+          if (div.parentNode) div.parentNode.removeChild(div);
+        }, 1900);
+      }
+
+      function addToCart(loopId, loopName, loopItem) {
+        const ids = getCartIds();
+        if (!ids.includes(loopId)) {
+          ids.push(loopId);
+          setCartIds(ids);
+          refreshCartBadge();
+          showMiniToast(loopItem, loopName);
+          pulseCart();
+        } else {
+          // déjà présent -> petit toast quand même
+          showMiniToast(loopItem, loopName);
+          pulseCart();
         }
       }
 
       refreshCartBadge();
+
+      // --- BUY BUTTONS ---
+
+      document.querySelectorAll(".loop-item").forEach(loopItem => {
+        const btn = loopItem.querySelector(".buy-btn");
+        if (!btn) return;
+        btn.addEventListener("click", () => {
+          const loopId = loopItem.getAttribute("data-loop-id");
+          const loopName = loopItem.getAttribute("data-loop-name") || "";
+          if (!loopId) return;
+          addToCart(loopId, loopName, loopItem);
+        });
+      });
     });
   </script>
 
