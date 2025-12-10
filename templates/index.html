@@ -9,17 +9,16 @@
         content="Boucles audio pour cinéma, danse, séries et TikTok. Packs Horror, Drama, Grey's Anatomy style, Stranger Synth – préécoute MP3 et achat des boucles WAV pour 1€." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Styles de base -->
   <style>
     :root {
-      --bg: #050814;
-      --bg-soft: #0c1022;
-      --accent: #1e4fff;
-      --accent-soft: #2838ff;
-      --accent-strong: #0d2db9;
-      --text: #f8f8ff;
-      --muted: #a0a4c0;
-      --card-bg: #111428;
+      --bg: #050106;
+      --bg-soft: rgba(10, 0, 20, 0.7);
+      --accent: #ff2648;
+      --accent-soft: #ff4b6b;
+      --accent-strong: #ff0d2d;
+      --text: #fdf7ff;
+      --muted: #c0b3cc;
+      --card-bg: rgba(15, 0, 25, 0.88);
       --border-subtle: rgba(255, 255, 255, 0.06);
     }
 
@@ -35,8 +34,13 @@
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background: radial-gradient(circle at top, #1a2140 0, #050814 50%, #02030a 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255, 0, 80, 0.4), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(150, 0, 255, 0.45), transparent 55%),
+        radial-gradient(circle at bottom left, rgba(255, 120, 0, 0.22), transparent 60%),
+        url("/static/fond.jpeg") center/cover fixed;
+      backdrop-filter: blur(6px);
     }
 
     a {
@@ -48,6 +52,15 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem 4rem;
+      background: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.80),
+        rgba(10, 0, 20, 0.94)
+      );
+      border-radius: 26px;
+      box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
     }
 
     header.page-header {
@@ -62,30 +75,36 @@
     }
 
     .logo-circle {
-      width: 46px;
-      height: 46px;
+      width: 52px;
+      height: 52px;
       border-radius: 999px;
-      background: conic-gradient(from 160deg, #ff4b8b, #ffd54a, #4dd0ff, #9c6bff, #ff4b8b);
+      background:
+        conic-gradient(from 160deg,
+          #ff2648,
+          #ffb347,
+          #fffb82,
+          #ff4bf2,
+          #ff2648);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 18px rgba(80, 140, 255, 0.5);
+      box-shadow: 0 0 24px rgba(255, 80, 150, 0.75);
     }
 
     .logo-circle span {
-      font-weight: 800;
+      font-weight: 900;
       font-size: 1rem;
-      color: #050814;
+      color: #1a021f;
     }
 
     .page-title-text h1 {
-      font-size: 1.9rem;
+      font-size: 2rem;
       margin: 0;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
 
     .page-title-text p {
-      margin: 0.25rem 0 0;
+      margin: 0.35rem 0 0;
       color: var(--muted);
       font-size: 0.95rem;
       max-width: 650px;
@@ -101,82 +120,96 @@
     }
 
     .badge-pill {
-      padding: 0.3rem 0.7rem;
+      padding: 0.35rem 0.75rem;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 20, 45, 0.7);
+      background: rgba(40, 0, 40, 0.85);
       color: var(--muted);
       font-size: 0.78rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 0.3rem;
     }
 
     .badge-pill span.dot {
       width: 6px;
       height: 6px;
       border-radius: 999px;
-      background: #37ff9f;
-      box-shadow: 0 0 6px rgba(55, 255, 159, 0.9);
+      background: #25ff9c;
+      box-shadow: 0 0 7px rgba(37, 255, 156, 0.9);
     }
 
-    /* NAV CATEGORIES (boutons bleus) */
+    /* NAV catégories – boutons rouges */
 
     .category-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin: 1.5rem 0 2rem;
+      gap: 0.8rem;
+      margin: 1.6rem 0 2.1rem;
     }
 
     .category-pill {
       display: inline-block;
-      padding: 0.45rem 0.9rem;
+      padding: 0.5rem 1.1rem;
       border-radius: 999px;
       background: var(--accent);
       color: #fff;
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
     }
 
     .category-pill:hover {
       background: var(--accent-soft);
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.4);
     }
 
     .category-pill.active {
       background: var(--accent-strong);
-      box-shadow: 0 0 12px rgba(0, 80, 255, 0.8);
+      box-shadow: 0 0 16px rgba(255, 40, 80, 0.95);
     }
 
-    /* Accordeon global */
+    /* Accordéon */
 
     .accordion {
-      border-radius: 18px;
+      border-radius: 22px;
       border: 1px solid var(--border-subtle);
-      background: linear-gradient(145deg, rgba(15, 18, 40, 0.96), rgba(10, 12, 30, 0.98));
+      background: linear-gradient(150deg,
+        rgba(20, 0, 30, 0.98),
+        rgba(5, 0, 12, 0.98));
       box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 30px 80px rgba(0, 0, 0, 0.7),
         0 0 0 1px rgba(255, 255, 255, 0.02);
       overflow: hidden;
     }
 
     .accordion-item + .accordion-item {
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .accordion-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 1.2rem;
+      padding: 1rem 1.3rem;
       cursor: pointer;
-      background: radial-gradient(circle at top left, rgba(45, 80, 255, 0.18), transparent 55%);
+      background: radial-gradient(
+        circle at top left,
+        rgba(255, 38, 72, 0.22),
+        transparent 55%
+      );
       transition: background 0.2s ease;
+    }
+
+    .accordion-item.open .accordion-header {
+      background: radial-gradient(
+        circle at top left,
+        rgba(255, 38, 72, 0.45),
+        rgba(10, 0, 18, 0.96)
+      );
     }
 
     .accordion-header-left {
@@ -186,14 +219,15 @@
     }
 
     .cat-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: rgba(30, 79, 255, 0.12);
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(120, 0, 40, 0.85);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.9rem;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
 
     .cat-meta {
@@ -205,7 +239,7 @@
     .cat-title-line {
       display: flex;
       align-items: baseline;
-      gap: 0.6rem;
+      gap: 0.65rem;
     }
 
     .cat-title {
@@ -214,84 +248,83 @@
     }
 
     .cat-tag {
-      font-size: 0.72rem;
-      padding: 0.1rem 0.5rem;
-      border-radius: 99px;
-      background: rgba(255, 255, 255, 0.06);
+      font-size: 0.74rem;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
       color: var(--muted);
     }
 
     .cat-desc {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      max-width: 420px;
+      max-width: 440px;
     }
 
     .accordion-header-right {
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: var(--muted);
     }
 
     .price-chip {
-      padding: 0.2rem 0.7rem;
+      padding: 0.25rem 0.8rem;
       border-radius: 999px;
-      background: rgba(55, 255, 159, 0.08);
-      border: 1px solid rgba(55, 255, 159, 0.5);
-      color: #9dffcc;
+      background: rgba(37, 255, 156, 0.07);
+      border: 1px solid rgba(37, 255, 156, 0.55);
+      color: #abffd3;
       font-size: 0.8rem;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
 
     .price-chip strong {
       font-size: 0.95rem;
+      color: #e9fffb;
     }
 
     .accordion-chevron {
-      width: 18px;
-      height: 18px;
+      width: 19px;
+      height: 19px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       transition: transform 0.18s ease, background 0.18s ease;
     }
 
     .accordion-item.open .accordion-chevron {
       transform: rotate(90deg);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .accordion-item.open .accordion-header {
-      background: radial-gradient(circle at top left, rgba(45, 111, 255, 0.4), rgba(5, 8, 20, 0.96));
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .accordion-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.22s ease-out;
-      background: radial-gradient(circle at bottom right, rgba(15, 25, 80, 0.5), rgba(5, 8, 20, 1));
+      display: none;
+      background: radial-gradient(
+        circle at bottom right,
+        rgba(255, 60, 120, 0.2),
+        rgba(5, 0, 12, 1)
+      );
     }
 
     .accordion-item.open .accordion-panel {
-      padding-bottom: 0.6rem; /* sera ajusté en JS via maxHeight, padding visuel en plus */
+      display: block;
     }
 
     .panel-inner {
-      padding: 0 1.2rem 1rem;
+      padding: 0.4rem 1.3rem 1.1rem;
     }
 
     .loop-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.65rem;
-      margin-top: 0.5rem;
+      gap: 0.7rem;
+      margin-top: 0.4rem;
     }
 
     @media (min-width: 720px) {
@@ -301,13 +334,17 @@
     }
 
     .loop-item {
-      border-radius: 14px;
+      border-radius: 15px;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      background: linear-gradient(145deg, rgba(10, 12, 28, 0.9), rgba(10, 16, 38, 0.9));
-      padding: 0.6rem 0.65rem 0.7rem;
+      background: linear-gradient(
+        145deg,
+        rgba(12, 0, 24, 0.96),
+        rgba(26, 0, 40, 0.96)
+      );
+      padding: 0.65rem 0.7rem 0.8rem;
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 0.3rem;
     }
 
     .loop-row-top {
@@ -320,18 +357,18 @@
     .loop-name {
       font-size: 0.8rem;
       font-weight: 500;
-      color: #f0f0ff;
+      color: #fff4ff;
       word-break: break-all;
     }
 
     .loop-meta {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: var(--muted);
       text-align: right;
     }
 
     .loop-meta span.price {
-      color: #9dffcc;
+      color: #abffd3;
       font-weight: 600;
     }
 
@@ -344,50 +381,48 @@
     }
 
     .buy-row {
-      margin-top: 0.2rem;
+      margin-top: 0.25rem;
       display: flex;
       justify-content: flex-end;
     }
 
     .buy-btn {
       font-size: 0.75rem;
-      padding: 0.3rem 0.65rem;
+      padding: 0.32rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(40, 60, 200, 0.5);
-      color: #f8f8ff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 45, 110, 0.6);
+      color: #fdf7ff;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      transition: background 0.2s ease, transform 0.1s ease;
+      gap: 0.35rem;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     }
 
     .buy-btn:hover {
-      background: rgba(70, 90, 240, 0.9);
+      background: rgba(255, 80, 140, 0.9);
       transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
     }
 
     .buy-btn span.icon {
       font-size: 0.85rem;
     }
 
-    /* Footer minimal */
-
     footer {
       margin-top: 3rem;
       font-size: 0.78rem;
       color: var(--muted);
       text-align: center;
-      opacity: 0.75;
+      opacity: 0.8;
     }
 
     footer a {
-      color: var(--accent);
+      color: var(--accent-soft);
       text-decoration: underline;
       text-decoration-thickness: 1px;
     }
-
   </style>
 </head>
 
@@ -418,37 +453,39 @@
           🎬 Cinéma, danse contemporaine, séries dramatiques
         </div>
         <div class="badge-pill">
-          🧪 Expérimenté en conditions réelles (spectacles & films)
+          🧪 Testé en spectacles & films
         </div>
         <div class="badge-pill">
-          💿 1€ la boucle – usage flexible
+          1€ la boucle – usage flexible
         </div>
       </div>
     </header>
 
-    <!-- NAV CATEGORIES (boutons bleus sous les badges) -->
+    <!-- NAV catégories – ordre demandé -->
     <nav class="category-nav" id="categoryNav">
       <a href="#horror_short" class="category-pill">Horror</a>
-      <a href="#cinema_short" class="category-pill">Cinéma</a>
       <a href="#horror_long" class="category-pill">Horror Long</a>
+      <a href="#cinema_short" class="category-pill">Cinéma</a>
       <a href="#cinematic_long" class="category-pill">Cinematic Long</a>
       <a href="#drama_long" class="category-pill">Drama</a>
       <a href="#greys_emotional" class="category-pill">Grey's Anatomy</a>
       <a href="#stranger_synth" class="category-pill">Stranger Synth</a>
     </nav>
 
-    <!-- ACCORDÉON DES CATÉGORIES -->
+    <!-- ACCORDEON -->
     <section class="accordion" id="loopsAccordion">
 
       {% for category in categories %}
       <article id="{{ category.id }}" class="accordion-item">
 
-        <!-- HEADER ACCORDÉON -->
-        <div class="accordion-header accordion-toggle" data-category-id="{{ category.id }}">
+        <!-- HEADER -->
+        <div class="accordion-header accordion-toggle">
           <div class="accordion-header-left">
             <div class="cat-icon">
-              {% if 'horror' in category.id %}
+              {% if 'horror_short' == category.id %}
                 👁️
+              {% elif 'horror_long' == category.id %}
+                🩸
               {% elif 'cinema' in category.id %}
                 🎬
               {% elif 'drama' in category.id %}
@@ -471,29 +508,24 @@
           </div>
           <div class="accordion-header-right">
             <div class="price-chip">
-              <span>💰</span>
               <span><strong>{{ category.price_eur }}€</strong> / boucle</span>
             </div>
             <div class="accordion-chevron">&#9654;</div>
           </div>
         </div>
 
-        <!-- PANEL ACCORDÉON -->
+        <!-- PANEL -->
         <div class="accordion-panel">
           <div class="panel-inner">
-
             <div class="loop-list">
 
               {% for file in category.files %}
               <div class="loop-item">
-
                 <div class="loop-row-top">
-                  <div class="loop-name">
-                    {{ file }}
-                  </div>
+                  <div class="loop-name">{{ file }}</div>
                   <div class="loop-meta">
-                    <span class="price">{{ category.price_eur }}€</span> / WAV<br />
-                    <span>Preview MP3 128k</span>
+                    <span class="price">{{ category.price_eur }}€</span> / WAV<br/>
+                    Preview MP3 128k
                   </div>
                 </div>
 
@@ -505,18 +537,15 @@
                 </div>
 
                 <div class="buy-row">
-                  <!-- Ici tu pourras brancher Stripe / lien vers page d'achat -->
                   <button class="buy-btn" type="button">
-                    <span class="icon">🛒</span>
+                    <span class="icon">＋</span>
                     <span>Acheter cette boucle – {{ category.price_eur }}€</span>
                   </button>
                 </div>
-
               </div>
               {% endfor %}
 
             </div>
-
           </div>
         </div>
 
@@ -525,10 +554,9 @@
 
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <p>
-        Cinema Loops – Boucles composées et produites par Vincent Bastille.<br />
+        Cinema Loops – Boucles composées et produites par Vincent Bastille.<br/>
         Pour des packs personnalisés, commandes spécifiques ou musique originale de film :
         <a href="mailto:vincentbastille100@gmail.com">vincentbastille100@gmail.com</a>
       </p>
@@ -536,62 +564,45 @@
 
   </div>
 
-  <!-- SCRIPT ACCORDÉON + SURBRILLANCE BOUTONS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const accordionItems = document.querySelectorAll(".accordion-item");
+      const headerToggles = document.querySelectorAll(".accordion-toggle");
       const navPills = document.querySelectorAll(".category-pill");
 
-      // Ouvrir / fermer un item
+      function setActivePill(catId) {
+        navPills.forEach(p => {
+          const href = p.getAttribute("href") || "";
+          if (href === "#" + catId) {
+            p.classList.add("active");
+          } else {
+            p.classList.remove("active");
+          }
+        });
+      }
+
       function openItem(item) {
         accordionItems.forEach(it => {
-          const panel = it.querySelector(".accordion-panel");
           if (it === item) {
             it.classList.add("open");
-            if (panel) {
-              // auto-height
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            }
           } else {
             it.classList.remove("open");
-            if (panel) {
-              panel.style.maxHeight = 0;
-            }
           }
         });
+        const id = item.getAttribute("id");
+        if (id) setActivePill(id);
       }
 
-      // Surbrillance des pills
-      function activatePillById(catId) {
-        navPills.forEach(pill => {
-          const href = pill.getAttribute("href") || "";
-          if (href === "#" + catId) {
-            pill.classList.add("active");
-          } else {
-            pill.classList.remove("active");
-          }
-        });
-      }
-
-      // Handler sur header accordéon
-      document.querySelectorAll(".accordion-toggle").forEach(toggle => {
-        toggle.addEventListener("click", (e) => {
+      headerToggles.forEach(header => {
+        header.addEventListener("click", (e) => {
           const item = e.currentTarget.closest(".accordion-item");
-          const isOpen = item.classList.contains("open");
-          const catId = item.getAttribute("id");
+          if (!item) return;
+          const alreadyOpen = item.classList.contains("open");
 
-          if (isOpen) {
-            // refermer
+          if (alreadyOpen) {
             item.classList.remove("open");
-            const panel = item.querySelector(".accordion-panel");
-            if (panel) {
-              panel.style.maxHeight = 0;
-            }
-            // on garde la pill active telle quelle (option : désactiver)
           } else {
             openItem(item);
-            activatePillById(catId);
-            // scroll léger jusqu'au bloc (optionnel)
             const rect = item.getBoundingClientRect();
             const y = rect.top + window.scrollY - 80;
             window.scrollTo({ top: y, behavior: "smooth" });
@@ -599,44 +610,26 @@
         });
       });
 
-      // Handler sur nav pills (boutons bleus)
       navPills.forEach(pill => {
         pill.addEventListener("click", (e) => {
           e.preventDefault();
-          const href = pill.getAttribute("href");
-          if (!href || !href.startsWith("#")) return;
-          const targetId = href.substring(1);
-          const targetItem = document.getElementById(targetId);
-          if (targetItem) {
-            openItem(targetItem);
-            activatePillById(targetId);
-            const rect = targetItem.getBoundingClientRect();
-            const y = rect.top + window.scrollY - 80;
-            window.scrollTo({ top: y, behavior: "smooth" });
-          }
+          const href = pill.getAttribute("href") || "";
+          if (!href.startsWith("#")) return;
+          const id = href.substring(1);
+          const target = document.getElementById(id);
+          if (!target) return;
+          openItem(target);
+          const rect = target.getBoundingClientRect();
+          const y = rect.top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: "smooth" });
         });
       });
 
-      // Option : ouvrir la première catégorie par défaut
+      // Ouvrir Horror par défaut
       if (accordionItems.length > 0) {
-        const first = accordionItems[0];
-        openItem(first);
-        const firstId = first.getAttribute("id");
-        activatePillById(firstId);
+        openItem(accordionItems[0]);
       }
-
-      // Recalcule la hauteur max quand la fenêtre change (ou si fonts changent)
-      window.addEventListener("resize", () => {
-        const openItemEl = document.querySelector(".accordion-item.open");
-        if (openItemEl) {
-          const panel = openItemEl.querySelector(".accordion-panel");
-          if (panel) {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-        }
-      });
     });
   </script>
-
 </body>
 </html>
