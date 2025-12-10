@@ -2,7 +2,6 @@ import os
 import json
 import stripe
 import requests
-from email.message import EmailMessage  # plus vraiment utilisé, tu peux le supprimer si tu veux
 from flask import Flask, render_template, request, jsonify, abort, url_for
 
 app = Flask(__name__)
@@ -15,7 +14,7 @@ STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 # Price pour le FULL PACK (99€)
 FULL_PACK_PRICE_ID = os.getenv(
     "STRIPE_FULL_PACK_PRICE_ID",
-    "price_1ScljP0fgdZf5PoKwAQkfcuw"
+    "price_1ScljP0fgdZf5PoKwAQkfcuw"  # ton price à 99€
 )
 
 # ---------- MAILJET API CONFIG ----------
@@ -104,8 +103,23 @@ def about_page():
     lang = request.args.get("lang", "en")
     return render_template("about.html", lang=lang)
 
+
+# ---------------------------------------------------------
+# CHECKOUT FULL PACK (99€ – TOUT LE CATALOGUE)
+# ---------------------------------------------------------
+
 @app.route("/create-fullpack-checkout", methods=["POST"])
 def create_fullpack_checkout():
+    """
+    Crée une session Stripe pour le pack complet à 99€.
+    TOUS les loops connus dans ALL_LOOPS_BY_ID sont envoyés par mail après paiement.
+    """
+    all_ids = list(ALL_LOOPS_BY_ID.keys())
+    if not all_ids:
+        return jsonify({"error": "Aucun loop configuré."}), 400
+
+    loops_str = ",".join(all_ids)
+
     try:
         session = stripe.checkout.Session.create(
             mode="payment",
@@ -113,18 +127,19 @@ def create_fullpack_checkout():
             cancel_url=url_for("index", status="cancel", _external=True),
             line_items=[
                 {
+                    "price": FULL_PACK_PRICE_ID,
                     "quantity": 1,
-                    "price": "price_1ScljP0fgdZf5PoKwAQkfcuw"
                 }
             ],
             metadata={
-                "full_pack": "true",
-                "loops": "all"
+                "loops": loops_str,   # 👈 utilisé par le webhook pour envoyer tous les liens
+                "full_pack": "1",
             },
         )
         return jsonify({"url": session.url})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 # ---------------------------------------------------------
 # CHECKOUT DIRECT (bouton "Buy this loop")
@@ -158,7 +173,7 @@ def create_checkout_session():
                         "unit_amount": amount_cents,
                         "product_data": {
                             "name": "Spectra Film Loops",
-                            "description": f"{len(selected)} boucles cinéma & horreur",
+                            "description": f"{len(selected)} cinema & horror loops",
                         },
                     },
                 }
@@ -170,43 +185,6 @@ def create_checkout_session():
         return jsonify({"id": session.id, "url": session.url})
     except Exception as e:
         return jsonify(error=str(e)), 500
-
-
-# ---------------------------------------------------------
-# CHECKOUT FULL PACK (99€ – TOUT LE CATALOGUE)
-# ---------------------------------------------------------
-
-@app.route("/create-full-pack-session", methods=["POST"])
-def create_full_pack_session():
-    """
-    Crée une session Stripe pour le pack complet à 99€.
-    Tous les loops connus dans ALL_LOOPS_BY_ID sont envoyés par mail après paiement.
-    """
-    all_ids = list(ALL_LOOPS_BY_ID.keys())
-    if not all_ids:
-        return jsonify({"error": "Aucun loop configuré."}), 400
-
-    loops_str = ",".join(all_ids)
-
-    try:
-        session = stripe.checkout.Session.create(
-            mode="payment",
-            success_url=url_for("index", status="success", _external=True),
-            cancel_url=url_for("index", status="cancel", _external=True),
-            line_items=[
-                {
-                    "price": FULL_PACK_PRICE_ID,
-                    "quantity": 1,
-                }
-            ],
-            metadata={
-                "loops": loops_str,
-                "full_pack": "1",
-            },
-        )
-        return jsonify({"url": session.url})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
 
 
 # ---------------------------------------------------------
@@ -378,6 +356,7 @@ def create_checkout_session_cart():
             metadata={"loops": loops_str},
         )
 
+    # noqa: E305
         return jsonify({"url": session.url})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
