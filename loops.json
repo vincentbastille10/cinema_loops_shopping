@@ -1,486 +1,642 @@
-{
-  "categories": [
-    {
-      "id": "horror_short",
-      "title": "Horror Loops",
-      "description": "Boucle{
-  "categories": [
-    {
-      "id": "horror_short",
-      "title": "Horror Loops",
-      "description": "Boucles courtes pour musiques de films d'horreur, trailers et séquences tendues.",
-      "folder": "Horor%20Loop",
-      "price_eur": 1,
-      "files": [
-        "Horror_audio_1.wav",
-        "Horror_audio_2.wav",
-        "Horror_audio_3.wav",
-        "Horror_audio_4.wav",
-        "Horror_audio_5.wav",
-        "Horror_audio_6.wav",
-        "Horror_audio_7.wav",
-        "Horror_audio_8.wav",
-        "Horror_audio_9.wav",
-        "Horror_audio_10.wav",
-        "Horror_audio_11.wav",
-        "Horror_audio_12.wav",
-        "Horror_audio_13.wav",
-        "Horror_audio_14.wav",
-        "Horror_audio_15.wav",
-        "Horror_audio_16.wav",
-        "Horror_audio_17.wav",
-        "Horror_audio_18.wav",
-        "Horror_audio_19.wav",
-        "Horror_audio_20.wav",
-        "Horror_audio_21.wav",
-        "Horror_audio_22.wav",
-        "Horror_audio_23.wav",
-        "Horror_audio_24.wav",
-        "Horror_audio_25.wav",
-        "Horror_audio_26.wav",
-        "Horror_audio_27.wav",
-        "Horror_audio_28.wav",
-        "Horror_audio_29.wav",
-        "Horror_audio_30.wav"
-      ]
-    },
-    {
-      "id": "cinema_short",
-      "title": "Cinema Loops",
-      "description": "Boucles cinématiques pour scènes dramatiques, danse contemporaine et documentaires.",
-      "folder": "Cinema%20loop",
-      "price_eur": 1,
-      "files": [
-        "cinema_audio_1.wav",
-        "cinema_audio_2.wav",
-        "cinema_audio_3.wav",
-        "cinema_audio_4.wav",
-        "cinema_audio_5.wav",
-        "cinema_audio_6.wav",
-        "cinema_audio_7.wav",
-        "cinema_audio_8.wav",
-        "cinema_audio_9.wav",
-        "cinema_audio_10.wav",
-        "cinema_audio_11.wav",
-        "cinema_audio_12.wav",
-        "cinema_audio_13.wav",
-        "cinema_audio_14.wav",
-        "cinema_audio_15.wav",
-        "cinema_audio_16.wav",
-        "cinema_audio_17.wav",
-        "cinema_audio_18.wav",
-        "cinema_audio_19.wav",
-        "cinema_audio_20.wav",
-        "cinema_audio_21.wav",
-        "cinema_audio_22.wav",
-        "cinema_audio_23.wav",
-        "cinema_audio_24.wav",
-        "cinema_audio_25.wav",
-        "cinema_audio_26.wav",
-        "cinema_audio_27.wav",
-        "cinema_audio_28.wav",
-        "cinema_audio_29.wav",
-        "cinema_audio_30.wav"
-      ]
-    },
-    {
-      "id": "horror_long",
-      "title": "Long Horror Loops",
-      "description": "Versions longues pour installations, chorégraphies et séquences continues.",
-      "folder": "Horor%20Loop",
-      "price_eur": 2,
-      "files": [
-        "Horror_long_audio_1.wav",
-        "Horror_long_audio_2.wav",
-        "Horror_long_audio_3.wav",
-        "Horror_long_audio_4.wav",
-        "Horror_long_audio_5.wav",
-        "Horror_long_audio_6.wav",
-        "Horror_long_audio_7.wav",
-        "Horror_long_audio_8.wav",
-        "Horror_long_audio_9.wav",
-        "Horror_long_audio_10.wav",
-        "Horror_long_audio_11.wav",
-        "Horror_long_audio_12.wav",
-        "Horror_long_audio_13.wav",
-        "Horror_long_audio_14.wav",
-        "Horror_long_audio_15.wav",
-        "Horror_long_audio_16.wav",
-        "Horror_long_audio_17.wav",
-        "Horror_long_audio_18.wav",
-        "Horror_long_audio_19.wav",
-        "Horror_long_audio_20.wav",
-        "Horror_long_audio_21.wav",
-        "Horror_long_audio_22.wav",
-        "Horror_long_audio_23.wav",
-        "Horror_long_audio_24.wav",
-        "Horror_long_audio_25.wav",
-        "Horror_long_audio_26.wav",
-        "Horror_long_audio_27.wav",
-        "Horror_long_audio_28.wav",
-        "Horror_long_audio_29.wav",
-        "Horror_long_audio_30.wav",
-        "Horror_long_audio_31.wav",
-        "Horror_long_audio_32.wav",
-        "Horror_long_audio_33.wav",
-        "Horror_long_audio_34.wav",
-        "Horror_long_audio_35.wav",
-        "Horror_long_audio_36.wav",
-        "Horror_long_audio_37.wav",
-        "Horror_long_audio_38.wav",
-        "Horror_long_audio_39.wav",
-        "Horror_long_audio_40.wav",
-        "Horror_long_audio_41.wav"
-      ]
-    },
-    {
-      "id": "cinematic_long",
-      "title": "Cinematic Long Loops",
-      "description": "Boucles cinématiques longues, textures et nappes évolutives.",
-      "folder": "Horor%20Loop",
-      "price_eur": 2,
-      "files": [
-        "Cinematic_long_audio_01.wav",
-        "Cinematic_long_audio_02.wav",
-        "Cinematic_long_audio_03.wav",
-        "Cinematic_long_audio_04.wav",
-        "Cinematic_long_audio_05.wav",
-        "Cinematic_long_audio_06.wav",
-        "Cinematic_long_audio_07.wav",
-        "Cinematic_long_audio_08.wav",
-        "Cinematic_long_audio_09.wav",
-        "Cinematic_long_audio_10.wav"
-      ]
-    },
-    {
-      "id": "drama_long",
-      "title": "Drama Long Loops",
-      "description": "Boucles dramatiques pour tension lente, paysages émotionnels et narration.",
-      "folder": "Horor%20Loop",
-      "price_eur": 2,
-      "files": [
-        "Drama_long_audio_41.wav",
-        "Drama_long_audio_42.wav",
-        "Drama_long_audio_43.wav",
-        "Drama_long_audio_44.wav",
-        "Drama_long_audio_45.wav"
-      ]
-    },
-    {
-      "id": "greys_emotional",
-      "title": "Grey's Anatomy Emotional Loops",
-      "description": "Boucles émotionnelles inspirées des séries hospitalières dramatiques, parfaites pour scènes sensibles et génériques.",
-      "folder": "Greys%20Anatomy",
-      "price_eur": 2,
-      "files": [
-        "greys_anatomy_emotional_audio_1.wav",
-        "greys_anatomy_emotional_audio_2.wav",
-        "greys_anatomy_emotional_audio_3.wav",
-        "greys_anatomy_emotional_audio_4.wav",
-        "greys_anatomy_emotional_audio_5.wav",
-        "greys_anatomy_emotional_audio_6.wav",
-        "greys_anatomy_emotional_audio_7.wav",
-        "greys_anatomy_emotional_audio_8.wav",
-        "greys_anatomy_emotional_audio_9.wav",
-        "greys_anatomy_emotional_audio_10.wav",
-        "greys_anatomy_emotional_audio_11.wav",
-        "greys_anatomy_emotional_audio_12.wav",
-        "greys_anatomy_emotional_audio_13.wav",
-        "greys_anatomy_emotional_audio_14.wav",
-        "greys_anatomy_emotional_audio_15.wav",
-        "greys_anatomy_emotional_audio_16.wav",
-        "greys_anatomy_emotional_audio_17.wav",
-        "greys_anatomy_emotional_audio_18.wav",
-        "greys_anatomy_emotional_audio_19.wav",
-        "greys_anatomy_emotional_audio_20.wav",
-        "greys_anatomy_emotional_audio_21.wav",
-        "greys_anatomy_emotional_audio_22.wav",
-        "greys_anatomy_emotional_audio_23.wav",
-        "greys_anatomy_emotional_audio_24.wav",
-        "greys_anatomy_emotional_audio_25.wav",
-        "greys_anatomy_emotional_audio_26.wav",
-        "greys_anatomy_emotional_audio_27.wav",
-        "greys_anatomy_emotional_audio_28.wav",
-        "greys_anatomy_emotional_audio_29.wav",
-        "greys_anatomy_emotional_audio_30.wav"
-      ]
-    },
-    {
-      "id": "stranger_synth",
-      "title": "Stranger Synth Loops",
-      "description": "Boucles synthwave sombres et rétro, inspirées des séries de science-fiction et d’horreur 80s.",
-      "folder": "Stranger%20Things",
-      "price_eur": 2,
-      "files": [
-        "stranger_things_synth_dark_audio_1.wav",
-        "stranger_things_synth_dark_audio_2.wav",
-        "stranger_things_synth_dark_audio_3.wav",
-        "stranger_things_synth_dark_audio_4.wav",
-        "stranger_things_synth_dark_audio_5.wav",
-        "stranger_things_synth_dark_audio_6.wav",
-        "stranger_things_synth_dark_audio_7.wav",
-        "stranger_things_synth_dark_audio_8.wav",
-        "stranger_things_synth_dark_audio_9.wav",
-        "stranger_things_synth_dark_audio_10.wav",
-        "stranger_things_synth_dark_audio_11.wav",
-        "stranger_things_synth_dark_audio_12.wav",
-        "stranger_things_synth_dark_audio_13.wav",
-        "stranger_things_synth_dark_audio_14.wav",
-        "stranger_things_synth_dark_audio_15.wav",
-        "stranger_things_synth_dark_audio_16.wav",
-        "stranger_things_synth_dark_audio_17.wav",
-        "stranger_things_synth_dark_audio_18.wav",
-        "stranger_things_synth_dark_audio_19.wav",
-        "stranger_things_synth_dark_audio_20.wav",
-        "stranger_things_synth_dark_audio_21.wav",
-        "stranger_things_synth_dark_audio_22.wav",
-        "stranger_things_synth_dark_audio_23.wav",
-        "stranger_things_synth_dark_audio_24.wav",
-        "stranger_things_synth_dark_audio_25.wav",
-        "stranger_things_synth_dark_audio_26.wav",
-        "stranger_things_synth_dark_audio_27.wav",
-        "stranger_things_synth_dark_audio_28.wav",
-        "stranger_things_synth_dark_audio_29.wav",
-        "stranger_things_synth_dark_audio_30.wav"
-      ]
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Cinema & Horror Loops – Boucles WAV & MP3 pour films, danse, TikTok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description"
+        content="Boucles audio pour cinéma, danse, séries et TikTok. Packs Horror, Drama, Grey's Anatomy style, Stranger Synth – préécoute MP3 et achat des boucles WAV pour 1€." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Styles de base -->
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-soft: #0c1022;
+      --accent: #1e4fff;
+      --accent-soft: #2838ff;
+      --accent-strong: #0d2db9;
+      --text: #f8f8ff;
+      --muted: #a0a4c0;
+      --card-bg: #111428;
+      --border-subtle: rgba(255, 255, 255, 0.06);
     }
-  ]
-}
-s courtes pour musiques de films d'horreur, trailers et séquences tendues.",
-      "folder": "Horor%20Loop",
-      "price_eur": 1,
-      "files": [
-        "Horror_audio_1.wav",
-        "Horror_audio_2.wav",
-        "Horror_audio_3.wav",
-        "Horror_audio_4.wav",
-        "Horror_audio_5.wav",
-        "Horror_audio_6.wav",
-        "Horror_audio_7.wav",
-        "Horror_audio_8.wav",
-        "Horror_audio_9.wav",
-        "Horror_audio_10.wav",
-        "Horror_audio_11.wav",
-        "Horror_audio_12.wav",
-        "Horror_audio_13.wav",
-        "Horror_audio_14.wav",
-        "Horror_audio_15.wav",
-        "Horror_audio_16.wav",
-        "Horror_audio_17.wav",
-        "Horror_audio_18.wav",
-        "Horror_audio_19.wav",
-        "Horror_audio_20.wav",
-        "Horror_audio_21.wav",
-        "Horror_audio_22.wav",
-        "Horror_audio_23.wav",
-        "Horror_audio_24.wav",
-        "Horror_audio_25.wav",
-        "Horror_audio_26.wav",
-        "Horror_audio_27.wav",
-        "Horror_audio_28.wav",
-        "Horror_audio_29.wav",
-        "Horror_audio_30.wav"
-      ]
-    },
-    {
-      "id": "cinema_short",
-      "title": "Cinema Loops",
-      "description": "Boucles cinématiques pour scènes dramatiques, danse contemporaine et documentaires.",
-      "folder": "Cinema%20loop",
-      "price_eur": 1,
-      "files": [
-        "cinema_audio_1.wav",
-        "cinema_audio_2.wav",
-        "cinema_audio_3.wav",
-        "cinema_audio_4.wav",
-        "cinema_audio_5.wav",
-        "cinema_audio_6.wav",
-        "cinema_audio_7.wav",
-        "cinema_audio_8.wav",
-        "cinema_audio_9.wav",
-        "cinema_audio_10.wav",
-        "cinema_audio_11.wav",
-        "cinema_audio_12.wav",
-        "cinema_audio_13.wav",
-        "cinema_audio_14.wav",
-        "cinema_audio_15.wav",
-        "cinema_audio_16.wav",
-        "cinema_audio_17.wav",
-        "cinema_audio_18.wav",
-        "cinema_audio_19.wav",
-        "cinema_audio_20.wav",
-        "cinema_audio_21.wav",
-        "cinema_audio_22.wav",
-        "cinema_audio_23.wav",
-        "cinema_audio_24.wav",
-        "cinema_audio_25.wav",
-        "cinema_audio_26.wav",
-        "cinema_audio_27.wav",
-        "cinema_audio_28.wav",
-        "cinema_audio_29.wav",
-        "cinema_audio_30.wav"
-      ]
-    },
-    {
-      "id": "horror_long",
-      "title": "Long Horror Loops",
-      "description": "Versions longues pour installations, chorégraphies et séquences continues.",
-      "folder": "Horor%20Loop",
-      "price_eur": 2,
-      "files": [
-        "Horror_long_audio_1.wav",
-        "Horror_long_audio_2.wav",
-        "Horror_long_audio_3.wav",
-        "Horror_long_audio_4.wav",
-        "Horror_long_audio_5.wav",
-        "Horror_long_audio_6.wav",
-        "Horror_long_audio_7.wav",
-        "Horror_long_audio_8.wav",
-        "Horror_long_audio_9.wav",
-        "Horror_long_audio_10.wav",
-        "Horror_long_audio_11.wav",
-        "Horror_long_audio_12.wav",
-        "Horror_long_audio_13.wav",
-        "Horror_long_audio_14.wav",
-        "Horror_long_audio_15.wav",
-        "Horror_long_audio_16.wav",
-        "Horror_long_audio_17.wav",
-        "Horror_long_audio_18.wav",
-        "Horror_long_audio_19.wav",
-        "Horror_long_audio_20.wav",
-        "Horror_long_audio_21.wav",
-        "Horror_long_audio_22.wav",
-        "Horror_long_audio_23.wav",
-        "Horror_long_audio_24.wav",
-        "Horror_long_audio_25.wav",
-        "Horror_long_audio_26.wav",
-        "Horror_long_audio_27.wav",
-        "Horror_long_audio_28.wav",
-        "Horror_long_audio_29.wav",
-        "Horror_long_audio_30.wav",
-        "Horror_long_audio_31.wav",
-        "Horror_long_audio_32.wav",
-        "Horror_long_audio_33.wav",
-        "Horror_long_audio_34.wav",
-        "Horror_long_audio_35.wav",
-        "Horror_long_audio_36.wav",
-        "Horror_long_audio_37.wav",
-        "Horror_long_audio_38.wav",
-        "Horror_long_audio_39.wav",
-        "Horror_long_audio_40.wav",
-        "Horror_long_audio_41.wav"
-      ]
-    },
-    {
-      "id": "cinematic_long",
-      "title": "Cinematic Long Loops",
-      "description": "Boucles cinématiques longues, textures et nappes évolutives.",
-      "folder": "Horor%20Loop",
-      "price_eur": 2,
-      "files": [
-        "Cinematic_long_audio_01.wav",
-        "Cinematic_long_audio_02.wav",
-        "Cinematic_long_audio_03.wav",
-        "Cinematic_long_audio_04.wav",
-        "Cinematic_long_audio_05.wav",
-        "Cinematic_long_audio_06.wav",
-        "Cinematic_long_audio_07.wav",
-        "Cinematic_long_audio_08.wav",
-        "Cinematic_long_audio_09.wav",
-        "Cinematic_long_audio_10.wav"
-      ]
-    },
-    {
-      "id": "drama_long",
-      "title": "Drama Long Loops",
-      "description": "Boucles dramatiques pour tension lente, paysages émotionnels et narration.",
-      "folder": "Horor%20Loop",
-      "price_eur": 2,
-      "files": [
-        "Drama_long_audio_41.wav",
-        "Drama_long_audio_42.wav",
-        "Drama_long_audio_43.wav",
-        "Drama_long_audio_44.wav",
-        "Drama_long_audio_45.wav"
-      ]
-    },
-    {
-      "id": "greys_emotional",
-      "title": "Grey's Anatomy Emotional Loops",
-      "description": "Boucles émotionnelles inspirées des séries hospitalières dramatiques, parfaites pour scènes sensibles et génériques.",
-      "folder": "Greys%20Anatomy",
-      "price_eur": 2,
-      "files": [
-        "greys_anatomy_emotional_audio_1.wav",
-        "greys_anatomy_emotional_audio_2.wav",
-        "greys_anatomy_emotional_audio_3.wav",
-        "greys_anatomy_emotional_audio_4.wav",
-        "greys_anatomy_emotional_audio_5.wav",
-        "greys_anatomy_emotional_audio_6.wav",
-        "greys_anatomy_emotional_audio_7.wav",
-        "greys_anatomy_emotional_audio_8.wav",
-        "greys_anatomy_emotional_audio_9.wav",
-        "greys_anatomy_emotional_audio_10.wav",
-        "greys_anatomy_emotional_audio_11.wav",
-        "greys_anatomy_emotional_audio_12.wav",
-        "greys_anatomy_emotional_audio_13.wav",
-        "greys_anatomy_emotional_audio_14.wav",
-        "greys_anatomy_emotional_audio_15.wav",
-        "greys_anatomy_emotional_audio_16.wav",
-        "greys_anatomy_emotional_audio_17.wav",
-        "greys_anatomy_emotional_audio_18.wav",
-        "greys_anatomy_emotional_audio_19.wav",
-        "greys_anatomy_emotional_audio_20.wav",
-        "greys_anatomy_emotional_audio_21.wav",
-        "greys_anatomy_emotional_audio_22.wav",
-        "greys_anatomy_emotional_audio_23.wav",
-        "greys_anatomy_emotional_audio_24.wav",
-        "greys_anatomy_emotional_audio_25.wav",
-        "greys_anatomy_emotional_audio_26.wav",
-        "greys_anatomy_emotional_audio_27.wav",
-        "greys_anatomy_emotional_audio_28.wav",
-        "greys_anatomy_emotional_audio_29.wav",
-        "greys_anatomy_emotional_audio_30.wav"
-      ]
-    },
-    {
-      "id": "stranger_synth",
-      "title": "Stranger Synth Loops",
-      "description": "Boucles synthwave sombres et rétro, inspirées des séries de science-fiction et d’horreur 80s.",
-      "folder": "Stranger%20Things",
-      "price_eur": 2,
-      "files": [
-        "stranger_things_synth_dark_audio_1.wav",
-        "stranger_things_synth_dark_audio_2.wav",
-        "stranger_things_synth_dark_audio_3.wav",
-        "stranger_things_synth_dark_audio_4.wav",
-        "stranger_things_synth_dark_audio_5.wav",
-        "stranger_things_synth_dark_audio_6.wav",
-        "stranger_things_synth_dark_audio_7.wav",
-        "stranger_things_synth_dark_audio_8.wav",
-        "stranger_things_synth_dark_audio_9.wav",
-        "stranger_things_synth_dark_audio_10.wav",
-        "stranger_things_synth_dark_audio_11.wav",
-        "stranger_things_synth_dark_audio_12.wav",
-        "stranger_things_synth_dark_audio_13.wav",
-        "stranger_things_synth_dark_audio_14.wav",
-        "stranger_things_synth_dark_audio_15.wav",
-        "stranger_things_synth_dark_audio_16.wav",
-        "stranger_things_synth_dark_audio_17.wav",
-        "stranger_things_synth_dark_audio_18.wav",
-        "stranger_things_synth_dark_audio_19.wav",
-        "stranger_things_synth_dark_audio_20.wav",
-        "stranger_things_synth_dark_audio_21.wav",
-        "stranger_things_synth_dark_audio_22.wav",
-        "stranger_things_synth_dark_audio_23.wav",
-        "stranger_things_synth_dark_audio_24.wav",
-        "stranger_things_synth_dark_audio_25.wav",
-        "stranger_things_synth_dark_audio_26.wav",
-        "stranger_things_synth_dark_audio_27.wav",
-        "stranger_things_synth_dark_audio_28.wav",
-        "stranger_things_synth_dark_audio_29.wav",
-        "stranger_things_synth_dark_audio_30.wav"
-      ]
+
+    * {
+      box-sizing: border-box;
     }
-  ]
-}
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, #1a2140 0, #050814 50%, #02030a 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    header.page-header {
+      margin-bottom: 2rem;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: conic-gradient(from 160deg, #ff4b8b, #ffd54a, #4dd0ff, #9c6bff, #ff4b8b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 18px rgba(80, 140, 255, 0.5);
+    }
+
+    .logo-circle span {
+      font-weight: 800;
+      font-size: 1rem;
+      color: #050814;
+    }
+
+    .page-title-text h1 {
+      font-size: 1.9rem;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .page-title-text p {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 650px;
+    }
+
+    /* Badges du haut */
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 20, 45, 0.7);
+      color: var(--muted);
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .badge-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #37ff9f;
+      box-shadow: 0 0 6px rgba(55, 255, 159, 0.9);
+    }
+
+    /* NAV CATEGORIES (boutons bleus) */
+
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .category-pill {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+    }
+
+    .category-pill:hover {
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .category-pill.active {
+      background: var(--accent-strong);
+      box-shadow: 0 0 12px rgba(0, 80, 255, 0.8);
+    }
+
+    /* Accordeon global */
+
+    .accordion {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(145deg, rgba(15, 18, 40, 0.96), rgba(10, 12, 30, 0.98));
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      overflow: hidden;
+    }
+
+    .accordion-item + .accordion-item {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.2rem;
+      cursor: pointer;
+      background: radial-gradient(circle at top left, rgba(45, 80, 255, 0.18), transparent 55%);
+      transition: background 0.2s ease;
+    }
+
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cat-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(30, 79, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .cat-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .cat-title-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .cat-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .cat-tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+
+    .cat-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    .accordion-header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .price-chip {
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(55, 255, 159, 0.08);
+      border: 1px solid rgba(55, 255, 159, 0.5);
+      color: #9dffcc;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .price-chip strong {
+      font-size: 0.95rem;
+    }
+
+    .accordion-chevron {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .accordion-item.open .accordion-chevron {
+      transform: rotate(90deg);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .accordion-item.open .accordion-header {
+      background: radial-gradient(circle at top left, rgba(45, 111, 255, 0.4), rgba(5, 8, 20, 0.96));
+    }
+
+    .accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.22s ease-out;
+      background: radial-gradient(circle at bottom right, rgba(15, 25, 80, 0.5), rgba(5, 8, 20, 1));
+    }
+
+    .accordion-item.open .accordion-panel {
+      padding-bottom: 0.6rem; /* sera ajusté en JS via maxHeight, padding visuel en plus */
+    }
+
+    .panel-inner {
+      padding: 0 1.2rem 1rem;
+    }
+
+    .loop-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width: 720px) {
+      .loop-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .loop-item {
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(145deg, rgba(10, 12, 28, 0.9), rgba(10, 16, 38, 0.9));
+      padding: 0.6rem 0.65rem 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .loop-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .loop-name {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #f0f0ff;
+      word-break: break-all;
+    }
+
+    .loop-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .loop-meta span.price {
+      color: #9dffcc;
+      font-weight: 600;
+    }
+
+    .loop-audio {
+      margin-top: 0.25rem;
+    }
+
+    .loop-audio audio {
+      width: 100%;
+    }
+
+    .buy-row {
+      margin-top: 0.2rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .buy-btn {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(40, 60, 200, 0.5);
+      color: #f8f8ff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .buy-btn:hover {
+      background: rgba(70, 90, 240, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .buy-btn span.icon {
+      font-size: 0.85rem;
+    }
+
+    /* Footer minimal */
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      opacity: 0.75;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER / HERO -->
+    <header class="page-header">
+      <div class="logo-title">
+        <div class="logo-circle">
+          <span>CL</span>
+        </div>
+        <div class="page-title-text">
+          <h1>Cinema & Horror Loops – Boutique audio</h1>
+          <p>
+            Une sélection de boucles cinéma, horror, drama, synthwave et Grey's Anatomy style,
+            prêtes à coller dans tes montages, chorégraphies, courts-métrages ou TikTok.
+            Préécoute en MP3, achat de la boucle WAV en un clic (1€).
+          </p>
+        </div>
+      </div>
+
+      <div class="badges-row">
+        <div class="badge-pill">
+          <span class="dot"></span> WAV 48kHz | MP3 128kbps preview
+        </div>
+        <div class="badge-pill">
+          🎬 Cinéma, danse contemporaine, séries dramatiques
+        </div>
+        <div class="badge-pill">
+          🧪 Expérimenté en conditions réelles (spectacles & films)
+        </div>
+        <div class="badge-pill">
+          💿 1€ la boucle – usage flexible
+        </div>
+      </div>
+    </header>
+
+    <!-- NAV CATEGORIES (boutons bleus sous les badges) -->
+    <nav class="category-nav" id="categoryNav">
+      <a href="#horror_short" class="category-pill">Horror</a>
+      <a href="#cinema_short" class="category-pill">Cinéma</a>
+      <a href="#horror_long" class="category-pill">Horror Long</a>
+      <a href="#cinematic_long" class="category-pill">Cinematic Long</a>
+      <a href="#drama_long" class="category-pill">Drama</a>
+      <a href="#greys_emotional" class="category-pill">Grey's Anatomy</a>
+      <a href="#stranger_synth" class="category-pill">Stranger Synth</a>
+    </nav>
+
+    <!-- ACCORDÉON DES CATÉGORIES -->
+    <section class="accordion" id="loopsAccordion">
+
+      {% for category in categories %}
+      <article id="{{ category.id }}" class="accordion-item">
+
+        <!-- HEADER ACCORDÉON -->
+        <div class="accordion-header accordion-toggle" data-category-id="{{ category.id }}">
+          <div class="accordion-header-left">
+            <div class="cat-icon">
+              {% if 'horror' in category.id %}
+                👁️
+              {% elif 'cinema' in category.id %}
+                🎬
+              {% elif 'drama' in category.id %}
+                💔
+              {% elif 'greys' in category.id %}
+                🩺
+              {% elif 'stranger' in category.id %}
+                🕹️
+              {% else %}
+                🎧
+              {% endif %}
+            </div>
+            <div class="cat-meta">
+              <div class="cat-title-line">
+                <div class="cat-title">{{ category.title }}</div>
+                <div class="cat-tag">{{ category.files|length }} boucles</div>
+              </div>
+              <div class="cat-desc">{{ category.description }}</div>
+            </div>
+          </div>
+          <div class="accordion-header-right">
+            <div class="price-chip">
+              <span>💰</span>
+              <span><strong>{{ category.price_eur }}€</strong> / boucle</span>
+            </div>
+            <div class="accordion-chevron">&#9654;</div>
+          </div>
+        </div>
+
+        <!-- PANEL ACCORDÉON -->
+        <div class="accordion-panel">
+          <div class="panel-inner">
+
+            <div class="loop-list">
+
+              {% for file in category.files %}
+              <div class="loop-item">
+
+                <div class="loop-row-top">
+                  <div class="loop-name">
+                    {{ file }}
+                  </div>
+                  <div class="loop-meta">
+                    <span class="price">{{ category.price_eur }}€</span> / WAV<br />
+                    <span>Preview MP3 128k</span>
+                  </div>
+                </div>
+
+                <div class="loop-audio">
+                  <audio controls preload="none">
+                    <source src="/static/previews/{{ file | replace('.wav', '.mp3') }}" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'audio HTML5.
+                  </audio>
+                </div>
+
+                <div class="buy-row">
+                  <!-- Ici tu pourras brancher Stripe / lien vers page d'achat -->
+                  <button class="buy-btn" type="button">
+                    <span class="icon">🛒</span>
+                    <span>Acheter cette boucle – {{ category.price_eur }}€</span>
+                  </button>
+                </div>
+
+              </div>
+              {% endfor %}
+
+            </div>
+
+          </div>
+        </div>
+
+      </article>
+      {% endfor %}
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        Cinema Loops – Boucles composées et produites par Vincent Bastille.<br />
+        Pour des packs personnalisés, commandes spécifiques ou musique originale de film :
+        <a href="mailto:vincentbastille100@gmail.com">vincentbastille100@gmail.com</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPT ACCORDÉON + SURBRILLANCE BOUTONS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const accordionItems = document.querySelectorAll(".accordion-item");
+      const navPills = document.querySelectorAll(".category-pill");
+
+      // Ouvrir / fermer un item
+      function openItem(item) {
+        accordionItems.forEach(it => {
+          const panel = it.querySelector(".accordion-panel");
+          if (it === item) {
+            it.classList.add("open");
+            if (panel) {
+              // auto-height
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          } else {
+            it.classList.remove("open");
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
+          }
+        });
+      }
+
+      // Surbrillance des pills
+      function activatePillById(catId) {
+        navPills.forEach(pill => {
+          const href = pill.getAttribute("href") || "";
+          if (href === "#" + catId) {
+            pill.classList.add("active");
+          } else {
+            pill.classList.remove("active");
+          }
+        });
+      }
+
+      // Handler sur header accordéon
+      document.querySelectorAll(".accordion-toggle").forEach(toggle => {
+        toggle.addEventListener("click", (e) => {
+          const item = e.currentTarget.closest(".accordion-item");
+          const isOpen = item.classList.contains("open");
+          const catId = item.getAttribute("id");
+
+          if (isOpen) {
+            // refermer
+            item.classList.remove("open");
+            const panel = item.querySelector(".accordion-panel");
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
+            // on garde la pill active telle quelle (option : désactiver)
+          } else {
+            openItem(item);
+            activatePillById(catId);
+            // scroll léger jusqu'au bloc (optionnel)
+            const rect = item.getBoundingClientRect();
+            const y = rect.top + window.scrollY - 80;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        });
+      });
+
+      // Handler sur nav pills (boutons bleus)
+      navPills.forEach(pill => {
+        pill.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = pill.getAttribute("href");
+          if (!href || !href.startsWith("#")) return;
+          const targetId = href.substring(1);
+          const targetItem = document.getElementById(targetId);
+          if (targetItem) {
+            openItem(targetItem);
+            activatePillById(targetId);
+            const rect = targetItem.getBoundingClientRect();
+            const y = rect.top + window.scrollY - 80;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        });
+      });
+
+      // Option : ouvrir la première catégorie par défaut
+      if (accordionItems.length > 0) {
+        const first = accordionItems[0];
+        openItem(first);
+        const firstId = first.getAttribute("id");
+        activatePillById(firstId);
+      }
+
+      // Recalcule la hauteur max quand la fenêtre change (ou si fonts changent)
+      window.addEventListener("resize", () => {
+        const openItemEl = document.querySelector(".accordion-item.open");
+        if (openItemEl) {
+          const panel = openItemEl.querySelector(".accordion-panel");
+          if (panel) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
