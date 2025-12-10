@@ -104,6 +104,27 @@ def about_page():
     lang = request.args.get("lang", "en")
     return render_template("about.html", lang=lang)
 
+@app.route("/create-fullpack-checkout", methods=["POST"])
+def create_fullpack_checkout():
+    try:
+        session = stripe.checkout.Session.create(
+            mode="payment",
+            success_url=url_for("index", status="success", _external=True),
+            cancel_url=url_for("index", status="cancel", _external=True),
+            line_items=[
+                {
+                    "quantity": 1,
+                    "price": "price_1ScljP0fgdZf5PoKwAQkfcuw"
+                }
+            ],
+            metadata={
+                "full_pack": "true",
+                "loops": "all"
+            },
+        )
+        return jsonify({"url": session.url})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # ---------------------------------------------------------
 # CHECKOUT DIRECT (bouton "Buy this loop")
