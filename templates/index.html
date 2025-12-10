@@ -5,24 +5,25 @@
   <title>Spectra Media Sounds – Cinema & Dance Audio Loops Shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Google font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description"
+        content="Modern cinema & dance audio loops for films, choreography, trailers and TikTok – including horror, Grey's Anatomy style and Stranger Things synth moods. MP3 previews on this page, HD WAV files sent by email after purchase." />
+  <meta name="robots" content="index,follow" />
 
   <style>
     :root {
-      --bg: #050814;
-      --bg-soft: #0c1022;
-      --accent: #ff3366;
-      --accent-soft: #ff5a88;
-      --accent-strong: #ff9b4d;
-      --text: #f8f8ff;
-      --muted: #a0a4c0;
-      --card-bg: #111428;
-      --border-subtle: rgba(255, 255, 255, 0.06);
-      --pill-bg: rgba(255, 255, 255, 0.05);
-      --pill-border: rgba(255, 255, 255, 0.16);
+      --bg: #05030b;
+      --bg-soft: #120818;
+      --bg-hero: radial-gradient(circle at top left, #2b0f2f 0, #05030b 55%, #02010a 100%);
+      --accent: #ff3b82;
+      --accent-soft: #ff6b9e;
+      --accent-strong: #ff205f;
+      --accent-yellow: #ffc857;
+      --accent-green: #23d18b;
+      --text: #fdf7ff;
+      --muted: #b8a8c8;
+      --card-bg: #150716;
+      --card-bg-soft: rgba(16, 4, 25, 0.9);
+      --border-subtle: rgba(255, 255, 255, 0.08);
     }
 
     * {
@@ -36,9 +37,10 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Poppins", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      background: radial-gradient(circle at top, #261033 0, #050814 55%, #02030a 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+      background: var(--bg-hero);
       color: var(--text);
+      min-height: 100vh;
     }
 
     a {
@@ -46,240 +48,314 @@
       text-decoration: none;
     }
 
-    /* PAGE WRAPPER */
-
     .page {
-      max-width: 1180px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 2.2rem 1.5rem 3.5rem;
-      position: relative;
+      padding: 2.5rem 1.5rem 4rem;
     }
 
-    /* TOP CART BADGE */
+    /* TOP HEADER / BRAND */
 
-    .cart-badge {
-      position: fixed;
-      top: 1.2rem;
-      right: 1.5rem;
-      z-index: 50;
+    header.main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .cart-button {
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 20% 20%, #ffd86b 0, #ff9b4b 32%, transparent 60%),
+        radial-gradient(circle at 80% 80%, #ff4b8b 0, #b51872 40%, transparent 70%);
+      box-shadow:
+        0 0 25px rgba(255, 59, 130, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo span {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: #1b021b;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .brand-text h2 {
+      margin: 0.25rem 0 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+    }
+
+    .brand-text p {
+      margin: 0.35rem 0 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    /* CART PILL */
+
+    .cart-pill {
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem 0.4rem 0.75rem;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.7));
+      border: 1px solid rgba(255, 255, 255, 0.22);
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.55rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: radial-gradient(circle at top left, rgba(255,120,90,0.8), rgba(30,6,24,0.98));
-      box-shadow: 0 10px 28px rgba(0,0,0,0.7);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       cursor: pointer;
-      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
-    }
-
-    .cart-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.85);
-      background: radial-gradient(circle at top left, rgba(255,140,110,0.95), rgba(40,10,34,0.98));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      position: relative;
     }
 
     .cart-icon {
-      width: 18px;
-      height: 18px;
+      width: 24px;
+      height: 24px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.7);
+      background: linear-gradient(145deg, #ff6b9e, #ffb449);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #2a0215;
+    }
+
+    .cart-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .cart-label span.line1 {
+      font-weight: 600;
+    }
+
+    .cart-label span.line2 {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .cart-count-badge {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #ff205f;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.75rem;
-      background: rgba(0,0,0,0.18);
+      font-weight: 600;
+      box-shadow: 0 0 0 2px #05030b;
     }
 
-    .cart-count {
-      min-width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      background: #ffcf4d;
-      color: #1b1020;
-      font-size: 0.78rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* HEADER / BRANDING */
-
-    header.page-header {
-      margin-bottom: 2rem;
-    }
-
-    .brand-stack {
-      margin-bottom: 1.4rem;
-    }
-
-    .brand-main {
-      font-size: 1rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-    }
-
-    .brand-subtitle {
-      font-size: 2.3rem;
-      margin: 0.35rem 0 0;
-      letter-spacing: 0.03em;
-    }
-
-    .brand-tagline {
-      margin: 0.75rem 0 0;
-      color: var(--muted);
-      max-width: 780px;
-      font-size: 0.96rem;
-      line-height: 1.55;
-    }
-
-    .brand-tagline a {
-      color: #ffb764;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-    }
-
-    /* HERO DOUBLE CARD */
+    /* HERO CARD */
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 1.3rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.8rem;
     }
 
     @media (max-width: 900px) {
       .hero-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header.main-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cart-pill {
+        align-self: flex-end;
       }
     }
 
-    .hero-card,
-    .hero-pack-card {
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: radial-gradient(circle at top left, rgba(198,65,116,0.22), rgba(12,8,26,0.98));
-      box-shadow: 0 30px 80px rgba(0,0,0,0.75);
-      padding: 1.3rem 1.4rem 1.4rem;
+    .hero-main,
+    .hero-pack {
+      border-radius: 24px;
+      padding: 1.4rem 1.6rem;
+      background: radial-gradient(circle at top left, rgba(255, 92, 159, 0.12), rgba(8, 2, 18, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-pack-card {
-      background: radial-gradient(circle at top right, rgba(255,150,80,0.39), rgba(12,6,18,0.98));
+    .hero-pack {
+      background:
+        radial-gradient(circle at top right, rgba(255, 200, 87, 0.12), rgba(16, 3, 25, 0.98));
     }
 
-    .hero-title {
-      font-size: 1.15rem;
-      margin: 0 0 0.4rem;
+    .hero-main h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
     }
 
-    .hero-text {
+    .hero-main h4 {
+      margin: 0 0 0.9rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--accent-yellow);
+    }
+
+    .hero-main p {
+      margin: 0 0 0.75rem;
       font-size: 0.9rem;
-      margin: 0;
       color: var(--muted);
-      line-height: 1.55;
+      max-width: 620px;
     }
 
-    .hero-badges-row {
+    .hero-tags-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.8rem;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
     }
 
-    .pill {
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(7,8,20,0.85);
-      font-size: 0.78rem;
+    .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 5, 33, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       color: var(--muted);
     }
 
-    .pill .dot {
-      width: 7px;
-      height: 7px;
+    .hero-tag span.dot {
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
-      background: #38ff9a;
-      box-shadow: 0 0 8px rgba(56,255,154,0.9);
+      background: var(--accent-green);
+      box-shadow: 0 0 8px rgba(35, 209, 139, 0.9);
     }
 
-    .hero-pack-price {
-      margin-top: 1rem;
+    .hero-tag strong {
+      color: #fefefe;
+      font-weight: 600;
+    }
+
+    .hero-pack h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-pack p {
+      margin: 0.15rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-pack .price-line {
+      margin-top: 0.8rem;
       display: flex;
       align-items: baseline;
-      gap: 0.6rem;
-    }
-
-    .hero-pack-price-amount {
-      font-size: 1.4rem;
+      gap: 0.5rem;
+      font-size: 1.5rem;
       font-weight: 700;
+      color: #ffffff;
     }
 
-    .hero-pack-price-label {
-      font-size: 0.85rem;
+    .hero-pack .price-line span.label {
+      font-size: 0.9rem;
+      font-weight: 500;
       color: var(--muted);
-    }
-
-    .hero-pack-cta {
-      margin-top: 0.9rem;
     }
 
     .full-pack-btn {
-      padding: 0.7rem 1.5rem;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, #ff3366, #ff9c4f);
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
+      margin-top: 1.2rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.8);
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff6b9e, #ffc857);
+      color: #2a0215;
+      font-size: 0.95rem;
+      font-weight: 700;
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
     }
 
     .full-pack-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 22px 55px rgba(0,0,0,0.95);
+      filter: brightness(1.05);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
     }
 
-    .hero-pack-note {
-      font-size: 0.8rem;
+    .full-pack-btn span.icon {
+      font-size: 1rem;
+    }
+
+    .hero-pack-footer {
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
-      margin-top: 0.4rem;
     }
 
-    /* LOW HERO BADGES */
+    /* MAIN INFO STRIP */
 
-    .low-hero-badges {
+    .info-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
+      gap: 0.8rem;
       margin-bottom: 1.5rem;
     }
 
-    .low-pill {
-      padding: 0.25rem 0.8rem;
+    .info-pill {
+      padding: 0.3rem 0.8rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(7,8,20,0.95);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
+      background: rgba(12, 4, 26, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
       color: var(--muted);
+    }
+
+    .info-pill strong {
+      color: #fdfdfd;
+      font-weight: 600;
     }
 
     /* CATEGORY NAV */
@@ -287,46 +363,52 @@
     .category-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-bottom: 1.4rem;
+      gap: 0.75rem;
+      margin: 0 0 1.5rem;
     }
 
     .category-pill {
       display: inline-block;
-      padding: 0.4rem 0.95rem;
+      padding: 0.45rem 0.95rem;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #f8f8ff;
-      font-size: 0.88rem;
+      background: rgba(30, 10, 40, 0.9);
+      color: #ffffff;
+      font-size: 0.87rem;
       font-weight: 500;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.5);
-      transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      transition: transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
     }
 
     .category-pill:hover {
-      background: rgba(255,255,255,0.13);
       transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.65);
+      background: rgba(50, 15, 70, 0.98);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
     }
 
     .category-pill.active {
-      background: linear-gradient(135deg, #ff3366, #ff9c4f);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.8);
+      background: linear-gradient(135deg, #ff3b82, #ff9b4b);
+      color: #1b021b;
+      border-color: transparent;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 16px 36px rgba(0, 0, 0, 0.9);
     }
 
-    /* ACCORDION */
+    /* ACCORDION CATEGORIES */
 
     .accordion {
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(145deg, rgba(10,8,28,0.96), rgba(4,5,18,0.98));
-      box-shadow: 0 30px 90px rgba(0,0,0,0.85);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: radial-gradient(circle at top left, rgba(110, 22, 85, 0.28), rgba(8, 1, 18, 0.98));
+      box-shadow:
+        0 32px 90px rgba(0, 0, 0, 0.95),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
       overflow: hidden;
     }
 
     .accordion-item + .accordion-item {
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .accordion-header {
@@ -335,35 +417,35 @@
       justify-content: space-between;
       padding: 0.9rem 1.4rem;
       cursor: pointer;
-      background: radial-gradient(circle at top left, rgba(255,80,120,0.18), transparent 60%);
-      transition: background 0.2s ease;
+      background: linear-gradient(90deg, rgba(50, 6, 25, 0.8), rgba(10, 2, 18, 0.96));
+      transition: background 0.18s ease;
     }
 
     .accordion-item.open .accordion-header {
-      background: radial-gradient(circle at top left, rgba(255,80,140,0.35), rgba(6,5,18,1));
+      background: linear-gradient(90deg, rgba(120, 20, 80, 0.96), rgba(20, 4, 44, 0.98));
     }
 
     .accordion-header-left {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.9rem;
     }
 
     .cat-icon {
       width: 38px;
       height: 38px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      background: radial-gradient(circle at 30% 20%, #ff6b9e 0, #3c041b 60%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .cat-meta {
       display: flex;
       flex-direction: column;
-      gap: 0.18rem;
+      gap: 0.15rem;
     }
 
     .cat-title-line {
@@ -379,44 +461,47 @@
 
     .cat-tag {
       font-size: 0.74rem;
-      padding: 0.1rem 0.55rem;
+      padding: 0.1rem 0.5rem;
       border-radius: 999px;
-      background: rgba(0,0,0,0.4);
-      color: #f3e1ff;
-      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--muted);
     }
 
     .cat-desc {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      max-width: 460px;
+      max-width: 430px;
     }
 
     .accordion-header-right {
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: var(--muted);
     }
 
     .price-chip {
-      padding: 0.23rem 0.8rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 999px;
-      background: rgba(31, 209, 120, 0.12);
-      border: 1px solid rgba(31, 209, 120, 0.8);
-      color: #b4ffd7;
+      background: rgba(35, 209, 139, 0.08);
+      border: 1px solid rgba(35, 209, 139, 0.6);
+      color: #93ffd1;
       font-size: 0.8rem;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
+    }
+
+    .price-chip strong {
+      font-size: 0.95rem;
     }
 
     .accordion-chevron {
       width: 20px;
       height: 20px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.45);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -426,45 +511,49 @@
 
     .accordion-item.open .accordion-chevron {
       transform: rotate(90deg);
-      background: rgba(255,255,255,0.16);
+      background: rgba(255, 255, 255, 0.12);
     }
 
     .accordion-panel {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.22s ease-out;
-      background: radial-gradient(circle at bottom right, rgba(130,50,160,0.4), rgba(4,5,18,1));
+      background: radial-gradient(circle at bottom right, rgba(18, 4, 44, 0.9), #05030b);
+    }
+
+    .accordion-item.open .accordion-panel {
+      padding-bottom: 0.6rem;
     }
 
     .panel-inner {
-      padding: 0 1.4rem 1.4rem;
+      padding: 0 1.4rem 1.2rem;
     }
 
     .loop-list {
-      margin-top: 0.6rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.6rem;
     }
 
-    @media (max-width: 880px) {
+    @media (min-width: 860px) {
       .loop-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       }
     }
 
-    .loop-item-card {
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(145deg, rgba(8,7,22,0.98), rgba(36,18,42,0.96));
-      padding: 0.7rem 0.8rem 0.8rem;
+    .loop-item {
+      border-radius: 18px;
+      padding: 0.8rem 0.9rem 0.9rem;
+      background: linear-gradient(135deg, rgba(22, 4, 45, 0.96), rgba(8, 3, 18, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.85);
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.75);
+      gap: 0.32rem;
     }
 
-    .loop-top-row {
+    .loop-row-top {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -472,19 +561,20 @@
     }
 
     .loop-name {
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       font-weight: 500;
+      color: #ffffff;
+      word-break: break-word;
     }
 
     .loop-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-size: 0.76rem;
       text-align: right;
+      color: var(--muted);
     }
 
     .loop-meta span.price {
-      display: block;
-      color: #b4ffd7;
+      color: #93ffd1;
       font-weight: 600;
     }
 
@@ -496,176 +586,184 @@
       width: 100%;
     }
 
-    .loop-actions {
-      margin-top: 0.35rem;
+    .buy-row {
+      margin-top: 0.2rem;
       display: flex;
       justify-content: flex-end;
     }
 
-    .buy-loop-btn {
-      padding: 0.32rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: radial-gradient(circle at top left, rgba(255,51,102,0.85), rgba(130,32,82,0.9));
-      color: #fff;
+    .buy-btn {
       font-size: 0.8rem;
-      font-weight: 500;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: radial-gradient(circle at top left, rgba(255, 59, 130, 0.9), rgba(110, 20, 80, 0.96));
+      color: #ffffff;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.85);
-      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.85);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
     }
 
-    .buy-loop-btn:hover {
+    .buy-btn span.icon {
+      font-size: 0.9rem;
+    }
+
+    .buy-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.9);
-      background: radial-gradient(circle at top left, rgba(255,80,130,0.95), rgba(150,40,90,0.95));
+      filter: brightness(1.05);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+    }
+
+    /* TOAST / NOTIFICATIONS */
+
+    .toast {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      max-width: 260px;
+      padding: 0.7rem 1rem;
+      border-radius: 14px;
+      background: rgba(8, 2, 20, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text);
+      font-size: 0.82rem;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.9);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.16s ease, transform 0.16s ease;
+      z-index: 40;
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .toast span.highlight {
+      color: var(--accent-soft);
+      font-weight: 600;
     }
 
     /* FOOTER */
 
     footer {
-      margin-top: 2.7rem;
-      font-size: 0.78rem;
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
       color: var(--muted);
       text-align: center;
-      opacity: 0.8;
     }
 
     footer a {
-      color: #ffb764;
+      color: var(--accent-soft);
       text-decoration: underline;
       text-decoration-thickness: 1px;
     }
 
-    /* TOAST */
-
-    .toast {
-      position: fixed;
-      bottom: 1.4rem;
-      right: 1.4rem;
-      padding: 0.6rem 0.9rem;
-      border-radius: 12px;
-      background: rgba(8, 14, 32, 0.96);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: #f8f8ff;
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.9);
-      z-index: 80;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.15s ease, transform 0.15s ease;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .toast span.icon {
-      font-size: 1rem;
-    }
   </style>
 </head>
 
 <body>
-  <div class="cart-badge">
-    <button class="cart-button" type="button" id="cartButton">
-      <div class="cart-icon">🛒</div>
-      <div>
-        <div style="font-size:0.8rem;">Cart</div>
-        <div style="font-size:0.75rem;" id="cartLabel">0 loops selected</div>
-      </div>
-      <div class="cart-count" id="cartCount">0</div>
-    </button>
-  </div>
-
   <div class="page">
-    <!-- HEADER / HERO -->
-    <header class="page-header">
-      <div class="brand-stack">
-        <div class="brand-main">Spectra Media Sounds</div>
-        <h1 class="brand-subtitle">Cinema &amp; Dance Audio Loops Shop</h1>
-        <p class="brand-tagline">
-          Modern, cinematic and horror loops for films, dance, trailers and TikTok –
-          including Grey's Anatomy style and Stranger Things style moods.
-          MP3 previews on this page; HD WAV files are sent to you by email after purchase.
-          Royalty-free usage for your projects (see
-          <a href="{{ url_for('about_page') }}">About</a>).
-        </p>
-      </div>
 
-      <div class="hero-grid">
-        <!-- LEFT HERO CARD -->
-        <div class="hero-card">
-          <h2 class="hero-title">Curated packs for filmmakers, choreographers &amp; content creators.</h2>
-          <p class="hero-text">
-            Preview everything in MP3, then get the full-quality WAV files in your inbox.
-            All tracks are designed for cinema, series, contemporary dance pieces, trailers
-            and dramatic sequences.
-          </p>
-          <div class="hero-badges-row">
-            <div class="pill">
-              <span class="dot"></span> 48kHz WAV delivery by email
-            </div>
-            <div class="pill">
-              🎬 Cinema, contemporary dance, dramatic series
-            </div>
-            <div class="pill">
-              🎧 MP3 previews – one loop at a time
-            </div>
-            <div class="pill">
-              ✅ Royalty-free for your projects
-            </div>
-          </div>
+    <!-- MAIN HEADER -->
+    <header class="main-header">
+      <div class="brand-block">
+        <div class="brand-logo">
+          <span>SM</span>
         </div>
-
-        <!-- RIGHT FULL PACK CARD -->
-        <aside class="hero-pack-card">
-          <h2 class="hero-title">Get the complete Cinema, Dance &amp; Horror collection</h2>
-          <p class="hero-text">
-            All Horror, Cinema, Drama, Grey's Anatomy style and Stranger Things style loops
-            combined in one bundle. Perfect if you want the full palette for your next film,
-            choreography or TikTok series.
+        <div class="brand-text">
+          <h1>Spectra Media Sounds</h1>
+          <h2>Cinema &amp; Dance Audio Loops Shop</h2>
+          <p>
+            Modern cinema and horror loops for films, contemporary dance, trailers and TikTok –
+            including Grey's Anatomy style and Stranger Things synth moods. MP3 previews here,
+            HD WAV files sent by email after purchase.
           </p>
-          <div class="hero-pack-price">
-            <div class="hero-pack-price-amount">99€</div>
-            <div class="hero-pack-price-label">Full pack – lifetime usage</div>
-          </div>
-          <div class="hero-pack-cta">
-            <button class="full-pack-btn" type="button" id="fullPackBtn">
-              <span>Buy the full pack – 99€</span>
-            </button>
-          </div>
-          <div class="hero-pack-note">
-            You receive a download email with all HD WAV files after payment.
-          </div>
-        </aside>
+        </div>
       </div>
+
+      <a href="{{ url_for('cart_page') }}" class="cart-pill" id="cartPill">
+        <div class="cart-icon">🛒</div>
+        <div class="cart-label">
+          <span class="line1">Cart</span>
+          <span class="line2"><span id="cartCountText">0 loops selected</span></span>
+        </div>
+        <div class="cart-count-badge" id="cartCountBadge">0</div>
+      </a>
     </header>
 
-    <!-- LOWER HERO BADGES -->
-    <div class="low-hero-badges">
-      <div class="low-pill">
-        48kHz WAV delivery | MP3 128kbps previews
+    <!-- HERO GRID -->
+    <section class="hero-grid">
+
+      <div class="hero-main">
+        <h3>Curated packs for filmmakers &amp; choreographers</h3>
+        <h4>Preview everything in MP3 – receive HD WAV in your inbox.</h4>
+
+        <p>
+          Explore horror, cinema, drama, Grey's Anatomy style and Stranger Things synth atmospheres,
+          crafted for films, stage pieces and social content. You can buy single loops or grab the full collection.
+        </p>
+
+        <div class="hero-tags-row">
+          <div class="hero-tag">
+            <span class="dot"></span>
+            <span><strong>48kHz WAV delivery</strong> by email</span>
+          </div>
+          <div class="hero-tag">
+            🎬 <span>Designed for cinema, dance, trailers &amp; series</span>
+          </div>
+          <div class="hero-tag">
+            🎧 <span>MP3 previews – one loop at a time</span>
+          </div>
+          <div class="hero-tag">
+            ✅ <span><strong>Royalty-free</strong> usage (see <a href="{{ url_for('about_page') }}">About</a>)</span>
+          </div>
+        </div>
       </div>
-      <div class="low-pill">
-        Cinema, dance, contemporary drama, eerie moods
+
+      <div class="hero-pack">
+        <h3>Get the complete Cinema, Dance &amp; Horror collection</h3>
+        <p>
+          All Horror, Cinema, Drama, Grey's Anatomy style and Stranger Things synth loops combined in one bundle.
+          Perfect if you want the full palette for your next film, choreography or TikTok series.
+        </p>
+
+        <div class="price-line">
+          <span>99€</span>
+          <span class="label">Full pack – lifetime usage</span>
+        </div>
+
+        <button class="full-pack-btn" id="fullPackBtn" type="button">
+          <span class="icon">⬇️</span>
+          <span>Buy the full pack – 99€</span>
+        </button>
+
+        <div class="hero-pack-footer">
+          You will receive a download email with all HD WAV files after payment.
+        </div>
       </div>
-      <div class="low-pill">
-        1€ per loop – simple, transparent pricing
+
+    </section>
+
+    <!-- INFO STRIP -->
+    <div class="info-strip">
+      <div class="info-pill">
+        🎧 <strong>1€ per loop</strong> – simple, transparent pricing
       </div>
-      <div class="low-pill">
-        Royalty-free usage for your projects
+      <div class="info-pill">
+        ✅ Royalty-free for your projects (see <a href="{{ url_for('about_page') }}">About</a>)
+      </div>
+      <div class="info-pill">
+        🎬 Cinema, contemporary dance, dramatic series &amp; TikTok
       </div>
     </div>
 
-    <!-- CATEGORY NAV -->
+    <!-- CATEGORY NAV (buttons) -->
     <nav class="category-nav" id="categoryNav">
       <a href="#horror_short" class="category-pill">Horror</a>
       <a href="#horror_long" class="category-pill">Horror – Long</a>
@@ -676,20 +774,25 @@
       <a href="#stranger_synth" class="category-pill">Stranger Things Synth</a>
     </nav>
 
-    <!-- ACCORDION CATEGORIES -->
+    <!-- ACCORDION -->
     <section class="accordion" id="loopsAccordion">
+
       {% for category in categories %}
       <article id="{{ category.id }}" class="accordion-item">
+
+        <!-- HEADER -->
         <div class="accordion-header accordion-toggle" data-category-id="{{ category.id }}">
           <div class="accordion-header-left">
             <div class="cat-icon">
-              {% if 'horror' in category.id %}
+              {% if 'horror_long' in category.id %}
+                🔥
+              {% elif 'horror' in category.id %}
                 👁️
               {% elif 'cinema' in category.id %}
                 🎬
               {% elif 'drama' in category.id %}
                 💔
-              {% elif 'grey' in category.id or 'greys' in category.id %}
+              {% elif 'greys' in category.id %}
                 🩺
               {% elif 'stranger' in category.id %}
                 🕹️
@@ -700,145 +803,174 @@
             <div class="cat-meta">
               <div class="cat-title-line">
                 <div class="cat-title">{{ category.title }}</div>
-                <div class="cat-tag">{{ category.loops|length }} loops</div>
+                <div class="cat-tag">
+                  {{ category.loops|length }} loops
+                </div>
               </div>
               <div class="cat-desc">{{ category.description }}</div>
             </div>
           </div>
+
           <div class="accordion-header-right">
             <div class="price-chip">
-              1€ / loop
+              <span><strong>1€</strong></span>
+              <span>/ loop – WAV</span>
             </div>
             <div class="accordion-chevron">&#9654;</div>
           </div>
         </div>
 
+        <!-- PANEL -->
         <div class="accordion-panel">
           <div class="panel-inner">
             <div class="loop-list">
+
               {% for track in category.loops %}
-              <div class="loop-item-card">
-                <div class="loop-top-row">
+              <div class="loop-item">
+
+                <div class="loop-row-top">
                   <div class="loop-name">
                     {{ track.name }}
                   </div>
                   <div class="loop-meta">
-                    <span class="price">{{ track.price_eur }}€</span>
-                    MP3 preview · 128kb
+                    <span class="price">1€</span> / WAV<br />
+                    <span>MP3 preview • 128k</span>
                   </div>
                 </div>
+
                 <div class="loop-audio">
                   <audio controls preload="none" data-loop-id="{{ track.id }}">
                     <source src="{{ track.preview }}" type="audio/mpeg" />
                     Your browser does not support HTML5 audio.
                   </audio>
                 </div>
-                <div class="loop-actions">
-                  <button class="buy-loop-btn"
+
+                <div class="buy-row">
+                  <button class="buy-btn add-to-cart-btn"
                           type="button"
                           data-loop-id="{{ track.id }}">
-                    <span>Buy this loop – {{ track.price_eur }}€</span>
+                    <span class="icon">＋</span>
+                    <span>Buy this loop – 1€</span>
                   </button>
                 </div>
+
               </div>
               {% endfor %}
+
             </div>
           </div>
         </div>
+
       </article>
       {% endfor %}
+
     </section>
 
     <!-- FOOTER -->
     <footer>
-      Cinema &amp; Dance Audio Loops – composed and produced by Vincent Bastille (Spectra Media Sounds).<br />
-      For custom packs or original film score, contact
-      <a href="mailto:vincentbastille100@gmail.com">vincentbastille100@gmail.com</a>.
+      <p>
+        Spectra Media Sounds – cinema &amp; dance audio loops composed and produced by Vincent Bastille.<br />
+        After each purchase, you receive <strong>HD WAV download links by email</strong>.
+      </p>
+      <p>
+        Discover the extended universe of Spectra Media:
+        <a href="https://group1-6y79.onrender.com/" target="_blank" rel="noopener">Spectra Media AI – projects &amp; tools</a>
+      </p>
     </footer>
+
   </div>
 
   <!-- TOAST -->
-  <div class="toast" id="toast">
-    <span class="icon">✔️</span>
-    <span id="toastMessage">Loop added to cart.</span>
+  <div id="toast" class="toast">
+    <span id="toastMessage">Added to cart</span>
   </div>
 
   <script>
-    // ---------------------------
-    // CART & LOCALSTORAGE
-    // ---------------------------
-    const CART_KEY = "cinemaLoopsCart";
+    document.addEventListener("DOMContentLoaded", () => {
+      const accordionItems = document.querySelectorAll(".accordion-item");
+      const navPills = document.querySelectorAll(".category-pill");
+      const toastEl = document.getElementById("toast");
+      const toastMsgEl = document.getElementById("toastMessage");
+      const cartBadge = document.getElementById("cartCountBadge");
+      const cartText = document.getElementById("cartCountText");
+      const fullPackBtn = document.getElementById("fullPackBtn");
 
-    function loadCartIds() {
-      try {
-        const raw = localStorage.getItem(CART_KEY);
-        if (!raw) return [];
-        const parsed = JSON.parse(raw);
-        return Array.isArray(parsed) ? parsed : [];
-      } catch (e) {
-        return [];
-      }
-    }
-
-    function saveCartIds(ids) {
-      localStorage.setItem(CART_KEY, JSON.stringify(ids));
-    }
-
-    function updateCartBadge() {
-      const ids = loadCartIds();
-      const count = ids.length;
-      const countEl = document.getElementById("cartCount");
-      const labelEl = document.getElementById("cartLabel");
-      if (countEl) countEl.textContent = count;
-      if (labelEl) {
-        labelEl.textContent = count === 1 ? "1 loop selected" : count + " loops selected";
-      }
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      const msg = document.getElementById("toastMessage");
-      if (!toast || !msg) return;
-      msg.textContent = message;
-      toast.classList.add("show");
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 1800);
-    }
-
-    // ---------------------------
-    // AUDIO – ONE AT A TIME
-    // ---------------------------
-    function setupAudioPlayers() {
-      const audios = Array.from(document.querySelectorAll("audio"));
-      audios.forEach(a => {
+      // --- AUDIO : only one preview at a time ---
+      const audioEls = Array.from(document.querySelectorAll("audio"));
+      audioEls.forEach(a => {
         a.addEventListener("play", () => {
-          audios.forEach(other => {
-            if (other !== a && !other.paused) {
+          audioEls.forEach(other => {
+            if (other !== a) {
               other.pause();
             }
           });
         });
       });
-    }
 
-    // ---------------------------
-    // ACCORDION & CATEGORY NAV
-    // ---------------------------
-    function setupAccordion() {
-      const items = document.querySelectorAll(".accordion-item");
-      const navPills = document.querySelectorAll(".category-pill");
+      // --- CART STORAGE HELPERS ---
+      const CART_KEY = "spectra_loops_cart";
 
+      function loadCart() {
+        try {
+          const raw = localStorage.getItem(CART_KEY);
+          if (!raw) return [];
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) return parsed;
+          return [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveCart(ids) {
+        localStorage.setItem(CART_KEY, JSON.stringify(ids));
+      }
+
+      function updateCartUI() {
+        const ids = loadCart();
+        const count = ids.length;
+        cartBadge.textContent = count;
+        cartText.textContent = count === 1 ? "1 loop selected" : count + " loops selected";
+      }
+
+      function addToCart(loopId) {
+        const ids = loadCart();
+        if (!ids.includes(loopId)) {
+          ids.push(loopId);
+          saveCart(ids);
+          updateCartUI();
+          showToast("Loop added to cart – <span class=\"highlight\">" + ids.length + "</span> selected");
+        } else {
+          showToast("This loop is already in your cart.");
+        }
+      }
+
+      // --- TOAST ---
+      let toastTimeout = null;
+
+      function showToast(messageHtml) {
+        toastMsgEl.innerHTML = messageHtml;
+        toastEl.classList.add("show");
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toastEl.classList.remove("show");
+        }, 2600);
+      }
+
+      // --- ACCORDION ---
       function openItem(item) {
-        items.forEach(it => {
+        accordionItems.forEach(it => {
           const panel = it.querySelector(".accordion-panel");
-          if (!panel) return;
           if (it === item) {
             it.classList.add("open");
-            panel.style.maxHeight = panel.scrollHeight + "px";
+            if (panel) {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
           } else {
             it.classList.remove("open");
-            panel.style.maxHeight = 0;
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
           }
         });
       }
@@ -857,19 +989,20 @@
       document.querySelectorAll(".accordion-toggle").forEach(toggle => {
         toggle.addEventListener("click", (e) => {
           const item = e.currentTarget.closest(".accordion-item");
-          if (!item) return;
-          const panel = item.querySelector(".accordion-panel");
-          if (!panel) return;
+          const isOpen = item.classList.contains("open");
+          const catId = item.getAttribute("id");
 
-          if (item.classList.contains("open")) {
+          if (isOpen) {
             item.classList.remove("open");
-            panel.style.maxHeight = 0;
+            const panel = item.querySelector(".accordion-panel");
+            if (panel) {
+              panel.style.maxHeight = 0;
+            }
           } else {
             openItem(item);
-            const id = item.getAttribute("id");
-            if (id) activatePillById(id);
+            activatePillById(catId);
             const rect = item.getBoundingClientRect();
-            const y = rect.top + window.scrollY - 80;
+            const y = rect.top + window.scrollY - 90;
             window.scrollTo({ top: y, behavior: "smooth" });
           }
         });
@@ -878,84 +1011,79 @@
       navPills.forEach(pill => {
         pill.addEventListener("click", (e) => {
           e.preventDefault();
-          const href = pill.getAttribute("href") || "";
-          if (!href.startsWith("#")) return;
-          const id = href.substring(1);
-          const target = document.getElementById(id);
-          if (!target) return;
-          openItem(target);
-          activatePillById(id);
-          const rect = target.getBoundingClientRect();
-          const y = rect.top + window.scrollY - 80;
-          window.scrollTo({ top: y, behavior: "smooth" });
+          const href = pill.getAttribute("href");
+          if (!href || !href.startsWith("#")) return;
+          const targetId = href.substring(1);
+          const targetItem = document.getElementById(targetId);
+          if (targetItem) {
+            openItem(targetItem);
+            activatePillById(targetId);
+            const rect = targetItem.getBoundingClientRect();
+            const y = rect.top + window.scrollY - 90;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
         });
       });
 
       // Open first category by default
-      if (items.length > 0) {
-        const first = items[0];
+      if (accordionItems.length > 0) {
+        const first = accordionItems[0];
         openItem(first);
         const firstId = first.getAttribute("id");
-        if (firstId) activatePillById(firstId);
+        activatePillById(firstId);
       }
 
-      // Recompute height on resize
       window.addEventListener("resize", () => {
         const openItemEl = document.querySelector(".accordion-item.open");
-        if (!openItemEl) return;
-        const panel = openItemEl.querySelector(".accordion-panel");
-        if (!panel) return;
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      });
-    }
-
-    // ---------------------------
-    // LOOP BUTTONS & CART LOGIC
-    // ---------------------------
-    function setupLoopButtons() {
-      const buttons = document.querySelectorAll(".buy-loop-btn");
-      buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-          const id = btn.getAttribute("data-loop-id");
-          if (!id) return;
-          const ids = loadCartIds();
-          if (!ids.includes(id)) {
-            ids.push(id);
-            saveCartIds(ids);
-            updateCartBadge();
-            showToast("Loop added to cart.");
-          } else {
-            showToast("This loop is already in your cart.");
+        if (openItemEl) {
+          const panel = openItemEl.querySelector(".accordion-panel");
+          if (panel) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
           }
+        }
+      });
+
+      // --- ADD TO CART BUTTONS ---
+      document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const loopId = btn.getAttribute("data-loop-id");
+          if (!loopId) return;
+          addToCart(loopId);
         });
       });
-    }
 
-    function setupCartButton() {
-      const btn = document.getElementById("cartButton");
-      if (!btn) return;
-      btn.addEventListener("click", () => {
-        window.location.href = "{{ url_for('cart_page') }}";
-      });
-    }
+      // --- FULL PACK BUTTON ---
+      if (fullPackBtn) {
+        fullPackBtn.addEventListener("click", async () => {
+          try {
+            fullPackBtn.disabled = true;
+            fullPackBtn.style.opacity = "0.7";
 
-    function setupFullPackButton() {
-      const btn = document.getElementById("fullPackBtn");
-      if (!btn) return;
-      btn.addEventListener("click", () => {
-        // Pour l'instant : redirige simplement vers la page "Contact / About" ou mail.
-        window.location.href = "mailto:vincentbastille100@gmail.com?subject=Buy%20full%20Cinema%20%26%20Dance%20Loops%20pack%20(99€)";
-      });
-    }
+            const res = await fetch("/create-full-pack-session", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({}),
+            });
 
-    document.addEventListener("DOMContentLoaded", () => {
-      setupAudioPlayers();
-      setupAccordion();
-      setupLoopButtons();
-      setupCartButton();
-      setupFullPackButton();
-      updateCartBadge();
+            const data = await res.json();
+            if (data && data.url) {
+              window.location.href = data.url;
+            } else {
+              showToast("Unable to start checkout. Please try again.");
+            }
+          } catch (err) {
+            showToast("Stripe error – please try again.");
+          } finally {
+            fullPackBtn.disabled = false;
+            fullPackBtn.style.opacity = "1";
+          }
+        });
+      }
+
+      // Init cart UI on load
+      updateCartUI();
     });
   </script>
+
 </body>
 </html>
