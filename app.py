@@ -2,7 +2,7 @@ import os
 import json
 import stripe
 import requests
-from email.message import EmailMessage  # plus vraiment utilisé, mais tu peux le supprimer si tu veux
+from email.message import EmailMessage  # plus vraiment utilisé, tu peux le supprimer si tu veux
 from flask import Flask, render_template, request, jsonify, abort, url_for
 
 app = Flask(__name__)
@@ -11,6 +11,12 @@ app = Flask(__name__)
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
+
+# Price pour le FULL PACK (99€)
+FULL_PACK_PRICE_ID = os.getenv(
+    "STRIPE_FULL_PACK_PRICE_ID",
+    "price_1ScljP0fgdZf5PoKwAQkfcuw"
+)
 
 # ---------- MAILJET API CONFIG ----------
 MJ_API_KEY = os.getenv("MJ_API_KEY")
@@ -83,7 +89,7 @@ CATEGORIES, ALL_LOOPS_BY_ID = load_loops()
 @app.route("/")
 def index():
     status = request.args.get("status")
-    lang = request.args.get("lang", "fr")
+    lang = request.args.get("lang", "en")
     return render_template(
         "index.html",
         categories=CATEGORIES,
@@ -95,12 +101,12 @@ def index():
 
 @app.route("/about")
 def about_page():
-    lang = request.args.get("lang", "fr")
+    lang = request.args.get("lang", "en")
     return render_template("about.html", lang=lang)
 
 
 # ---------------------------------------------------------
-# CHECKOUT DIRECT (bouton "payer les loops sélectionnées")
+# CHECKOUT DIRECT (bouton "Buy this loop")
 # ---------------------------------------------------------
 
 @app.route("/create-checkout-session", methods=["POST"])
@@ -146,6 +152,43 @@ def create_checkout_session():
 
 
 # ---------------------------------------------------------
+# CHECKOUT FULL PACK (99€ – TOUT LE CATALOGUE)
+# ---------------------------------------------------------
+
+@app.route("/create-full-pack-session", methods=["POST"])
+def create_full_pack_session():
+    """
+    Crée une session Stripe pour le pack complet à 99€.
+    Tous les loops connus dans ALL_LOOPS_BY_ID sont envoyés par mail après paiement.
+    """
+    all_ids = list(ALL_LOOPS_BY_ID.keys())
+    if not all_ids:
+        return jsonify({"error": "Aucun loop configuré."}), 400
+
+    loops_str = ",".join(all_ids)
+
+    try:
+        session = stripe.checkout.Session.create(
+            mode="payment",
+            success_url=url_for("index", status="success", _external=True),
+            cancel_url=url_for("index", status="cancel", _external=True),
+            line_items=[
+                {
+                    "price": FULL_PACK_PRICE_ID,
+                    "quantity": 1,
+                }
+            ],
+            metadata={
+                "loops": loops_str,
+                "full_pack": "1",
+            },
+        )
+        return jsonify({"url": session.url})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+# ---------------------------------------------------------
 # ENVOI DES EMAILS AVEC MAILJET API
 # ---------------------------------------------------------
 
@@ -164,16 +207,16 @@ def send_loops_email(to_email: str, loop_ids: list):
 
     # Corps du mail (texte)
     lines = [
-        "Merci pour votre achat de boucles Spectra Media 🎬",
+        "Thank you for your purchase of Spectra Media loops 🎬",
         "",
-        "Voici vos liens de téléchargement (WAV haute qualité) :",
+        "Here are your download links (HD WAV):",
         "",
     ]
     for loop in selected:
         lines.append(f"- {loop['file']} : {loop['url']}")
     lines.append("")
-    lines.append("Bonne création musicale,")
-    lines.append("Spectra Media")
+    lines.append("Happy creating,")
+    lines.append("Spectra Media Sounds")
 
     text_body = "\n".join(lines)
 
@@ -189,7 +232,7 @@ def send_loops_email(to_email: str, loop_ids: list):
                         "Email": to_email,
                     }
                 ],
-                "Subject": "Vos boucles Spectra Film Loops",
+                "Subject": "Your Spectra Media loops (download links)",
                 "TextPart": text_body,
             }
         ]
@@ -202,7 +245,6 @@ def send_loops_email(to_email: str, loop_ids: list):
             json=payload,
             timeout=10,
         )
-        # Tu peux logger le résultat si tu veux débug :
         # print("Mailjet status:", resp.status_code, resp.text)
     except Exception:
         # On ne plante pas le webhook Stripe si l’email a un souci
@@ -246,7 +288,7 @@ def stripe_webhook():
 
 @app.route("/cart")
 def cart_page():
-    lang = request.args.get("lang", "fr")
+    lang = request.args.get("lang", "en")
     return render_template("cart.html", lang=lang, stripe_public_key=STRIPE_PUBLIC_KEY)
 
 
@@ -306,8 +348,8 @@ def create_checkout_session_cart():
                         "currency": "eur",
                         "unit_amount": amount_cents,
                         "product_data": {
-                            "name": "Spectra Film Loops (Panier)",
-                            "description": f"{len(items)} boucles achetées",
+                            "name": "Spectra Film Loops (Cart)",
+                            "description": f"{len(items)} loops purchased",
                         },
                     },
                 }
