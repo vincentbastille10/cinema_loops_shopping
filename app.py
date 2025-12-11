@@ -141,6 +141,13 @@ def create_fullpack_checkout():
         return jsonify({"error": str(e)}), 500
 
 
+#  ALIAS pour compatibilité avec l'ancien JS
+@app.route("/create-full-pack-session", methods=["POST"])
+def create_full_pack_session():
+    # On réutilise la logique existante sans dupliquer le code
+    return create_fullpack_checkout()
+
+
 # ---------------------------------------------------------
 # CHECKOUT DIRECT (bouton "Buy this loop")
 # ---------------------------------------------------------
@@ -355,8 +362,6 @@ def create_checkout_session_cart():
             ],
             metadata={"loops": loops_str},
         )
-
-    # noqa: E305
         return jsonify({"url": session.url})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
