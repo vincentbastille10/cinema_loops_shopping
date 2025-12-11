@@ -278,11 +278,22 @@ def stripe_webhook():
     if event["type"] == "checkout.session.completed":
         session = event["data"]["object"]
         customer_email = session.get("customer_details", {}).get("email")
-        metadata_loops = session.get("metadata", {}).get("loops", "")
+        metadata = session.get("metadata", {}) or {}
 
-        if customer_email and metadata_loops:
-            loop_ids = [s for s in metadata_loops.split(",") if s]
+        loop_ids = []
+
+        # 🔹 Cas FULL PACK
+        if metadata.get("full_pack") == "1":
+            loop_ids = list(ALL_LOOPS_BY_ID.keys())
+        else:
+            # 🔹 Cas achat à l'unité / panier
+            metadata_loops = metadata.get("loops", "")
+            if metadata_loops:
+                loop_ids = [s for s in metadata_loops.split(",") if s]
+
+        if customer_email and loop_ids:
             send_loops_email(customer_email, loop_ids)
+
 
     return "", 200
 
