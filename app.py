@@ -118,8 +118,6 @@ def create_fullpack_checkout():
     if not all_ids:
         return jsonify({"error": "Aucun loop configuré."}), 400
 
-    loops_str = ",".join(all_ids)
-
     try:
         session = stripe.checkout.Session.create(
             mode="payment",
@@ -131,14 +129,15 @@ def create_fullpack_checkout():
                     "quantity": 1,
                 }
             ],
+            # 🔹 On n'envoie plus la liste complète des loops à Stripe
             metadata={
-                "loops": loops_str,   # 👈 utilisé par le webhook pour envoyer tous les liens
                 "full_pack": "1",
             },
         )
         return jsonify({"url": session.url})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 
 #  ALIAS pour compatibilité avec l'ancien JS
