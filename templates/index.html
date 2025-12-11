@@ -1084,25 +1084,6 @@
       updateCartUI();
     });
   </script>
-<script>
-document.getElementById("buy-fullpack-btn").addEventListener("click", async () => {
-    try {
-        const res = await fetch("/create-fullpack-checkout", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" }
-        });
-
-        const data = await res.json();
-        if (data.url) {
-            window.location.href = data.url;
-        } else {
-            alert("Error starting checkout: " + (data.error || "Unknown error"));
-        }
-    } catch (err) {
-        alert("Unable to start checkout. Please try again.");
-    }
-});
-</script>
 
 </body>
 </html>
